@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rénovation d'appartement clé en main en Suisse romande — cuisine, salle de bain, sols, peinture. Entreprise générale, devis gratuit sous 48h.">
+  <title>Rénovation Appartement — Renova Swiss</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:#CC0000;--red-h:#AA0000;--black:#1A1A1A;--white:#FFFFFF;
+      --g50:#F8F8F8;--g100:#F0F0F0;--g200:#E8E8E8;--g400:#AAAAAA;--g600:#666666;--g800:#333333;
+      --sh-sm:0 2px 12px rgba(0,0,0,.06);--sh-md:0 8px 32px rgba(0,0,0,.10);--sh-lg:0 24px 64px rgba(0,0,0,.14);
+      --tr:.3s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--black);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.6}
+    a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    input,select,textarea{font-family:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;transition:all var(--tr);white-space:nowrap;border:2px solid transparent}
+    .btn-primary{background:var(--red);color:#fff;border-color:var(--red)}
+    .btn-primary:hover{background:var(--red-h);border-color:var(--red-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,0,0,.28)}
+    .btn-ghost-w{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+    .btn-ghost-w:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.7)}
+    .btn-white{background:#fff;color:var(--red);border-color:#fff}
+    .btn-white:hover{background:rgba(255,255,255,.9);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+    .btn-outline-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+    .btn-outline-w:hover{background:rgba(255,255,255,.1);border-color:#fff}
+    .btn-lg{padding:17px 34px;font-size:15px}
+
+    /* SECTION COMMON */
+    .stag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+    .stitle{font-size:clamp(28px,4vw,44px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;color:var(--black);margin-bottom:14px}
+    .ssub{font-size:17px;color:var(--g600);line-height:1.65;max-width:580px}
+    .shdr{margin-bottom:60px}
+
+    /* HEADER */
+    #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--g200);transition:box-shadow .4s}
+    #hdr.scrolled{box-shadow:0 2px 16px rgba(0,0,0,.08)}
+    .hdr-inner{display:flex;align-items:center;height:72px;gap:32px}
+    .logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+    .logo-mark{width:34px;height:34px;background:var(--red);border-radius:7px;display:flex;align-items:center;justify-content:center}
+    .logo-mark svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+    .logo-txt{font-size:16px;font-weight:800;letter-spacing:-.5px}
+    .logo-txt .lb{color:var(--black)}.logo-txt .ls{color:var(--red)}
+    .nav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+    .nav a{font-size:14px;font-weight:500;color:var(--g600);padding:7px 13px;border-radius:6px;transition:all var(--tr)}
+    .nav a:hover{color:var(--black);background:var(--g100)}
+    .hdr-actions{display:flex;align-items:center;gap:14px;flex-shrink:0}
+    .hdr-phone{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--g800);transition:color var(--tr)}
+    .hdr-phone:hover{color:var(--red)}
+    .hdr-phone svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+    .hdr-cta{background:var(--red);color:#fff;padding:9px 18px;border-radius:7px;font-size:13px;font-weight:600;transition:all var(--tr)}
+    .hdr-cta:hover{background:var(--red-h);transform:translateY(-1px);box-shadow:0 4px 14px rgba(204,0,0,.28)}
+    .hmb{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:6px;transition:background var(--tr)}
+    .hmb span{display:block;width:21px;height:2px;background:var(--black);border-radius:2px;transition:all var(--tr)}
+    #mmenu{position:fixed;top:72px;left:0;right:0;background:#fff;z-index:999;padding:20px;display:none;flex-direction:column;gap:4px;box-shadow:var(--sh-lg);border-top:1px solid var(--g200)}
+    #mmenu.open{display:flex}
+    #mmenu a{padding:13px 14px;font-size:15px;font-weight:500;border-radius:8px}
+    #mmenu a:hover{background:var(--g50);color:var(--red)}
+    #mmenu .btn{margin-top:8px;justify-content:center}
+
+    /* HERO */
+    #hero{position:relative;height:100vh;min-height:780px;overflow:hidden;display:flex;align-items:flex-end}
+    .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.2) 100%)}
+    .hero-banner{position:absolute;top:72px;left:0;right:0;z-index:20;background:rgba(180,0,0,.92);backdrop-filter:blur(10px);text-align:center;padding:9px 20px;font-size:12.5px;font-weight:500;color:#fff}
+    .hero-banner strong{font-weight:700}
+    .hb-dot{display:inline-block;width:6px;height:6px;background:#ffaaaa;border-radius:50%;margin-right:8px;animation:blink 1.8s infinite;vertical-align:middle}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+    .hero-content{position:relative;z-index:2;width:100%;padding-top:clamp(130px,18vh,200px);padding-bottom:clamp(60px,9vh,120px)}
+    .hero-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.88);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
+    .hero-pill::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0}
+    .hero-h1{font-size:clamp(38px,6.5vw,76px);font-weight:900;letter-spacing:-3px;line-height:1.0;color:#fff;margin-bottom:18px;max-width:780px}
+    .hero-h1 em{font-style:normal;color:#ffaaaa}
+    .hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.65;max-width:520px;margin-bottom:24px}
+    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px}
+    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+    .hero-reas{display:flex;gap:24px;flex-wrap:wrap}
+    .hero-reas span{font-size:13px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:6px}
+    .hero-reas span::before{content:'';width:4px;height:4px;background:var(--red);border-radius:50%}
+
+    /* SERVICES ACCORDION SLIDER (identical to homepage) */
+    #services{background:var(--g50);padding:0;overflow:hidden}
+    .svp-head{max-width:1200px;margin:0 auto;padding:70px 40px 50px;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem}
+    .svp-head-txt{flex:1}
+    .svp-controls{display:flex;gap:.5rem;flex-shrink:0}
+    .svp-nav-btn{width:2.5rem;height:2.5rem;border:none;border-radius:50%;background:rgba(0,0,0,.08);color:var(--black);font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,color .3s;line-height:1}
+    .svp-nav-btn:hover{background:var(--red);color:#fff}
+    .svp-nav-btn:disabled{opacity:.25;cursor:default}
+    .svp-slider{max-width:1400px;margin:0 auto;overflow:hidden}
+    .svp-track{display:flex;gap:1.25rem;align-items:flex-start;padding:0 40px 40px;justify-content:center;flex-wrap:nowrap}
+    .svp-card{position:relative;flex:0 0 5rem;height:28rem;border-radius:1rem;overflow:hidden;cursor:pointer;transition:flex-basis .55s cubic-bezier(.25,.46,.45,.94),transform .55s cubic-bezier(.25,.46,.45,.94)}
+    .svp-card[active]{flex-basis:clamp(18rem,35vw,28rem);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .svp-card__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(70%);transition:filter .35s,transform .55s cubic-bezier(.25,.46,.45,.94)}
+    .svp-card:hover .svp-card__bg{filter:brightness(.8) saturate(100%);transform:scale(1.05)}
+    .svp-card__content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.7rem;padding:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.88) 100%)}
+    .svp-card__title{color:#fff;font-weight:700;font-size:1.05rem;writing-mode:vertical-rl;transform:rotate(180deg);text-shadow:0 1px 6px rgba(0,0,0,.6);white-space:nowrap;text-transform:uppercase;letter-spacing:.06em}
+    .svp-card__tag,.svp-card__thumb,.svp-card__desc,.svp-card__btn{display:none!important}
+    .svp-card[active] .svp-card__content{flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:2rem 2.2rem;gap:0;background:linear-gradient(transparent 20%,rgba(0,0,0,.82) 100%)}
+    .svp-card[active] .svp-card__title{writing-mode:horizontal-tb;transform:none;font-size:clamp(1.4rem,2vw,2rem);margin-bottom:.5rem;letter-spacing:.02em;white-space:normal;line-height:1.1}
+    .svp-card[active] .svp-card__tag{display:inline-block!important;margin-bottom:.6rem}
+    .svp-card[active] .svp-card__desc{display:block!important;margin-bottom:1rem}
+    .svp-card[active] .svp-card__btn{display:inline-block!important}
+    .svp-card[active] .svp-card__content>div{display:flex;flex-direction:column;gap:0}
+    .svp-card__tag{font-size:9px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.25);padding:3px 9px;border-radius:2px;width:fit-content}
+    .svp-card__desc{color:rgba(255,255,255,.78);font-size:.88rem;line-height:1.55;max-width:14rem}
+    .svp-card__btn{padding:.5rem 1.3rem;border:none;border-radius:9999px;background:var(--red);color:#fff;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .3s;width:fit-content}
+    .svp-card__btn:hover{background:var(--red-h)}
+    .svp-dots{display:flex;gap:.45rem;justify-content:center;padding:16px 0 60px}
+    .svp-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.18);cursor:pointer;transition:.3s;border:none}
+    .svp-dot.active{background:var(--red);transform:scale(1.25)}
+    @media(max-width:767px){
+      .svp-head{padding:40px 20px 24px;flex-direction:column;align-items:flex-start;gap:1rem}
+      .svp-track{flex-direction:column;align-items:stretch;gap:.6rem;padding:0 16px 20px}
+      .svp-card{flex:none;width:100%;height:auto;min-height:68px;border-radius:.75rem}
+      .svp-card[active]{min-height:300px;flex-basis:auto;transform:none;box-shadow:0 8px 28px rgba(0,0,0,.4)}
+      .svp-card__content{flex-direction:row;justify-content:flex-start;padding:1rem 1.2rem;align-items:center}
+      .svp-card__title{writing-mode:horizontal-tb;transform:none;font-size:.95rem}
+      .svp-card[active] .svp-card__content{flex-direction:column;align-items:flex-start;padding:1.4rem}
+      .svp-card[active] .svp-card__title{font-size:1.65rem}
+      .svp-card[active] .svp-card__desc{max-width:100%}
+      .svp-card[active] .svp-card__btn{width:100%;text-align:center;padding:.65rem}
+      .svp-dots{display:none}
+    }
+
+    /* RÉALISATIONS */
+    #realisations{padding:110px 0;background:#fff}
+    .proj-slider-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;gap:1rem}
+    .proj-slider-head .shdr{margin-bottom:0}
+    .proj-arrows{display:flex;gap:8px;flex-shrink:0;padding-bottom:4px}
+    .proj-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--g200);background:#fff;display:flex;align-items:center;justify-content:center;color:var(--g600);cursor:pointer;transition:all var(--tr)}
+    .proj-arrow:hover{border-color:var(--black);color:var(--black)}
+    .proj-arrow:disabled{opacity:.3;cursor:default}
+    .proj-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .proj-slider{overflow:hidden}
+    .proj-grid{display:flex;gap:20px;transition:transform .55s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+    .proj-card{flex:0 0 calc((100% - 40px)/3);background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);transition:box-shadow var(--tr),transform var(--tr)}
+    .proj-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
+    .proj-vis{height:260px;position:relative;overflow:hidden}
+    .proj-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .proj-card:hover .proj-vis img{transform:scale(1.05)}
+    .proj-vis::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)}
+    .proj-badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
+    .proj-info{padding:22px}
+    .proj-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+    .proj-title{font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px}
+    .proj-meta{display:flex;gap:14px;flex-wrap:wrap}
+    .proj-m{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--g600)}
+    .proj-m svg{width:13px;height:13px;stroke:var(--g400);fill:none;stroke-width:1.75}
+    .proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .proj-tag{font-size:11px;font-weight:600;color:var(--g600);background:var(--g100);padding:3px 9px;border-radius:4px}
+    .proj-cta-wrap{text-align:center;margin-top:48px}
+    @media(max-width:900px){.proj-card{flex:0 0 calc((100% - 20px)/2)}}
+    @media(max-width:600px){.proj-card{flex:0 0 85%}.proj-slider-head{flex-direction:column;align-items:flex-start}}
+
+    /* STACK CARDS PROCESS */
+    #processus{background:#0d0d0d;overflow:hidden}
+    .processus-intro{padding:110px 0 80px;text-align:center}
+    .processus-intro .stag{color:rgba(255,130,130,.9)}
+    .processus-intro .stitle{color:#fff}
+    .processus-intro .ssub{color:rgba(255,255,255,.45);margin:0 auto}
+    .stack-outer{position:relative}
+    .stack-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .stack-cards-wrap{position:relative;width:100%;max-width:900px;height:560px;margin:0 auto}
+    .scard{position:absolute;inset:0;border-radius:20px;overflow:hidden;will-change:transform;transform-origin:top center}
+    .scard-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+    .scard-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.1) 100%)}
+    .scard-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px}
+    .scard-num{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .scard-num::before{content:'';display:block;width:32px;height:1px;background:var(--red)}
+    .scard-step{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1.5px;color:#fff;margin-bottom:12px;line-height:1.1}
+    .scard-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.65;max-width:480px;margin-bottom:28px}
+    .scard-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;transition:all var(--tr);border:none;cursor:pointer;text-decoration:none}
+    .scard-cta:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,0,0,.35)}
+    .scard-cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .stack-progress{position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:10}
+    .stack-dot{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.2);cursor:pointer;transition:all .4s}
+    .stack-dot.active{height:22px;background:#fff}
+    .stack-spacer{height:400vh}
+    @media(max-width:768px){
+      .scard-content{padding:28px}
+      .stack-progress{right:16px}
+      .stack-spacer{height:500vh}
+    }
+
+    /* BUDGET & FISCALITÉ */
+    #budget{padding:110px 0;background:var(--black);position:relative;overflow:hidden}
+    #budget::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px}
+    .budget-inner{position:relative;z-index:1}
+    .budget-quote{border-left:3px solid var(--red);padding:20px 28px;background:rgba(204,0,0,.07);border-radius:0 8px 8px 0;margin-bottom:60px}
+    .budget-quote p{font-size:20px;font-weight:600;color:rgba(255,255,255,.85);line-height:1.55;font-style:italic}
+    .budget-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:52px}
+    .budget-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:32px}
+    .budget-col-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+    .budget-col-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .budget-col-dot.blue{background:#4285F4}.budget-col-dot.green{background:#34A853}
+    .budget-col h3{font-size:16px;font-weight:700;color:#fff}
+    .budget-col-sub{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px;line-height:1.6}
+    .budget-checks{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+    .budget-check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+    .budget-check::before{content:'✔';color:#4ade80;font-size:12px;flex-shrink:0;margin-top:2px}
+    .budget-col-note{font-size:12px;color:rgba(255,255,255,.3);font-style:italic}
+    .budget-cta-wrap{text-align:center}
+    @media(max-width:900px){.budget-cols{grid-template-columns:1fr}}
+
+    /* STATS */
+    #chiffres{padding:80px 0;background:#fff;border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
+    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .stat-item{padding:48px 40px;border-right:1px solid var(--g200);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .stat-item:last-child{border-right:none}
+    .stat-num{font-size:72px;font-weight:900;letter-spacing:-3px;color:var(--black);line-height:1;margin-bottom:14px}
+    .stat-pre{color:var(--red);font-size:48px}
+    .stat-suf{color:var(--red);font-size:36px;font-weight:700;letter-spacing:-1px}
+    .stat-lbl{font-size:12px;font-weight:700;color:var(--g400);text-transform:uppercase;letter-spacing:1.5px;max-width:180px;line-height:1.6}
+    @media(max-width:900px){.stats-grid{grid-template-columns:1fr}.stat-item{border-right:none;border-bottom:1px solid var(--g200);padding:40px 32px}.stat-item:last-child{border-bottom:none}}
+    @media(max-width:600px){.stat-num{font-size:56px}.stat-pre{font-size:36px}.stat-suf{font-size:28px}}
+
+    /* COMPARATIF */
+    #comparatif{padding:110px 0;background:var(--g50)}
+    .cmp-wrap{overflow-x:auto;border-radius:16px;box-shadow:var(--sh-md)}
+    .cmp-table{width:100%;border-collapse:collapse;background:#fff;min-width:680px}
+    .cmp-table th{padding:22px 24px;text-align:left;font-size:14px;font-weight:700;border-bottom:1px solid var(--g200)}
+    .cmp-criteria{text-align:left!important;background:var(--g50)!important;color:var(--g600)!important;font-size:12px!important;letter-spacing:1px;text-transform:uppercase;width:28%}
+    .cmp-rs{background:var(--red)!important;color:#fff!important}
+    .cmp-rs-logo{font-size:15px;font-weight:800;letter-spacing:-.3px}
+    .cmp-badge{display:inline-block;background:rgba(255,255,255,.2);font-size:11px;padding:2px 9px;border-radius:100px;margin-top:5px;font-weight:500}
+    .cmp-table td{padding:16px 24px;border-bottom:1px solid var(--g100);font-size:14px;color:var(--g600)}
+    .cmp-row-lbl{text-align:left!important;font-weight:600!important;color:var(--black)!important;font-size:14px!important}
+    .cmp-rs-data{background:var(--g100)!important;font-weight:600!important;color:var(--black)!important}
+    .cmp-table tr:last-child td{border-bottom:none}
+    .cmp-table tr:hover td{background:var(--g50)}
+    .cmp-table tr:hover .cmp-rs-data{background:var(--g200)!important}
+    .cck{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(34,197,94,.15);border-radius:50%;color:#16a34a;font-size:11px;margin-right:5px}
+    .ccr{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(239,68,68,.1);border-radius:50%;color:#dc2626;font-size:11px;margin-right:5px}
+    .ccy{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(234,179,8,.1);border-radius:50%;color:#ca8a04;font-size:11px;margin-right:5px}
+
+    /* ESTIMATEUR */
+    #estimateur{padding:110px 0;background:var(--black);position:relative;overflow:hidden}
+    #estimateur::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px}
+    .est-wrap{position:relative;z-index:1}
+    .est-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:48px}
+    .est-section{margin-bottom:36px}
+    .est-label{font-size:13px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .est-label span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--red);border-radius:50%;font-size:11px;color:#fff;font-weight:800;flex-shrink:0}
+    .est-checks{display:flex;flex-wrap:wrap;gap:10px}
+    .est-check-lbl{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 14px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer;transition:all var(--tr);user-select:none}
+    .est-check-lbl input{display:none}
+    .est-check-lbl:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
+    .est-check-lbl.checked{background:rgba(204,0,0,.2);border-color:rgba(204,0,0,.5);color:#fff}
+    .est-radios{display:flex;flex-wrap:wrap;gap:10px}
+    .est-radio-lbl{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 16px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer;transition:all var(--tr);user-select:none}
+    .est-radio-lbl input{display:none}
+    .est-radio-lbl:hover{background:rgba(255,255,255,.12)}
+    .est-radio-lbl.selected{background:rgba(204,0,0,.2);border-color:rgba(204,0,0,.5);color:#fff}
+    .est-2cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .est-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:13px 14px;color:#fff;font-size:14px;transition:border-color var(--tr)}
+    .est-input::placeholder{color:rgba(255,255,255,.3)}
+    .est-input:focus{outline:none;border-color:var(--red)}
+    .est-btn{width:100%;padding:16px;background:var(--red);color:#fff;border-radius:10px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all var(--tr);margin-top:28px}
+    .est-btn:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 12px 36px rgba(204,0,0,.4)}
+    .est-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+    @media(max-width:900px){.est-2cols{grid-template-columns:1fr}}
+    @media(max-width:600px){.est-card{padding:24px}.container{padding:0 20px}}
+
+    /* LOGOS */
+    #partenaires{padding:72px 0;background:#fff;border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
+    .part-hdr{padding:0 24px;text-align:center;margin-bottom:48px}
+    .logos-slider{overflow:hidden;position:relative;width:100%;mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 10%,black 90%,transparent 100%)}
+    .logos-track{display:flex;align-items:center;width:max-content;animation:logo-marquee 28s linear infinite}
+    .logos-track:hover{animation-play-state:paused}
+    .logos-item{display:flex;align-items:center;justify-content:center;padding:0 48px;height:72px;flex-shrink:0}
+    .logos-item .ltxt{font-size:18px;font-weight:800;letter-spacing:-.5px;color:#aaa;transition:color .3s;white-space:nowrap}
+    .logos-item:hover .ltxt{color:var(--black)}
+    @keyframes logo-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* FAQ */
+    #faq{padding:110px 0;background:var(--g50)}
+    .faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+    .faq-sidebar{position:sticky;top:100px}
+    .faq-list{display:flex;flex-direction:column;gap:3px}
+    .faq-item{background:#fff;border:1px solid var(--g200);border-radius:12px;overflow:hidden;transition:border-color var(--tr),box-shadow var(--tr)}
+    .faq-item.open{border-color:rgba(204,0,0,.3);box-shadow:var(--sh-sm)}
+    .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 22px;text-align:left;font-size:15px;font-weight:600;color:var(--black);gap:14px;transition:color var(--tr)}
+    .faq-item.open .faq-q{color:var(--red)}
+    .faq-ico{width:22px;height:22px;background:var(--g100);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px;line-height:1;transition:all var(--tr);color:var(--g600)}
+    .faq-item.open .faq-ico{background:var(--red);color:#fff;transform:rotate(45deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height .38s ease}
+    .faq-a-inner{padding:0 22px 20px;font-size:14px;color:var(--g600);line-height:1.75}
+    .faq-a-inner strong{color:var(--black)}
+    @media(max-width:900px){.faq-layout{grid-template-columns:1fr;gap:40px}.faq-sidebar{position:static}}
+
+    /* CTA FINAL */
+    #contact{padding:120px 0;background:var(--red);position:relative;overflow:hidden;text-align:center}
+    #contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(255,255,255,.1) 0%,transparent 55%),radial-gradient(ellipse at 80% 50%,rgba(0,0,0,.12) 0%,transparent 55%)}
+    .cta-inner{position:relative;z-index:1}
+    .cta-tag{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:22px}
+    .cta-title{font-size:clamp(34px,5vw,58px);font-weight:900;letter-spacing:-2px;color:#fff;line-height:1.06;margin-bottom:18px}
+    .cta-sub{font-size:17px;color:rgba(255,255,255,.72);max-width:520px;margin:0 auto 38px;line-height:1.6}
+    .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+    .cta-channels{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+    .cta-ch{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.8);font-size:14px;font-weight:500;transition:color var(--tr)}
+    .cta-ch:hover{color:#fff}
+    .cta-ch svg{width:16px;height:16px}
+    @media(max-width:768px){#contact{padding:80px 0}.hmb{display:flex!important}.nav,.hdr-phone{display:none!important}.cta-btns{flex-direction:column;align-items:center}.cta-channels{flex-direction:column;align-items:center;gap:14px}}
+
+    /* FOOTER */
+    footer{background:var(--black);padding:80px 0 0}
+    .foot-main{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .foot-tagline{font-size:14px;color:rgba(255,255,255,.4);line-height:1.65;margin-top:16px;max-width:280px}
+    .foot-addr{margin-top:22px}
+    .foot-addr-l{font-size:13px;color:rgba(255,255,255,.5);line-height:1.8}
+    .foot-col h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:18px}
+    .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .foot-col ul li a{font-size:14px;color:rgba(255,255,255,.55);transition:color var(--tr)}
+    .foot-col ul li a:hover{color:#fff}
+    .foot-bottom{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+    .foot-copy{font-size:13px;color:rgba(255,255,255,.3)}
+    .foot-legal{display:flex;gap:22px}
+    .foot-legal a{font-size:13px;color:rgba(255,255,255,.3);transition:color var(--tr)}
+    .foot-legal a:hover{color:rgba(255,255,255,.65)}
+    @media(max-width:900px){.foot-main{grid-template-columns:1fr 1fr;gap:36px}.foot-bottom{flex-direction:column;gap:14px;text-align:center}}
+    @media(max-width:600px){.foot-main{grid-template-columns:1fr}}
+
+    /* GSAP init states */
+    .gs-fade{opacity:0}
+    .gs-up{opacity:0;transform:translateY(40px)}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="container hdr-inner">
+    <a href="../index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg></div>
+      <div class="logo-txt"><span class="lb">RENOVA</span> <span class="ls">SWISS</span></div>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#processus">Notre méthode</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr-actions">
+      <a href="tel:+41225551234" class="hdr-phone">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+        +41 22 555 12 34
+      </a>
+      <a href="#estimateur" class="hdr-cta">Devis gratuit</a>
+      <button class="hmb" id="hmb-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div id="mmenu">
+  <a href="../index.html#services">Services</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#processus">Notre méthode</a>
+  <a href="#faq">FAQ</a>
+  <a href="tel:+41225551234">+41 22 555 12 34</a>
+  <a href="#estimateur" class="btn btn-primary">Devis gratuit</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-banner"><span class="hb-dot"></span><strong>Travaux, subventions et optimisation fiscale avant 2028</strong></div>
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-pill gs-fade" id="h-pill">Rénovation Appartement</div>
+      <h1 class="hero-h1 gs-up" id="h-h1">Rénovation d'appartement<br><em>clé en main en Suisse romande</em></h1>
+      <p class="hero-sub gs-up" id="h-sub">Entreprise générale pour transformer votre appartement : cuisine, salle de bain, sols, peinture et rénovation complète.</p>
+      <div class="hero-badges gs-up" id="h-badges">
+        <span class="hero-badge">⭐⭐⭐⭐⭐ 4.9/5</span>
+        <span class="hero-badge">+450 projets réalisés</span>
+        <span class="hero-badge">Devis gratuit sous 48h</span>
+      </div>
+      <div class="hero-ctas gs-up" id="h-ctas">
+        <a href="#estimateur" class="btn btn-primary btn-lg">Demander un devis</a>
+        <a href="#estimateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+      </div>
+      <div class="hero-reas gs-up" id="h-reas">
+        <span>Budget maîtrisé</span>
+        <span>Interlocuteur unique</span>
+        <span>Délais respectés</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES ACCORDION SLIDER -->
+<section id="services">
+  <div class="svp-head">
+    <div class="svp-head-txt">
+      <div class="stag">Nos prestations</div>
+      <h2 class="stitle">Quels travaux pouvons-nous réaliser ?</h2>
+      <p class="ssub">De la rénovation complète aux finitions, nous couvrons tous les postes.</p>
+    </div>
+    <div class="svp-controls">
+      <button id="svp-prev" class="svp-nav-btn" aria-label="Précédent">‹</button>
+      <button id="svp-next" class="svp-nav-btn" aria-label="Suivant">›</button>
+    </div>
+  </div>
+  <div class="svp-slider">
+    <div class="svp-track" id="svp-track">
+
+      <article class="svp-card" active>
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Rénovation complète appartement" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">CLÉ EN MAIN</span>
+            <h3 class="svp-card__title">Rénovation complète</h3>
+            <p class="svp-card__desc">Transformation totale de l'appartement : cloisons, électricité, plomberie, sols, peinture. Un seul interlocuteur, du premier coup de marteau à la remise des clés. Dès 800 CHF/m².</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=80" alt="Rénovation cuisine" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">SUR MESURE</span>
+            <h3 class="svp-card__title">Rénovation cuisine</h3>
+            <p class="svp-card__desc">Conception sur-mesure, plomberie, électricité, îlot central, électroménager intégré. Cuisine ouverte ou fermée, finitions haut de gamme. Dès 20 000 CHF.</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=1400&q=80" alt="Salle de bain" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">DESIGN PREMIUM</span>
+            <h3 class="svp-card__title">Salle de bain</h3>
+            <p class="svp-card__desc">Refonte complète ou modernisation : douche à l'italienne, baignoire îlot, carrelage grand format, robinetterie premium. Délai moyen : 3 à 5 semaines. Dès 10 000 CHF.</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=1400&q=80" alt="Sols et peinture" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">FINITIONS</span>
+            <h3 class="svp-card__title">Sols &amp; peinture</h3>
+            <p class="svp-card__desc">Parquet massif ou contrecollé, carrelage grand format, béton ciré, enduits décoratifs et peintures écologiques. Finitions impeccables, rendu premium. Sur devis.</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?auto=format&fit=crop&w=1400&q=80" alt="Isolation et fenêtres" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">THERMIQUE</span>
+            <h3 class="svp-card__title">Isolation &amp; fenêtres</h3>
+            <p class="svp-card__desc">Triple vitrage, volets motorisés, isolation thermique et phonique. Amélioration du DPE, réduction des charges et subventions cantonales disponibles. Sur devis.</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=80" alt="Électricité et plomberie" loading="lazy">
+        <div class="svp-card__content">
+          <div>
+            <span class="svp-card__tag">TECHNIQUE</span>
+            <h3 class="svp-card__title">Électricité &amp; plomberie</h3>
+            <p class="svp-card__desc">Mise aux normes complète, tableau électrique, réseau plomberie et chauffage. Interventions coordonnées avec tous les autres corps de métier. Sur devis.</p>
+            <a href="#estimateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+  <div class="svp-dots" id="svp-dots"></div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section id="realisations">
+  <div class="container">
+    <div class="proj-slider-head">
+      <div class="shdr gs-up">
+        <div class="stag">Réalisations</div>
+        <h2 class="stitle">Exemples de rénovations<br>d'appartements</h2>
+        <p class="ssub">Quelques projets récents réalisés en Suisse romande.</p>
+      </div>
+      <div class="proj-arrows">
+        <button class="proj-arrow" id="proj-prev" aria-label="Précédent"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="proj-arrow" id="proj-next" aria-label="Suivant"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="proj-slider">
+      <div class="proj-grid" id="proj-track">
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Genève – Eaux-Vives</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Rénovation complète — 4 pièces contemporain</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>68 000 CHF</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Rénovation complète</span><span class="proj-tag">Parquet chêne</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Lausanne – Ouchy</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Cuisine ouverte sur séjour — design moderne</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>32 000 CHF</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Cuisine sur-mesure</span><span class="proj-tag">Îlot central</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Nyon – Centre</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Salle de bain haut de gamme — douche italienne</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>18 500 CHF</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Salle de bain</span><span class="proj-tag">Grand format</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Genève – Plainpalais</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Réfection sols &amp; peinture — années 70</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>95 m²</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Parquet + carrelage</span><span class="proj-tag">Déco</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Morges – Lac</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Studio transformé en loft ouvert</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>52 m²</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Ouverture cloisons</span><span class="proj-tag">Béton ciré</span></div>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Lausanne – Pully</span></div>
+          <div class="proj-info">
+            <div class="proj-type">Appartement</div>
+            <div class="proj-title">Isolation &amp; fenêtres — rénovation énergétique</div>
+            <div class="proj-meta">
+              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pully</span>
+              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>41 000 CHF</span>
+            </div>
+            <div class="proj-tags"><span class="proj-tag">Triple vitrage</span><span class="proj-tag">Subvention obtenue</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proj-cta-wrap gs-up" style="text-align:center;margin-top:48px">
+      <a href="#estimateur" class="btn btn-primary btn-lg">Voir toutes les réalisations</a>
+    </div>
+  </div>
+</section>
+
+<!-- STACK CARDS PROCESS -->
+<section id="processus">
+  <div class="processus-intro">
+    <div class="container">
+      <div class="stag gs-fade">Notre méthode</div>
+      <h2 class="stitle gs-up">Comment se déroule<br>votre projet ?</h2>
+      <p class="ssub gs-up" style="margin:0 auto">Un processus éprouvé et transparent — de la visite gratuite à la remise des clés.</p>
+    </div>
+  </div>
+  <div class="stack-outer" id="stack-outer">
+    <div class="stack-pin" id="stack-pin">
+      <div class="stack-cards-wrap" id="stack-wrap">
+
+        <div class="scard" id="scard-0">
+          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80')"></div>
+          <div class="scard-content">
+            <div class="scard-num">Étape 01</div>
+            <h3 class="scard-step">Étude du projet</h3>
+            <p class="scard-desc">Visite sur site gratuite, analyse des besoins, état des lieux complet et identification des contraintes techniques. Nous écoutons votre vision et la traduisons en faisabilité concrète.</p>
+            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Planifier une visite</a>
+          </div>
+        </div>
+
+        <div class="scard" id="scard-1">
+          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80')"></div>
+          <div class="scard-content">
+            <div class="scard-num">Étape 02</div>
+            <h3 class="scard-step">Estimation fiscale<br>&amp; subventions</h3>
+            <p class="scard-desc">Calcul des déductions fiscales cantonales et fédérales, identification des subventions éligibles. Simulation d'économies intégrée dès la phase d'étude — sans frais supplémentaires.</p>
+            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Simuler mes aides</a>
+          </div>
+        </div>
+
+        <div class="scard" id="scard-2">
+          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80')"></div>
+          <div class="scard-content">
+            <div class="scard-num">Étape 03</div>
+            <h3 class="scard-step">Devis détaillé</h3>
+            <p class="scard-desc">Chiffrage précis poste par poste, planning prévisionnel, choix des matériaux et validation du budget final. Aucune surprise en cours de chantier — tout est contractualisé.</p>
+            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Demander un devis</a>
+          </div>
+        </div>
+
+        <div class="scard" id="scard-3">
+          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80')"></div>
+          <div class="scard-content">
+            <div class="scard-num">Étape 04</div>
+            <h3 class="scard-step">Réalisation<br>des travaux</h3>
+            <p class="scard-desc">Coordination de toutes les équipes, reporting hebdomadaire, contrôle qualité continu et respect strict du planning. Vous êtes informé à chaque étape, sans gérer quoi que ce soit.</p>
+            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Voir nos réalisations</a>
+          </div>
+        </div>
+
+        <div class="scard" id="scard-4">
+          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80')"></div>
+          <div class="scard-content">
+            <div class="scard-num">Étape 05</div>
+            <h3 class="scard-step">Réception chantier</h3>
+            <p class="scard-desc">Visite de réception contradictoire, levée des réserves, remise des garanties et dossier de fin de travaux complet. Votre appartement est prêt à être habité.</p>
+            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Démarrer mon projet</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- Progress dots -->
+      <div class="stack-progress" id="stack-progress">
+        <div class="stack-dot active" data-card="0"></div>
+        <div class="stack-dot" data-card="1"></div>
+        <div class="stack-dot" data-card="2"></div>
+        <div class="stack-dot" data-card="3"></div>
+        <div class="stack-dot" data-card="4"></div>
+      </div>
+    </div>
+    <div class="stack-spacer"></div>
+  </div>
+</section>
+
+<!-- BUDGET & FISCALITÉ -->
+<section id="budget">
+  <div class="container budget-inner">
+    <div class="gs-up" style="text-align:center;max-width:720px;margin:0 auto 52px">
+      <div class="stag" style="color:rgba(255,130,130,.9)">Budget rénovation appartement</div>
+      <h2 class="stitle" style="color:#fff">Optimiser votre budget grâce<br>aux aides disponibles</h2>
+      <p class="ssub" style="color:rgba(255,255,255,.5);margin:0 auto">La réussite d'un projet de rénovation ne repose pas uniquement sur les travaux.</p>
+    </div>
+    <div class="budget-quote gs-up">
+      <p>"Les subventions et déductions fiscales peuvent réduire significativement le coût de votre projet. Selon la nature des interventions et votre situation, il est possible d'optimiser fiscalement votre projet et de bénéficier d'aides financières."</p>
+    </div>
+    <div class="budget-cols gs-up">
+      <div class="budget-col">
+        <div class="budget-col-head"><div class="budget-col-dot blue"></div><h3>Optimisation fiscale des travaux</h3></div>
+        <div class="budget-col-sub">Nous vous accompagnons pour identifier les travaux déductibles :</div>
+        <div class="budget-checks">
+          <div class="budget-check">Travaux d'entretien du bien</div>
+          <div class="budget-check">Rénovation énergétique</div>
+          <div class="budget-check">Amélioration des performances du bâtiment</div>
+        </div>
+        <div class="budget-col-note">Intégrés dans une stratégie cohérente avec votre situation.</div>
+      </div>
+      <div class="budget-col">
+        <div class="budget-col-head"><div class="budget-col-dot green"></div><h3>Obtention de subventions</h3></div>
+        <div class="budget-col-sub">Nous identifions les aides disponibles selon votre canton :</div>
+        <div class="budget-checks">
+          <div class="budget-check">Identification des subventions éligibles</div>
+          <div class="budget-check">Préparation du dossier</div>
+          <div class="budget-check">Démarches administratives nécessaires</div>
+        </div>
+        <div class="budget-col-note">Pour maximiser les aides et réduire votre reste à charge.</div>
+      </div>
+    </div>
+    <div class="budget-cta-wrap gs-up"><a href="#estimateur" class="btn btn-white btn-lg">Simuler mes aides</a></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="chiffres">
+  <div class="container">
+    <div class="gs-up" style="text-align:center;max-width:720px;margin:0 auto 52px">
+      <div class="stag">Chiffres clés</div>
+      <h2 class="stitle">Une entreprise structurée<br>et expérimentée</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item gs-up"><div class="stat-num"><span class="stat-pre">+</span><span class="stat-val" data-target="450">0</span></div><div class="stat-lbl">Biens rénovés en Suisse romande</div></div>
+      <div class="stat-item gs-up" style="transition-delay:.1s"><div class="stat-num"><span class="stat-pre">+</span><span class="stat-val" data-target="25">0</span></div><div class="stat-lbl">Années d'expérience</div></div>
+      <div class="stat-item gs-up" style="transition-delay:.2s"><div class="stat-num"><span class="stat-val" data-target="3">0</span><span class="stat-suf"> jours</span></div><div class="stat-lbl">D'avance en moyenne sur les livraisons</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIF -->
+<section id="comparatif">
+  <div class="container">
+    <div class="gs-up" style="text-align:center;max-width:700px;margin:0 auto 60px">
+      <div class="stag">Pourquoi nous choisir</div>
+      <h2 class="stitle">Ce que vous gagnez<br>en travaillant avec nous</h2>
+      <p class="ssub" style="margin:0 auto">Rénover un appartement implique de coordonner plusieurs intervenants, gérer un budget et parfois entreprendre des démarches administratives. Notre approche simplifie chaque étape.</p>
+    </div>
+    <div class="cmp-wrap gs-up">
+      <table class="cmp-table">
+        <thead><tr>
+          <th class="cmp-criteria"></th>
+          <th class="cmp-rs"><div class="cmp-rs-logo">Notre approche</div><div class="cmp-badge">Renova Swiss</div></th>
+          <th>Artisans séparés</th>
+          <th>Plateformes travaux</th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="cmp-row-lbl">Interlocuteur</td><td class="cmp-rs-data"><span class="cck">✓</span> Un interlocuteur unique</td><td><span class="ccr">✗</span> Plusieurs artisans</td><td><span class="ccr">✗</span> Prestataires différents</td></tr>
+          <tr><td class="cmp-row-lbl">Coordination</td><td class="cmp-rs-data"><span class="cck">✓</span> Coordination complète</td><td><span class="ccr">✗</span> À votre charge</td><td><span class="ccr">✗</span> Limitée</td></tr>
+          <tr><td class="cmp-row-lbl">Planning</td><td class="cmp-rs-data"><span class="cck">✓</span> Planning structuré</td><td><span class="ccr">✗</span> Retards fréquents</td><td><span class="ccr">✗</span> Dépend des prestataires</td></tr>
+          <tr><td class="cmp-row-lbl">Budget</td><td class="cmp-rs-data"><span class="cck">✓</span> Devis global clair</td><td><span class="ccr">✗</span> Multiplication des devis</td><td><span class="ccr">✗</span> Tarifs variables</td></tr>
+          <tr><td class="cmp-row-lbl">Subventions</td><td class="cmp-rs-data"><span class="cck">✓</span> Identification et dossier</td><td><span class="ccr">✗</span> Non pris en charge</td><td><span class="ccr">✗</span> Non pris en charge</td></tr>
+          <tr><td class="cmp-row-lbl">Fiscalité</td><td class="cmp-rs-data"><span class="cck">✓</span> Vision globale des travaux</td><td><span class="ccy">~</span> Peu abordé</td><td><span class="ccr">✗</span> Non abordé</td></tr>
+          <tr><td class="cmp-row-lbl">Administratif</td><td class="cmp-rs-data"><span class="cck">✓</span> Accompagnement complet</td><td><span class="ccr">✗</span> À votre charge</td><td><span class="ccr">✗</span> À votre charge</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS GOOGLE -->
+<section id="temoignages">
+  <div class="container">
+    <div class="rev-hdr gs-up">
+      <div class="stag">Avis Google</div>
+      <h2 class="stitle">Ce que disent nos clients</h2>
+      <p class="ssub">Des centaines de familles suisses nous ont fait confiance pour transformer leur appartement.</p>
+    </div>
+    <div class="rev-score gs-up">
+      <div class="rev-score-num">4.9</div>
+      <svg class="rev-g-logo" viewBox="0 0 24 24" width="46" height="46"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <div>
+        <div class="rev-score-stars">★★★★★</div>
+        <div class="rev-score-count">127 avis Google</div>
+      </div>
+    </div>
+    <div class="rev-slider-wrap">
+      <button class="rev-arrow rev-prev" id="rev-prev" aria-label="Précédent">&#8592;</button>
+      <div class="rev-slider" id="rev-slider">
+        <div class="rev-track" id="rev-track">
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#4285F4">ML</div>
+              <div class="rev-meta"><div class="rev-name">Marie-Louise Favre</div><div class="rev-date">Il y a 2 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Renova Swiss a transformé notre appartement à Lausanne en 8 semaines chrono. L'interlocuteur unique, c'est vraiment la différence : on n'a jamais eu à courir après 5 artisans différents. Résultat impeccable, on recommande les yeux fermés.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#34A853">TC</div>
+              <div class="rev-meta"><div class="rev-name">Thomas Chappuis</div><div class="rev-date">Il y a 1 mois</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Cuisine entièrement refaite à Genève — délais respectés à la semaine près, budget tenu, finitions haut de gamme. Le suivi via leur application était rassurant. Je n'aurais pas fait mieux en cherchant des artisans séparément.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#EA4335">SR</div>
+              <div class="rev-meta"><div class="rev-name">Sophie Rochat</div><div class="rev-date">Il y a 6 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation complète d'un appartement des années 70 à Morges. Ils ont géré tout le dossier de permis sans que j'aie à lever le petit doigt. L'équipe était propre, ponctuelle et professionnelle du début à la fin.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#7C3AED">JP</div>
+              <div class="rev-meta"><div class="rev-name">Jean-Paul Morel</div><div class="rev-date">Il y a 2 mois</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Salle de bain entièrement refaite en 10 jours chrono. Carrelage posé avec une précision remarquable, douche à l'italienne impeccable. Chantier propre chaque soir. Un vrai plaisir de travailler avec une équipe aussi sérieuse.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#0891B2">IG</div>
+              <div class="rev-meta"><div class="rev-name">Isabelle Gaillard</div><div class="rev-date">Il y a 3 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation complète de notre appartement à Nyon. Renova Swiss a géré les démarches et les subventions cantonales. Travail soigné, aucune mauvaise surprise. Résultat magnifique, on est ravis.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#F97316">FB</div>
+              <div class="rev-meta"><div class="rev-name">François Bonnet</div><div class="rev-date">Il y a 5 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation d'un bien locatif à Fribourg. Coordination parfaite entre corps de métier, planning tenu, photos d'avancement envoyées chaque semaine. Exactement ce qu'on attendait pour gérer un chantier à distance.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#6366F1">CD</div>
+              <div class="rev-meta"><div class="rev-name">Claire Dupont</div><div class="rev-date">Il y a 2 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Appartement transformé à Genève. Projet complexe avec mur porteur à déplacer. Renova Swiss a trouvé une solution à chaque étape. Le résultat dépasse toutes nos attentes.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#DB2777">NP</div>
+              <div class="rev-meta"><div class="rev-name">Nathalie Perret</div><div class="rev-date">Il y a 4 semaines</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Cuisine ouverte sur le séjour, entièrement rénovée à Lausanne. Design contemporain, finitions parfaites. Renova Swiss a respecté chaque détail de notre brief. Service client réactif du premier appel à la remise des clés.</p>
+          </div>
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#475569">ML</div>
+              <div class="rev-meta"><div class="rev-name">Marc Lejeune</div><div class="rev-date">Il y a 3 mois</div></div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation de notre appartement familial à Vevey. 3 mois de travaux, zéro débordement de budget. L'app de suivi est un vrai plus : on voyait l'avancement en temps réel. Je recommande Renova Swiss sans la moindre réserve.</p>
+          </div>
+        </div>
+      </div>
+      <button class="rev-arrow rev-next" id="rev-next" aria-label="Suivant">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATEUR -->
+<section id="estimateur">
+  <div class="container est-wrap">
+    <div class="gs-up" style="text-align:center;max-width:700px;margin:0 auto 52px">
+      <div class="stag" style="color:rgba(255,130,130,.9)">Estimateur</div>
+      <h2 class="stitle" style="color:#fff">Estimez le budget de votre<br>rénovation d'appartement</h2>
+      <p class="ssub" style="color:rgba(255,255,255,.5);margin:0 auto">Sélectionnez les travaux envisagés et recevez une estimation indicative.</p>
+    </div>
+    <div class="est-card gs-up">
+      <form id="est-form">
+        <div class="est-section">
+          <div class="est-label"><span>1</span>Quels travaux souhaitez-vous réaliser ?</div>
+          <div class="est-checks">
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="complete">Rénovation complète</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="sdb">Salle de bain</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="cuisine">Cuisine</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="peinture">Peinture / rafraîchissement</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="sols">Sols / parquet / carrelage</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="electricite">Électricité</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="plomberie">Plomberie</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="fenetres">Fenêtres / isolation</label>
+            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="autre">Autre</label>
+          </div>
+        </div>
+        <div class="est-section">
+          <div class="est-label"><span>2</span>Surface de l'appartement</div>
+          <div class="est-radios">
+            <label class="est-radio-lbl"><input type="radio" name="surface" value="35">Moins de 40 m²</label>
+            <label class="est-radio-lbl"><input type="radio" name="surface" value="55">40 – 70 m²</label>
+            <label class="est-radio-lbl"><input type="radio" name="surface" value="85">70 – 100 m²</label>
+            <label class="est-radio-lbl"><input type="radio" name="surface" value="125">100 – 150 m²</label>
+            <label class="est-radio-lbl"><input type="radio" name="surface" value="175">Plus de 150 m²</label>
+          </div>
+        </div>
+        <div class="est-section">
+          <div class="est-label"><span>3</span>Où se situe le bien ?</div>
+          <div class="est-2cols">
+            <input class="est-input" type="text" name="cp" placeholder="Code postal (ex. 1202)" maxlength="6">
+            <input class="est-input" type="text" name="ville" placeholder="Ville (ex. Genève)">
+          </div>
+        </div>
+        <div class="est-section">
+          <div class="est-label"><span>4</span>Quand souhaitez-vous réaliser les travaux ?</div>
+          <div class="est-radios">
+            <label class="est-radio-lbl"><input type="radio" name="timing" value="asap">Dès que possible</label>
+            <label class="est-radio-lbl"><input type="radio" name="timing" value="3m">Dans 3 mois</label>
+            <label class="est-radio-lbl"><input type="radio" name="timing" value="6m">Dans 6 mois</label>
+            <label class="est-radio-lbl"><input type="radio" name="timing" value="1y">Dans l'année</label>
+            <label class="est-radio-lbl"><input type="radio" name="timing" value="reflexion">Projet en réflexion</label>
+          </div>
+        </div>
+        <div class="est-section">
+          <div class="est-label"><span>5</span>Budget envisagé (optionnel)</div>
+          <div class="est-radios">
+            <label class="est-radio-lbl"><input type="radio" name="budget" value="20k">Moins de 20 000 CHF</label>
+            <label class="est-radio-lbl"><input type="radio" name="budget" value="50k">20 000 – 50 000 CHF</label>
+            <label class="est-radio-lbl"><input type="radio" name="budget" value="100k">50 000 – 100 000 CHF</label>
+            <label class="est-radio-lbl"><input type="radio" name="budget" value="100k+">Plus de 100 000 CHF</label>
+            <label class="est-radio-lbl"><input type="radio" name="budget" value="conseil">Je souhaite être conseillé</label>
+          </div>
+        </div>
+        <div class="est-section">
+          <div class="est-label"><span>6</span>Vos coordonnées</div>
+          <div class="est-2cols">
+            <input class="est-input" type="text" name="nom" placeholder="Nom" required>
+            <input class="est-input" type="email" name="email" placeholder="Email" required>
+          </div>
+          <div style="margin-top:12px"><input class="est-input" type="tel" name="tel" placeholder="Téléphone" style="max-width:340px"></div>
+        </div>
+        <button type="submit" class="est-btn">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Recevoir mon estimation
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section id="partenaires">
+  <div class="part-hdr gs-fade">
+    <div class="stag">Confiance &amp; qualité</div>
+    <h2 class="stitle" style="font-size:clamp(22px,3vw,32px)">Matériaux et partenaires de confiance</h2>
+  </div>
+  <div class="logos-slider">
+    <div class="logos-track">
+      <div class="logos-item"><span class="ltxt">GEBERIT</span></div>
+      <div class="logos-item"><span class="ltxt">SIKA</span></div>
+      <div class="logos-item"><span class="ltxt">VELUX</span></div>
+      <div class="logos-item"><span class="ltxt">HILTI</span></div>
+      <div class="logos-item"><span class="ltxt">SWISSPOR</span></div>
+      <div class="logos-item"><span class="ltxt">DAIKIN</span></div>
+      <div class="logos-item"><span class="ltxt">AXA</span></div>
+      <div class="logos-item"><span class="ltxt">LA MOBILIÈRE</span></div>
+      <div class="logos-item"><span class="ltxt">HELVETIA</span></div>
+      <div class="logos-item"><span class="ltxt">ALLIANZ</span></div>
+      <div class="logos-item"><span class="ltxt">GEBERIT</span></div>
+      <div class="logos-item"><span class="ltxt">SIKA</span></div>
+      <div class="logos-item"><span class="ltxt">VELUX</span></div>
+      <div class="logos-item"><span class="ltxt">HILTI</span></div>
+      <div class="logos-item"><span class="ltxt">SWISSPOR</span></div>
+      <div class="logos-item"><span class="ltxt">DAIKIN</span></div>
+      <div class="logos-item"><span class="ltxt">AXA</span></div>
+      <div class="logos-item"><span class="ltxt">LA MOBILIÈRE</span></div>
+      <div class="logos-item"><span class="ltxt">HELVETIA</span></div>
+      <div class="logos-item"><span class="ltxt">ALLIANZ</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sidebar gs-up">
+        <div class="stag">FAQ</div>
+        <h2 class="stitle">Questions<br>fréquentes</h2>
+        <p class="ssub" style="margin-bottom:32px">Tout ce que vous devez savoir avant de lancer votre rénovation d'appartement.</p>
+        <a href="#estimateur" class="btn btn-primary">Estimer mon projet</a>
+      </div>
+      <div class="faq-list gs-up" style="transition-delay:.15s">
+        <div class="faq-item"><button class="faq-q"><span>Combien coûte une rénovation d'appartement ?</span><div class="faq-ico">+</div></button><div class="faq-a"><div class="faq-a-inner">En Suisse romande, le coût d'une rénovation complète oscille entre <strong>800 et 1 500 CHF/m²</strong> selon l'état initial et le niveau de prestation. Cuisine dès 20 000 CHF, salle de bain dès 10 000 CHF. Notre estimateur vous donne une fourchette personnalisée en quelques clics.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>Combien de temps durent les travaux ?</span><div class="faq-ico">+</div></button><div class="faq-a"><div class="faq-a-inner">Pour une rénovation partielle (cuisine ou SDB) : <strong>3 à 5 semaines</strong>. Pour une rénovation complète d'appartement : <strong>6 à 12 semaines</strong> selon la surface. En moyenne, nos chantiers sont livrés <strong>3 jours avant la date contractuelle</strong>.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>Faut-il quitter l'appartement pendant les travaux ?</span><div class="faq-ico">+</div></button><div class="faq-a"><div class="faq-a-inner">Pour une rénovation partielle, il est souvent possible de rester dans le logement. Pour une rénovation complète, nous recommandons de <strong>libérer l'appartement</strong> pour optimiser l'organisation et garantir les délais. Nous vous conseillons selon votre situation.</div></div></div>
+        <div class="faq-item"><button class="faq-q"><span>Proposez-vous un devis gratuit ?</span><div class="faq-ico">+</div></button><div class="faq-a"><div class="faq-a-inner">Oui. La visite sur site, l'analyse et le chiffrage détaillé sont entièrement <strong>gratuits et sans engagement</strong>. Nous intervenons sous 5 jours ouvrés sur toute la Suisse romande (GE, VD, FR, NE, VS, JU).</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contact">
+  <div class="container"><div class="cta-inner gs-up">
+    <div class="cta-tag">Lancez votre projet</div>
+    <h2 class="cta-title">Parlons de votre projet<br>de rénovation</h2>
+    <p class="cta-sub">Obtenez une première estimation et échangez avec un interlocuteur unique dédié à votre appartement.</p>
+    <div class="cta-btns">
+      <a href="#estimateur" class="btn btn-white btn-lg">Demander un devis</a>
+      <a href="tel:+41225551234" class="btn btn-outline-w btn-lg">Être rappelé</a>
+    </div>
+    <div class="cta-channels">
+      <a href="tel:+41225551234" class="cta-ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>+41 22 555 12 34</a>
+      <a href="mailto:contact@renovaswiss.ch" class="cta-ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>contact@renovaswiss.ch</a>
+    </div>
+  </div></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-main">
+      <div class="foot-brand">
+        <div class="logo"><div class="logo-mark"><svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg></div><div class="logo-txt"><span style="color:#fff">RENOVA</span> <span style="color:var(--red)">SWISS</span></div></div>
+        <p class="foot-tagline">Votre partenaire de confiance pour tous vos projets de rénovation en Suisse romande. Excellence, rigueur, transparence.</p>
+        <div class="foot-addr">
+          <div class="foot-addr-l">Route de Chêne 50, 1208 Genève</div>
+          <div class="foot-addr-l">Suisse romande — GE, VD, FR, NE, VS, JU</div>
+          <div class="foot-addr-l" style="margin-top:8px"><a href="tel:+41225551234" style="color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">+41 22 555 12 34</a> · <a href="mailto:contact@renovaswiss.ch" style="color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">contact@renovaswiss.ch</a></div>
+        </div>
+      </div>
+      <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Rénovation complète</a></li><li><a href="#services">Cuisine &amp; Salle de bain</a></li><li><a href="#services">Isolation &amp; Fenêtres</a></li><li><a href="#services">Peinture &amp; Sols</a></li><li><a href="../index.html">Rénovation maison</a></li></ul></div>
+      <div class="foot-col"><h4>Entreprise</h4><ul><li><a href="#processus">Notre méthode</a></li><li><a href="#realisations">Réalisations</a></li><li><a href="#comparatif">Pourquoi nous</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="foot-col"><h4>Zone d'intervention</h4><ul><li><a href="#contact">Canton de Genève</a></li><li><a href="#contact">Canton de Vaud</a></li><li><a href="#contact">Canton de Fribourg</a></li><li><a href="#contact">Canton de Neuchâtel</a></li><li><a href="#contact">Canton du Valais</a></li><li><a href="#contact">Canton du Jura</a></li></ul><div style="margin-top:24px"><a href="#estimateur" class="btn btn-primary" style="font-size:13px;padding:10px 18px">Devis gratuit</a></div></div>
+    </div>
+    <div class="foot-bottom"><div class="foot-copy">© 2026 Renova Swiss SA. Tous droits réservés.</div><div class="foot-legal"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></div></div>
+  </div>
+</footer>
+
+<!-- AVIS GOOGLE CSS -->
+<style>
+  #temoignages{padding:110px 0;background:#fff}
+  .rev-hdr{text-align:center;margin-bottom:52px}
+  .rev-score{display:flex;align-items:center;justify-content:center;gap:20px;background:var(--g50);border:1px solid var(--g200);border-radius:20px;padding:28px 40px;max-width:480px;margin:0 auto 56px}
+  .rev-score-num{font-size:52px;font-weight:900;letter-spacing:-2px;color:var(--black);line-height:1}
+  .rev-score-stars{color:#FBBF24;font-size:18px;letter-spacing:2px}
+  .rev-score-count{font-size:13px;color:var(--g600);font-weight:600;margin-top:3px}
+  .rev-slider-wrap{position:relative;display:flex;align-items:center;gap:16px}
+  .rev-slider{overflow:hidden;flex:1}
+  .rev-track{display:flex;gap:22px;transition:transform .5s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+  .rev-card{min-width:calc(33.333% - 15px);flex:0 0 calc(33.333% - 15px);background:#fff;border:1px solid var(--g200);border-radius:16px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+  .rev-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.10)}
+  .rev-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .rev-av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
+  .rev-meta{flex:1;min-width:0}
+  .rev-name{font-size:14px;font-weight:700;color:var(--black);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rev-date{font-size:12px;color:var(--g600);margin-top:1px}
+  .rev-glogo{flex-shrink:0;margin-left:auto}
+  .rev-stars{color:#FBBF24;font-size:14px;letter-spacing:1px;margin-bottom:12px}
+  .rev-txt{font-size:13px;color:var(--g800);line-height:1.7}
+  .rev-arrow{width:42px;height:42px;border-radius:50%;border:1px solid var(--g200);background:#fff;font-size:16px;color:var(--black);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .2s,border-color .2s,color .2s;box-shadow:var(--sh-sm)}
+  .rev-arrow:hover{background:var(--black);color:#fff;border-color:var(--black)}
+  .rev-arrow:disabled{opacity:.3;cursor:default}
+  @media(max-width:900px){.rev-card{min-width:calc(50% - 11px);flex-basis:calc(50% - 11px)}}
+  @media(max-width:600px){.rev-card{min-width:100%;flex-basis:100%}.rev-arrow{display:none}}
+</style>
+
+<!-- POPUP BAS DE PAGE -->
+<div class="cta-bar" id="cta-bar">
+  <div class="cta-bar-inner">
+    <div class="cta-bar-text">
+      <span class="cta-bar-title">Prêt à lancer votre rénovation ?</span>
+      <span class="cta-bar-sub">Estimation gratuite · Réponse sous 48h</span>
+    </div>
+    <a href="#estimateur" class="cta-bar-btn">Estimer votre projet</a>
+  </div>
+</div>
+<style>
+  .cta-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid rgba(204,0,0,.35);box-shadow:0 -6px 40px rgba(0,0,0,.45);z-index:9999;transform:translateY(100%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+  .cta-bar.visible{transform:translateY(0)}
+  .cta-bar-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;gap:28px}
+  .cta-bar-text{flex:1;min-width:0}
+  .cta-bar-title{display:block;font-size:15px;font-weight:700;color:#fff}
+  .cta-bar-sub{display:block;font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
+  .cta-bar-btn{display:inline-flex;align-items:center;background:#cc0000;color:#fff;font-size:14px;font-weight:700;padding:11px 28px;border-radius:8px;white-space:nowrap;transition:background .2s,transform .2s;flex-shrink:0}
+  .cta-bar-btn:hover{background:#aa0000;transform:translateY(-1px)}
+  @media(max-width:600px){.cta-bar-inner{justify-content:center;padding:12px 20px}.cta-bar-text{display:none}}
+</style>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Header scroll ── */
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>20),{passive:true});
+
+  /* ── Mobile menu ── */
+  const mmenu=document.getElementById('mmenu'),hmbBtn=document.getElementById('hmb-btn');
+  hmbBtn.addEventListener('click',()=>mmenu.classList.toggle('open'));
+  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+
+  /* ── HERO entrance ── */
+  const heroTl = gsap.timeline({ delay:.3 });
+  heroTl
+    .to('#h-pill',  { opacity:1, duration:.6, ease:'power2.out' })
+    .to('#h-h1',    { opacity:1, y:0, duration:.8, ease:'power3.out' },'-=.3')
+    .to('#h-sub',   { opacity:1, y:0, duration:.7, ease:'power3.out' },'-=.5')
+    .to('#h-badges',{ opacity:1, y:0, duration:.6, ease:'power2.out' },'-=.4')
+    .to('#h-ctas',  { opacity:1, y:0, duration:.6, ease:'power2.out' },'-=.4')
+    .to('#h-reas',  { opacity:1, y:0, duration:.5, ease:'power2.out' },'-=.3');
+
+  /* ── Generic scroll reveals (.gs-up / .gs-fade) ── */
+  gsap.utils.toArray('.gs-up').forEach(el=>{
+    gsap.to(el,{ opacity:1, y:0, duration:.7, ease:'power3.out',
+      scrollTrigger:{ trigger:el, start:'top 88%', toggleActions:'play none none none' }
+    });
+  });
+  gsap.utils.toArray('.gs-fade').forEach(el=>{
+    // skip hero elements already animated
+    if(['h-pill'].includes(el.id)) return;
+    gsap.to(el,{ opacity:1, duration:.7, ease:'power2.out',
+      scrollTrigger:{ trigger:el, start:'top 88%', toggleActions:'play none none none' }
+    });
+  });
+
+  /* ── Stats counter ── */
+  document.querySelectorAll('.stat-val').forEach(el=>{
+    let done=false;
+    ScrollTrigger.create({ trigger:el, start:'top 85%',
+      onEnter:()=>{
+        if(done) return; done=true;
+        gsap.to({v:0},{v:parseInt(el.dataset.target), duration:1.8, ease:'power2.out',
+          onUpdate:function(){ el.textContent=Math.round(this.targets()[0].v); }
+        });
+      }
+    });
+  });
+
+  /* ── Services Accordion Slider ── */
+  (function(){
+    const track=document.getElementById('svp-track');
+    if(!track) return;
+    const wrap=track.parentElement,cards=Array.from(track.children);
+    const prev=document.getElementById('svp-prev'),next=document.getElementById('svp-next');
+    const dotsBox=document.getElementById('svp-dots');
+    const isMobile=()=>matchMedia('(max-width:767px)').matches;
+    cards.forEach((_,i)=>{
+      const dot=document.createElement('button');
+      dot.className='svp-dot'; dot.setAttribute('aria-label','Service '+(i+1));
+      dot.onclick=()=>activate(i,true); dotsBox.appendChild(dot);
+    });
+    const dots=Array.from(dotsBox.children);
+    let current=0;
+    function center(i){ const c=cards[i],ax=isMobile()?'top':'left',sz=isMobile()?'clientHeight':'clientWidth',st=isMobile()?c.offsetTop:c.offsetLeft; wrap.scrollTo({[ax]:st-(wrap[sz]/2-c[sz]/2),behavior:'smooth'}); }
+    function toggleUI(i){ cards.forEach((c,k)=>c.toggleAttribute('active',k===i)); dots.forEach((d,k)=>d.classList.toggle('active',k===i)); if(prev)prev.disabled=i===0; if(next)next.disabled=i===cards.length-1; }
+    function activate(i,scroll){ if(i===current)return; current=i; toggleUI(i); if(scroll)center(i); }
+    function go(step){ activate(Math.min(Math.max(current+step,0),cards.length-1),true); }
+    if(prev)prev.onclick=()=>go(-1);
+    if(next)next.onclick=()=>go(1);
+    addEventListener('keydown',e=>{ if(['ArrowRight','ArrowDown'].includes(e.key))go(1); if(['ArrowLeft','ArrowUp'].includes(e.key))go(-1); },{passive:true});
+    cards.forEach((card,i)=>{ card.addEventListener('mouseenter',()=>matchMedia('(hover:hover)').matches&&activate(i,true)); card.addEventListener('click',()=>activate(i,true)); });
+    let sx=0,sy=0;
+    track.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+    track.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy; if(isMobile()?Math.abs(dy)>60:Math.abs(dx)>60) go((isMobile()?dy:dx)>0?-1:1); },{passive:true});
+    addEventListener('resize',()=>center(current));
+    toggleUI(0); setTimeout(()=>center(0),100);
+  })();
+
+  /* ── Réalisations Slider ── */
+  (function(){
+    const track=document.getElementById('proj-track');
+    if(!track) return;
+    const btnPrev=document.getElementById('proj-prev'),btnNext=document.getElementById('proj-next');
+    const cards=track.children, VISIBLE=3, DELAY=4200;
+    let cur=0,timer=null;
+    function cw(){ return cards[0].offsetWidth+20; }
+    function update(){ const max=cards.length-VISIBLE; track.style.transform=`translateX(-${cur*cw()}px)`; btnPrev.disabled=cur===0; btnNext.disabled=cur>=max; }
+    function go(dir){ cur=Math.min(Math.max(cur+dir,0),cards.length-VISIBLE); update(); reset(); }
+    function step(){ cur=cur>=cards.length-VISIBLE?0:cur+1; update(); }
+    function reset(){ clearInterval(timer); timer=setInterval(step,DELAY); }
+    btnPrev.onclick=()=>go(-1); btnNext.onclick=()=>go(1);
+    let tx=0;
+    track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',e=>{if(Math.abs(e.changedTouches[0].clientX-tx)>50)go(e.changedTouches[0].clientX-tx>0?-1:1);},{passive:true});
+    update(); reset();
+  })();
+
+  /* ── STACK CARDS with GSAP ScrollTrigger ── */
+  (function(){
+    const outer=document.getElementById('stack-outer');
+    const pin=document.getElementById('stack-pin');
+    const cards=gsap.utils.toArray('.scard');
+    const dots=document.querySelectorAll('.stack-dot');
+    const N=cards.length;
+
+    // Stack initial: all cards visible, layered by z-index
+    cards.forEach((c,i)=>{
+      gsap.set(c,{ zIndex:i, scale: 1-((N-1-i)*0.04), y: (N-1-i)*14 });
+    });
+
+    // Hide all except bottom card initially — they're all at y:0 stacked
+    // Actually: cards[0] is bottom (z=0), cards[N-1] is top (z=N-1)
+    // We want to reveal them one by one as we scroll, pulling from top
+    // Reset: top card visible, others scaled back
+    gsap.set(cards[N-1], { scale:1, y:0, zIndex:N-1 });
+    for(let i=0;i<N-1;i++){
+      gsap.set(cards[i], { scale: 1-((N-1-i)*0.045), y: (N-1-i)*16, zIndex:i });
+    }
+
+    let currentCard = N-1; // start at top card
+
+    function updateDots(idx){
+      // idx = which scard is front (N-1 = first step shown)
+      const step = N-1-idx; // 0..4
+      dots.forEach((d,i)=>d.classList.toggle('active',i===step));
+    }
+    updateDots(N-1);
+
+    // Click dots to jump
+    dots.forEach((dot,i)=>{
+      dot.addEventListener('click',()=>{ goToCard(N-1-i); });
+    });
+
+    function goToCard(targetIdx){
+      if(targetIdx===currentCard) return;
+      const direction = targetIdx < currentCard ? 1 : -1; // going back or forward
+      // Animate transition
+      if(direction===1){
+        // Going forward: dismiss current top card (fly off to left/top)
+        const front = cards[currentCard];
+        gsap.to(front,{ x:-120, opacity:0, scale:.85, duration:.55, ease:'power2.inOut',
+          onComplete:()=>{ gsap.set(front,{zIndex:0,x:0,opacity:0,scale:.85,y:80}); }
+        });
+        currentCard = targetIdx;
+        // Shift remaining cards up
+        for(let i=0;i<=currentCard;i++){
+          const dist = currentCard-i;
+          gsap.to(cards[i],{ scale:1-(dist*0.045), y:dist*16, zIndex:i+1, duration:.55, ease:'power2.inOut' });
+        }
+      } else {
+        // Going back: restore card
+        currentCard = targetIdx;
+        cards.forEach((c,i)=>{
+          const dist = currentCard-i;
+          if(dist<0){ gsap.to(c,{opacity:0,scale:.85,y:80,duration:.4}); }
+          else { gsap.to(c,{opacity:1,scale:1-(dist*0.045),y:dist*16,zIndex:i+1,duration:.55,ease:'power2.inOut'}); }
+        });
+      }
+      updateDots(currentCard);
+    }
+
+    /* Scroll-driven stack */
+    const STEP = window.innerHeight * 0.8; // px of scroll per card
+
+    ScrollTrigger.create({
+      trigger: outer,
+      start: 'top top',
+      end: `+=${(N-1)*STEP}`,
+      pin: pin,
+      pinSpacing: false,
+      scrub: false,
+      onUpdate(self){
+        const progress = self.progress; // 0..1
+        const rawIdx = progress * (N-1); // 0..N-1
+        const cardIdx = N-1 - Math.min(Math.floor(rawIdx), N-1); // which scard index is front
+        if(cardIdx !== currentCard) goToCard(cardIdx);
+      }
+    });
+
+    // Correct spacer height
+    document.querySelector('.stack-spacer').style.height = ((N-1)*STEP) + 'px';
+  })();
+
+  /* ── Popup bas de page ── */
+  setTimeout(()=>document.getElementById('cta-bar').classList.add('visible'), 2500);
+
+  /* ── Avis Google slider ── */
+  (function(){
+    var track=document.getElementById('rev-track');
+    if(!track) return;
+    var prev=document.getElementById('rev-prev'),next=document.getElementById('rev-next');
+    var total=9;
+    var perPage=window.innerWidth<=600?1:window.innerWidth<=900?2:3;
+    var pages=Math.ceil(total/perPage);
+    var cur=0,timer;
+    function go(idx){
+      cur=(idx+pages)%pages;
+      var cardW=track.querySelector('.rev-card').offsetWidth;
+      track.style.transform='translateX(-'+(cur*(cardW+22)*perPage)+'px)';
+      prev.disabled=false; next.disabled=false;
+    }
+    function startAuto(){ clearInterval(timer); timer=setInterval(()=>go(cur+1),5000); }
+    prev.addEventListener('click',()=>{go(cur-1);startAuto();});
+    next.addEventListener('click',()=>{go(cur+1);startAuto();});
+    track.closest('.rev-slider-wrap').addEventListener('mouseenter',()=>clearInterval(timer));
+    track.closest('.rev-slider-wrap').addEventListener('mouseleave',startAuto);
+    go(0); startAuto();
+  })();
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const btn=item.querySelector('.faq-q'),ans=item.querySelector('.faq-a');
+    btn.addEventListener('click',()=>{
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight='0'; });
+      if(!isOpen){ item.classList.add('open'); ans.style.maxHeight=ans.scrollHeight+'px'; }
+    });
+  });
+
+  /* ── Estimateur interactive ── */
+  document.querySelectorAll('.est-check-lbl').forEach(lbl=>{
+    lbl.querySelector('input').addEventListener('change',function(){ lbl.classList.toggle('checked',this.checked); });
+  });
+  document.querySelectorAll('.est-radio-lbl').forEach(lbl=>{
+    lbl.querySelector('input').addEventListener('change',function(){
+      document.querySelectorAll(`.est-radio-lbl input[name="${this.name}"]`).forEach(inp=>inp.closest('.est-radio-lbl').classList.toggle('selected',inp.checked));
+    });
+  });
+  document.getElementById('est-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!this.nom.value||!this.email.value){ alert('Veuillez renseigner votre nom et email.'); return; }
+    const btn=this.querySelector('.est-btn');
+    btn.innerHTML='✓ &nbsp;Demande envoyée — nous vous contactons sous 48h';
+    btn.style.background='#16a34a'; btn.disabled=true;
+  });
+
+})();
+</script>
+</body>
+</html>
