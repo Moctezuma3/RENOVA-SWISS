@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect x="0" y="10" width="50" height="40" fill="#E84E0F" rx="2"/>
+  <text x="32" y="37" font-family="Arial, sans-serif" font-weight="900" font-size="18" fill="#fff" text-anchor="middle">Hv</text>
+  <text x="130" y="40" font-family="Arial, sans-serif" font-weight="700" font-size="26" fill="#E84E0F" text-anchor="middle">helvetia</text>
+</svg>
