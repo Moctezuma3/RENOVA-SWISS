@@ -1,0 +1,2964 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Renova Swiss — Entreprise de rénovation premium en Suisse romande. Rénovation complète, cuisine, salle de bain, rénovation énergétique. Devis gratuit.">
+  <title>Renova Swiss — Rénovation Premium en Suisse Romande</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --red: #CC0000;
+      --red-h: #AA0000;
+      --red-xs: rgba(204,0,0,0.06);
+      --black: #1A1A1A;
+      --white: #FFFFFF;
+      --g50: #F8F8F8;
+      --g100: #F0F0F0;
+      --g200: #E8E8E8;
+      --g400: #AAAAAA;
+      --g600: #666666;
+      --g800: #333333;
+      --r: 12px;
+      --sh-sm: 0 2px 12px rgba(0,0,0,0.06);
+      --sh-md: 0 8px 32px rgba(0,0,0,0.10);
+      --sh-lg: 0 24px 64px rgba(0,0,0,0.14);
+      --tr: 0.3s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    input, select, textarea { font-family: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px; border-radius: 8px;
+      font-size: 14px; font-weight: 600; letter-spacing: -0.1px;
+      transition: all var(--tr); white-space: nowrap; border: 2px solid transparent;
+    }
+    .btn-primary { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-primary:hover { background: var(--red-h); border-color: var(--red-h); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(204,0,0,0.28); }
+    .btn-outline { background: transparent; color: var(--black); border-color: var(--g200); }
+    .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+    .btn-ghost-w { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.35); backdrop-filter: blur(8px); }
+    .btn-ghost-w:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.7); }
+    .btn-white { background: #fff; color: var(--red); border-color: #fff; }
+    .btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .btn-outline-w { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+    .btn-outline-w:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+    .btn-lg { padding: 17px 34px; font-size: 15px; }
+
+    /* ============================================================
+       SECTION COMMON
+    ============================================================ */
+    .stag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 14px;
+    }
+    .stitle {
+      font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; color: var(--black); margin-bottom: 14px;
+    }
+    .ssub { font-size: 17px; color: var(--g600); line-height: 1.65; max-width: 580px; }
+    .shdr { margin-bottom: 60px; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--g200);
+      transition: box-shadow 0.4s ease;
+    }
+    #hdr.scrolled {
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    }
+    .hdr-inner {
+      display: flex; align-items: center; height: 72px; gap: 32px;
+    }
+    /* Logo */
+    .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo-mark {
+      width: 34px; height: 34px; background: var(--red); border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-mark svg { width: 18px; height: 18px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; }
+    .logo-txt { font-size: 16px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+    .logo-txt .lbrand { color: var(--black); }
+    .logo-txt .lswiss { color: var(--red); }
+    /* Nav */
+    .nav { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+    .nav a {
+      font-size: 14px; font-weight: 500; color: var(--g600);
+      padding: 7px 13px; border-radius: 6px; transition: all var(--tr);
+    }
+    .nav a:hover { color: var(--black); background: var(--g100); }
+    /* Actions */
+    .hdr-actions { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+    .hdr-phone {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 13px; font-weight: 600; color: var(--g800); transition: color var(--tr);
+    }
+    .hdr-phone:hover { color: var(--red); }
+    .hdr-phone svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .hdr-cta {
+      background: var(--red); color: #fff;
+      padding: 9px 18px; border-radius: 7px;
+      font-size: 13px; font-weight: 600;
+      transition: all var(--tr);
+    }
+    .hdr-cta:hover { background: var(--red-h); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(204,0,0,0.28); }
+    /* Hamburger */
+    .hmb {
+      display: none; flex-direction: column; gap: 5px;
+      padding: 8px; border-radius: 6px; transition: background var(--tr);
+    }
+    .hmb:hover { background: var(--g100); }
+    .hmb span {
+      display: block; width: 21px; height: 2px;
+      background: var(--black); border-radius: 2px; transition: all var(--tr);
+    }
+    /* Mobile menu */
+    #mmenu {
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: #fff; z-index: 999; padding: 20px;
+      display: none; flex-direction: column; gap: 4px;
+      box-shadow: var(--sh-lg); border-top: 1px solid var(--g200);
+    }
+    #mmenu.open { display: flex; }
+    #mmenu a { padding: 13px 14px; font-size: 15px; font-weight: 500; border-radius: 8px; }
+    #mmenu a:hover { background: var(--g50); color: var(--red); }
+    #mmenu .btn { margin-top: 8px; justify-content: center; }
+
+    /* ============================================================
+       HERO SLIDER
+    ============================================================ */
+    #hero {
+      position: relative; height: 100vh; min-height: 680px; overflow: hidden;
+    }
+    /* Alert banner */
+    .hero-banner {
+      position: absolute; top: 72px; left: 0; right: 0; z-index: 20;
+      background: rgba(180,0,0,0.92); backdrop-filter: blur(10px);
+      text-align: center; padding: 9px 20px;
+      font-size: 12.5px; font-weight: 500; color: #fff; letter-spacing: 0.1px;
+    }
+    .hero-banner strong { font-weight: 700; }
+    .hb-dot { display: inline-block; width: 6px; height: 6px; background: #ffaaaa; border-radius: 50%; margin-right: 8px; animation: blink 1.8s infinite; vertical-align: middle; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    /* Slides */
+    .hslides { position: relative; width: 100%; height: 100%; }
+    .hslide {
+      position: absolute; inset: 0; opacity: 0;
+      transition: opacity 1s ease;
+      display: flex; align-items: flex-end;
+    }
+    .hslide.active { opacity: 1; z-index: 1; }
+    /* Slide BGs — photos réelles */
+    .hs1, .hs2, .hs3, .hs4, .hs5 {
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+    }
+    .hs1 { background-image: url('assets/hero-1.jpg'); }
+    .hs2 { background-image: url('assets/hero-2.jpg'); }
+    .hs3 { background-image: url('assets/svc-appart.jpg'); }
+    .hs4 { background-image: url('assets/hero-3.jpg'); }
+    .hs5 { background-image: url('assets/svc-energie.jpg'); }
+    /* Grid overlay on slides */
+    .hslide::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: radial-gradient(ellipse at 60% 35%, black 15%, transparent 65%);
+    }
+    /* Gradient overlay */
+    .hslide::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.25) 100%);
+    }
+    /* Decorative shape */
+    .slide-geo {
+      position: absolute; right: 8%; top: 50%; transform: translateY(-50%);
+      z-index: 1; opacity: 0.07;
+    }
+    /* Content */
+    .hslide-content {
+      position: relative; z-index: 2; width: 100%;
+      padding-bottom: 110px;
+    }
+    .slide-pill {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.88); font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 100px; margin-bottom: 18px;
+    }
+    .slide-pill::before { content: ''; width: 5px; height: 5px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+    .slide-h1 {
+      font-size: clamp(38px, 6.5vw, 76px); font-weight: 900;
+      letter-spacing: -3px; line-height: 1.0; color: #fff;
+      margin-bottom: 18px; max-width: 720px;
+    }
+    .slide-h1 em { font-style: normal; color: #ffaaaa; }
+    .slide-sub {
+      font-size: 17px; color: rgba(255,255,255,0.68);
+      line-height: 1.65; max-width: 520px; margin-bottom: 34px; font-weight: 400;
+    }
+    .slide-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    /* Controls */
+    .hero-ctrl {
+      position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
+      z-index: 20; display: flex; align-items: center; gap: 18px;
+    }
+    .hero-dots { display: flex; gap: 7px; align-items: center; }
+    .hdot {
+      width: 6px; height: 6px; border-radius: 3px;
+      background: rgba(255,255,255,0.35); cursor: pointer;
+      transition: all 0.35s ease;
+    }
+    .hdot.active { width: 22px; background: #fff; }
+    .harrow {
+      width: 42px; height: 42px; border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      color: #fff; cursor: pointer; transition: all var(--tr);
+      background: rgba(255,255,255,0.05); backdrop-filter: blur(8px);
+    }
+    .harrow:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
+    .harrow svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    /* Progress bar */
+    .hero-prog {
+      position: absolute; bottom: 0; left: 0;
+      height: 3px; background: var(--red); z-index: 20; width: 0;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { padding: 110px 0; background: #fff; }
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--g200);
+      border: 1px solid var(--g200); border-radius: 16px; overflow: hidden;
+    }
+    .svc-card {
+      background: #fff; padding: 32px 24px;
+      display: flex; flex-direction: column; gap: 13px;
+      transition: background var(--tr); cursor: pointer;
+      position: relative; overflow: hidden;
+    }
+    .svc-card::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--red); transform: scaleX(0);
+      transition: transform var(--tr); transform-origin: left;
+    }
+    .svc-card:hover { background: #FAFAFA; }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-ico {
+      width: 48px; height: 48px; background: var(--g50);
+      border-radius: 11px; display: flex; align-items: center; justify-content: center;
+      transition: background var(--tr);
+    }
+    .svc-card:hover .svc-ico { background: rgba(204,0,0,0.08); }
+    .svc-ico svg { width: 22px; height: 22px; stroke: var(--g600); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; transition: stroke var(--tr); }
+    .svc-card:hover .svc-ico svg { stroke: var(--red); }
+    .svc-name { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; color: var(--black); }
+    .svc-desc { font-size: 13px; color: var(--g600); line-height: 1.55; flex: 1; }
+    .svc-lnk {
+      font-size: 12px; font-weight: 600; color: var(--red);
+      display: flex; align-items: center; gap: 5px; margin-top: 4px;
+      transition: gap var(--tr);
+    }
+    .svc-lnk svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .svc-card:hover .svc-lnk { gap: 9px; }
+
+    /* ============================================================
+       PROJECTS
+    ============================================================ */
+    #realisations { padding: 110px 0; background: var(--g50); }
+
+    /* ── Slider header ── */
+    .proj-slider-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 40px; gap: 1rem;
+    }
+    .proj-slider-head .shdr { margin-bottom: 0; }
+    .proj-arrows { display: flex; gap: 8px; flex-shrink: 0; padding-bottom: 4px; }
+    .proj-arrow {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1.5px solid var(--g200); background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--g600); cursor: pointer; transition: all var(--tr);
+    }
+    .proj-arrow:hover { border-color: var(--black); color: var(--black); }
+    .proj-arrow:disabled { opacity: 0.3; cursor: default; }
+    .proj-arrow svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── Slider track ── */
+    .proj-slider { overflow: hidden; }
+    .proj-grid {
+      display: flex; gap: 20px;
+      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change: transform;
+    }
+    .proj-card {
+      flex: 0 0 calc((100% - 40px) / 3);
+      background: #fff; border-radius: 16px; overflow: hidden;
+      box-shadow: var(--sh-sm); transition: box-shadow var(--tr), transform var(--tr);
+    }
+    .proj-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
+    .proj-vis {
+      height: 320px; position: relative; overflow: hidden;
+    }
+    @media (max-width: 900px) {
+      .proj-card { flex: 0 0 calc((100% - 16px) / 2); }
+    }
+    @media (max-width: 600px) {
+      .proj-card { flex: 0 0 85%; }
+      .proj-slider-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+    .pv1 { background: radial-gradient(ellipse at 60% 30%, rgba(180,130,60,0.7) 0%, transparent 55%), linear-gradient(135deg, #c8a070 0%, #7a5020 40%, #3e2810 100%); }
+    .pv2 { background: radial-gradient(ellipse at 35% 65%, rgba(70,100,160,0.6) 0%, transparent 55%), linear-gradient(135deg, #7090c0 0%, #3a5880 40%, #1e2e45 100%); }
+    .pv3 { background: radial-gradient(ellipse at 65% 35%, rgba(150,90,60,0.65) 0%, transparent 55%), linear-gradient(135deg, #c08070 0%, #804030 40%, #402018 100%); }
+    .pv4 { background: radial-gradient(ellipse at 40% 60%, rgba(50,120,70,0.6) 0%, transparent 55%), linear-gradient(135deg, #70b080 0%, #306040 40%, #183020 100%); }
+    .proj-vis::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    }
+    /* Abstract room in each vis */
+    .proj-room {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1;
+    }
+    .proj-room svg { width: 180px; height: 140px; opacity: 0.12; }
+    .proj-badge {
+      position: absolute; top: 14px; left: 14px; z-index: 2;
+      background: var(--red); color: #fff;
+      font-size: 10px; font-weight: 700; padding: 4px 10px;
+      border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .proj-info { padding: 22px; }
+    .proj-type {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 6px;
+    }
+    .proj-title { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 12px; }
+    .proj-meta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .proj-m {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 12px; color: var(--g600);
+    }
+    .proj-m svg { width: 13px; height: 13px; stroke: var(--g400); fill: none; stroke-width: 1.75; }
+
+    /* ============================================================
+       BEFORE / AFTER
+    ============================================================ */
+    #avant-apres { padding: 110px 0; background: var(--black); }
+    #avant-apres .stag { color: rgba(255,100,100,0.8); }
+    #avant-apres .stitle { color: #fff; }
+    #avant-apres .ssub { color: rgba(255,255,255,0.5); }
+    .ba-wrap {
+      position: relative; height: 480px; border-radius: 16px; overflow: hidden;
+      cursor: ew-resize; user-select: none;
+      --split: 50%;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .ba-before, .ba-after {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ba-before {
+      background: url('assets/avant.png') center/cover no-repeat;
+      clip-path: inset(0 calc(100% - var(--split)) 0 0);
+      z-index: 2;
+    }
+    .ba-after {
+      background: url('assets/apres.jpg') center/cover no-repeat;
+    }
+    .ba-lbl {
+      position: absolute; bottom: 20px; z-index: 4;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 5px;
+    }
+    .ba-lbl-b { left: 18px; background: rgba(0,0,0,0.55); color: rgba(255,255,255,0.75); backdrop-filter: blur(8px); }
+    .ba-lbl-a { right: 18px; background: var(--black); color: #fff; }
+    .ba-div {
+      position: absolute; top: 0; bottom: 0;
+      left: var(--split); width: 2px; background: #fff;
+      transform: translateX(-50%); z-index: 3; cursor: ew-resize;
+    }
+    .ba-handle {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 46px; height: 46px; background: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3); font-size: 0;
+    }
+    .ba-handle svg { width: 18px; height: 18px; stroke: var(--black); fill: none; stroke-width: 2; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header id="hdr">
+  <div class="container hdr-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg>
+      </div>
+      <div class="logo-txt"><span class="lbrand">RENOVA</span> <span class="lswiss">SWISS</span></div>
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#processus">À propos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="hdr-actions">
+      <a href="tel:+41225551234" class="hdr-phone">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z"/></svg>
+        +41 22 555 12 34
+      </a>
+      <a href="#simulateur" class="hdr-cta">Devis gratuit</a>
+      <button class="hmb" id="hmb-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div id="mmenu">
+  <a href="#services">Services</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#processus">À propos</a>
+  <a href="#faq">FAQ</a>
+  <a href="tel:+41225551234">+41 22 555 12 34</a>
+  <a href="#simulateur" class="btn btn-primary">Devis gratuit</a>
+</div>
+
+<!-- ============================================================
+     HERO SLIDER
+============================================================ -->
+<section id="hero">
+  <div class="hero-banner">
+    <span class="hb-dot"></span>
+    <strong>Travaux, subventions et optimisation fiscale avant 2028</strong>
+  </div>
+
+  <div class="hslides">
+    <!-- Slide 1 -->
+    <div class="hslide hs1 active">
+      <svg class="slide-geo" width="420" height="420" viewBox="0 0 420 420" fill="none">
+        <rect x="50" y="50" width="320" height="280" rx="4" stroke="white" stroke-width="1"/>
+        <line x1="50" y1="180" x2="370" y2="180" stroke="white" stroke-width="0.8"/>
+        <rect x="140" y="180" width="140" height="150" stroke="white" stroke-width="0.8"/>
+        <path d="M50 50 L210 0 L370 50" stroke="white" stroke-width="1" fill="none"/>
+        <rect x="80" y="230" width="70" height="100" stroke="white" stroke-width="0.6"/>
+        <rect x="270" y="230" width="70" height="100" stroke="white" stroke-width="0.6"/>
+        <rect x="160" y="90" width="100" height="70" stroke="white" stroke-width="0.6"/>
+        <line x1="210" y1="0" x2="210" y2="50" stroke="white" stroke-width="0.8"/>
+      </svg>
+      <div class="hslide-content">
+        <div class="container">
+          <div class="slide-pill">Rénovation Maison</div>
+          <h1 class="slide-h1">Rénovation de maison<br><em>en Suisse romande</em></h1>
+          <p class="slide-sub">Entreprise générale pour piloter vos travaux de A à Z.</p>
+          <div class="slide-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">Demander un devis</a>
+            <a href="#simulateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hslide hs2">
+      <svg class="slide-geo" width="380" height="380" viewBox="0 0 380 380" fill="none">
+        <rect x="40" y="40" width="300" height="300" rx="4" stroke="white" stroke-width="1"/>
+        <line x1="40" y1="120" x2="340" y2="120" stroke="white" stroke-width="0.7"/>
+        <line x1="40" y1="200" x2="340" y2="200" stroke="white" stroke-width="0.7"/>
+        <line x1="40" y1="280" x2="340" y2="280" stroke="white" stroke-width="0.7"/>
+        <line x1="120" y1="40" x2="120" y2="340" stroke="white" stroke-width="0.7"/>
+        <line x1="200" y1="40" x2="200" y2="340" stroke="white" stroke-width="0.7"/>
+        <line x1="280" y1="40" x2="280" y2="340" stroke="white" stroke-width="0.7"/>
+        <circle cx="190" cy="190" r="40" stroke="white" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="hslide-content">
+        <div class="container">
+          <div class="slide-pill">Rénovation Appartement</div>
+          <h1 class="slide-h1">Votre appartement,<br><em>réinventé de A à Z.</em></h1>
+          <p class="slide-sub">Optimisez chaque m² de votre appartement. Cuisine ouverte, SDB design, cloisons abattues — votre vision, notre expertise.</p>
+          <div class="slide-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">Demander un devis</a>
+            <a href="#simulateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hslide hs3">
+      <svg class="slide-geo" width="400" height="340" viewBox="0 0 400 340" fill="none">
+        <rect x="30" y="50" width="160" height="240" rx="4" stroke="white" stroke-width="1"/>
+        <rect x="210" y="50" width="160" height="115" rx="4" stroke="white" stroke-width="1"/>
+        <rect x="210" y="175" width="160" height="115" rx="4" stroke="white" stroke-width="1"/>
+        <line x1="30" y1="150" x2="190" y2="150" stroke="white" stroke-width="0.7"/>
+        <circle cx="110" cy="100" r="25" stroke="white" stroke-width="0.8" fill="none"/>
+        <rect x="50" y="170" width="120" height="100" rx="2" stroke="white" stroke-width="0.7"/>
+        <line x1="110" y1="220" x2="110" y2="270" stroke="white" stroke-width="0.6"/>
+        <line x1="230" y1="100" x2="350" y2="100" stroke="white" stroke-width="0.6"/>
+        <line x1="230" y1="215" x2="350" y2="215" stroke="white" stroke-width="0.6"/>
+      </svg>
+      <div class="hslide-content">
+        <div class="container">
+          <div class="slide-pill">Cuisine &amp; Salle de bain</div>
+          <h1 class="slide-h1">Des espaces de vie<br><em>qui vous ressemblent.</em></h1>
+          <p class="slide-sub">Cuisines sur-mesure et salles de bain design. Matériaux nobles, finitions parfaites, rendu haut de gamme pour un budget maîtrisé.</p>
+          <div class="slide-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">Demander un devis</a>
+            <a href="#simulateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="hslide hs4">
+      <svg class="slide-geo" width="380" height="360" viewBox="0 0 380 360" fill="none">
+        <circle cx="190" cy="180" r="140" stroke="white" stroke-width="1" fill="none"/>
+        <circle cx="190" cy="180" r="100" stroke="white" stroke-width="0.7" fill="none"/>
+        <circle cx="190" cy="180" r="60" stroke="white" stroke-width="0.5" fill="none"/>
+        <line x1="190" y1="40" x2="190" y2="320" stroke="white" stroke-width="0.6"/>
+        <line x1="50" y1="180" x2="330" y2="180" stroke="white" stroke-width="0.6"/>
+        <line x1="91" y1="81" x2="289" y2="279" stroke="white" stroke-width="0.4"/>
+        <line x1="289" y1="81" x2="91" y2="279" stroke="white" stroke-width="0.4"/>
+        <polygon points="190,80 230,160 190,140 150,160" stroke="white" stroke-width="1" fill="none"/>
+      </svg>
+      <div class="hslide-content">
+        <div class="container">
+          <div class="slide-pill">Rénovation Énergétique</div>
+          <h1 class="slide-h1">Économisez jusqu'à 40%<br><em>sur vos factures.</em></h1>
+          <p class="slide-sub">Isolation, fenêtres triple vitrage, pompe à chaleur, panneaux solaires. Subventions cantonales jusqu'à 35 % — on s'occupe de tout.</p>
+          <div class="slide-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">Demander un devis</a>
+            <a href="#simulateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 5 -->
+    <div class="hslide hs5">
+      <svg class="slide-geo" width="360" height="360" viewBox="0 0 360 360" fill="none">
+        <rect x="30" y="30" width="300" height="300" rx="8" stroke="white" stroke-width="1"/>
+        <rect x="60" y="60" width="240" height="240" rx="4" stroke="white" stroke-width="0.7"/>
+        <rect x="90" y="90" width="180" height="180" rx="2" stroke="white" stroke-width="0.5"/>
+        <line x1="30" y1="180" x2="330" y2="180" stroke="white" stroke-width="0.6"/>
+        <line x1="180" y1="30" x2="180" y2="330" stroke="white" stroke-width="0.6"/>
+        <circle cx="180" cy="180" r="20" stroke="white" stroke-width="0.8" fill="none"/>
+      </svg>
+      <div class="hslide-content">
+        <div class="container">
+          <div class="slide-pill">Peinture, Sols &amp; Finitions</div>
+          <h1 class="slide-h1">Les finitions qui font<br><em>toute la différence.</em></h1>
+          <p class="slide-sub">Enduits décoratifs, parquet massif, carrelage grand format, peintures écologiques. L'excellence dans les détails qui valorisent votre bien.</p>
+          <div class="slide-ctas">
+            <a href="#simulateur" class="btn btn-primary btn-lg">Demander un devis</a>
+            <a href="#simulateur" class="btn btn-ghost-w btn-lg">Estimer mon projet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .hslides -->
+
+  <!-- Controls -->
+  <div class="hero-ctrl">
+    <button class="harrow" id="h-prev" aria-label="Précédent">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="hero-dots">
+      <div class="hdot active" data-i="0"></div>
+      <div class="hdot" data-i="1"></div>
+      <div class="hdot" data-i="2"></div>
+      <div class="hdot" data-i="3"></div>
+      <div class="hdot" data-i="4"></div>
+    </div>
+    <button class="harrow" id="h-next" aria-label="Suivant">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+  <div class="hero-prog" id="hero-prog"></div>
+</section>
+
+<!-- ============================================================
+     SERVICES SLIDER
+============================================================ -->
+<section id="services">
+
+  <div class="svp-head">
+    <div class="svp-head-txt">
+      <div class="stag">Services</div>
+      <h2 class="stitle">Nos prestations de rénovation</h2>
+      <p class="ssub">Des solutions clés en main pour chaque projet, de la cuisine au chantier énergétique.</p>
+    </div>
+    <div class="svp-controls">
+      <button id="svp-prev" class="svp-nav-btn" aria-label="Précédent">‹</button>
+      <button id="svp-next" class="svp-nav-btn" aria-label="Suivant">›</button>
+    </div>
+  </div>
+
+  <div class="svp-slider">
+    <div class="svp-track" id="svp-track">
+
+      <article class="svp-card" active>
+        <img class="svp-card__bg" src="assets/svc-maison.jpg" alt="Rénovation maison">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-maison.jpg" alt="">
+          <div>
+            <span class="svp-card__tag">CLÉS EN MAIN</span>
+            <h3 class="svp-card__title">Rénovation maison</h3>
+            <p class="svp-card__desc">Pilotage complet de A à Z, un interlocuteur unique. Délais et budget garantis.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="assets/svc-appart.jpg" alt="Rénovation appartement">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-appart.jpg" alt="">
+          <div>
+            <span class="svp-card__tag">SUR MESURE</span>
+            <h3 class="svp-card__title">Rénovation appartement</h3>
+            <p class="svp-card__desc">Cuisine ouverte, parquet, salle de bain design. Optimisation fiscale incluse.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="assets/svc-cuisine.webp" alt="Rénovation cuisine">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-cuisine.jpg" alt="">
+          <div>
+            <span class="svp-card__tag">FONCTIONNEL</span>
+            <h3 class="svp-card__title">Rénovation cuisine</h3>
+            <p class="svp-card__desc">Conception sur-mesure, plomberie, électricité et finitions en un seul chantier.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="assets/svc-bain.jpg" alt="Salle de bain">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-bain.webp" alt="">
+          <div>
+            <span class="svp-card__tag">DESIGN PREMIUM</span>
+            <h3 class="svp-card__title">Salle de bain</h3>
+            <p class="svp-card__desc">Douche à l'italienne, robinetterie premium. Délai moyen : 3 à 5 semaines.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="assets/svc-energie.jpg" alt="Rénovation énergétique">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-energie.jpg" alt="">
+          <div>
+            <span class="svp-card__tag">SUBVENTIONS</span>
+            <h3 class="svp-card__title">Rénovation énergétique</h3>
+            <p class="svp-card__desc">PAC, VMC, panneaux solaires. Subventions cantonales jusqu'à 40 %, dossier géré.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="svp-card">
+        <img class="svp-card__bg" src="assets/svc-isolation.jpg" alt="Isolation et fenêtres">
+        <div class="svp-card__content">
+          <img class="svp-card__thumb" src="assets/thumb-isolation.jpg" alt="">
+          <div>
+            <span class="svp-card__tag">THERMIQUE</span>
+            <h3 class="svp-card__title">Isolation & fenêtres</h3>
+            <p class="svp-card__desc">ITE, triple vitrage, volets motorisés. Économies garanties dès la première année.</p>
+            <a href="#simulateur" class="svp-card__btn">Devis gratuit</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="svp-dots" id="svp-dots"></div>
+
+</section>
+
+<style>
+  /* ============================================================
+     SERVICES ACCORDION SLIDER
+  ============================================================ */
+  #services {
+    background: var(--g50);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  .svp-head {
+    max-width: 1200px; margin: 0 auto;
+    padding: 70px 40px 50px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 2rem;
+  }
+  .svp-head-txt { flex: 1; }
+  .svp-controls { display: flex; gap: 0.5rem; flex-shrink: 0; }
+  .svp-nav-btn {
+    width: 2.5rem; height: 2.5rem;
+    border: none; border-radius: 50%;
+    background: rgba(0,0,0,0.08);
+    color: var(--black); font-size: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.3s, color 0.3s;
+    line-height: 1;
+  }
+  .svp-nav-btn:hover { background: var(--red); color: #fff; }
+  .svp-nav-btn:disabled { opacity: 0.25; cursor: default; }
+
+  /* ── Slider ── */
+  .svp-slider { max-width: 1400px; margin: 0 auto; overflow: hidden; }
+  .svp-track {
+    display: flex; gap: 1.25rem;
+    align-items: flex-start;
+    padding: 0 40px 40px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  /* ── Card ── */
+  .svp-card {
+    position: relative;
+    flex: 0 0 5rem; height: 28rem;
+    border-radius: 1rem; overflow: hidden;
+    cursor: pointer;
+    transition: flex-basis 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                transform   0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .svp-card[active] {
+    flex-basis: clamp(18rem, 35vw, 28rem);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* Background image */
+  .svp-card__bg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.65) saturate(70%);
+    transition: filter 0.35s, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .svp-card:hover .svp-card__bg {
+    filter: brightness(0.8) saturate(100%);
+    transform: scale(1.05);
+  }
+
+  /* Content overlay */
+  .svp-card__content {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    gap: 0.7rem; padding: 0;
+    background: linear-gradient(transparent 30%, rgba(0,0,0,0.88) 100%);
+  }
+
+  /* Collapsed: vertical title */
+  .svp-card__title {
+    color: #fff; font-weight: 700; font-size: 1.05rem;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+    white-space: nowrap; text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .svp-card__tag,
+  .svp-card__thumb,
+  .svp-card__desc,
+  .svp-card__btn { display: none !important; }
+
+  /* Expanded state */
+  .svp-card[active] .svp-card__content {
+    flex-direction: column; align-items: flex-start;
+    justify-content: flex-end;
+    padding: 2rem 2.2rem; gap: 0;
+    background: linear-gradient(transparent 20%, rgba(0,0,0,0.82) 100%);
+  }
+  .svp-card[active] .svp-card__title {
+    writing-mode: horizontal-tb; transform: none;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    margin-bottom: 0.5rem; letter-spacing: 0.02em;
+    white-space: normal; line-height: 1.1;
+  }
+  .svp-card[active] .svp-card__tag  { display: inline-block !important; margin-bottom: 0.6rem; }
+  .svp-card[active] .svp-card__thumb { display: none !important; }
+  .svp-card[active] .svp-card__desc { display: block !important; margin-bottom: 1rem; }
+  .svp-card[active] .svp-card__btn  { display: inline-block !important; }
+  .svp-card[active] .svp-card__content > div {
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .svp-card__tag {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 3px 9px; border-radius: 2px;
+    width: fit-content;
+  }
+  .svp-card__desc {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.88rem; line-height: 1.55; max-width: 14rem;
+  }
+  .svp-card__btn {
+    padding: 0.5rem 1.3rem; border: none;
+    border-radius: 9999px;
+    background: var(--red); color: #fff;
+    font-size: 0.85rem; font-weight: 600;
+    cursor: pointer; text-decoration: none;
+    transition: background 0.3s; width: fit-content;
+  }
+  .svp-card__btn:hover { background: var(--red-h); }
+
+  /* ── Dots ── */
+  .svp-dots {
+    display: flex; gap: 0.45rem;
+    justify-content: center; padding: 16px 0 60px;
+  }
+  .svp-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(0,0,0,0.18);
+    cursor: pointer; transition: 0.3s; border: none;
+  }
+  .svp-dot.active {
+    background: var(--red); transform: scale(1.25);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 767px) {
+    .svp-head { padding: 40px 20px 24px; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .svp-track { flex-direction: column; align-items: stretch; gap: 0.6rem; padding: 0 16px 20px; }
+    .svp-card { flex: none; width: 100%; height: auto; min-height: 68px; border-radius: 0.75rem; }
+    .svp-card[active] { min-height: 300px; flex-basis: auto; transform: none; box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+    .svp-card__content { flex-direction: row; justify-content: flex-start; padding: 1rem 1.2rem; align-items: center; }
+    .svp-card__title { writing-mode: horizontal-tb; transform: none; font-size: 0.95rem; letter-spacing: 0.05em; }
+    .svp-card[active] .svp-card__content { flex-direction: column; align-items: flex-start; padding: 1.4rem; }
+    .svp-card[active] .svp-card__title { font-size: 1.65rem; }
+    .svp-card[active] .svp-card__thumb { display: none !important; }
+    .svp-card[active] .svp-card__desc { max-width: 100%; }
+    .svp-card[active] .svp-card__btn { width: 100%; text-align: center; padding: 0.65rem; }
+    .svp-dots { display: none; }
+    .svp-controls { padding: 0 0 16px; }
+  }
+</style>
+
+<!-- ============================================================
+     PROJECTS
+============================================================ -->
+<section id="realisations">
+  <div class="container">
+    <div class="proj-slider-head">
+      <div class="shdr reveal" style="margin-bottom:0">
+        <div class="stag">Réalisations</div>
+        <h2 class="stitle">Quelques projets réalisés</h2>
+        <p class="ssub">Des transformations concrètes, des clients satisfaits, des chantiers livrés dans les délais et les budgets.</p>
+      </div>
+      <div class="proj-arrows">
+        <button class="proj-arrow" id="proj-prev" aria-label="Précédent" disabled>
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="proj-arrow" id="proj-next" aria-label="Suivant">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="proj-slider">
+    <div class="proj-grid" id="proj-track">
+      <div class="proj-card reveal" data-gallery="gallery/appart-1.jpg,gallery/appart-2.jpg,gallery/appart-3.jpg,gallery/appart-4.jpg,gallery/appart-5.jpg,gallery/appart-6.jpg">
+        <div class="proj-vis pv1" style="background:none"><img src="assets/real-appart.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Genève – Eaux-Vives</span>
+          </div>
+        <div class="proj-info">
+          <div class="proj-type">Appartement</div>
+          <div class="proj-title">Rénovation complète d'un appartement</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Eaux-Vives</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>85 m²</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 85'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Cuisine, salle de bain, sols</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal reveal-delay-1" data-gallery="gallery/cuisine3-1.jpg,gallery/cuisine3-2.jpg,gallery/cuisine1-1.webp,gallery/cuisine1-2.webp,gallery/cuisine1-3.webp,gallery/cuisine1-4.webp">
+        <div class="proj-vis pv2" style="background:none"><img src="assets/real-cuisine.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Nyon</span>
+          </div>
+        <div class="proj-info">
+          <div class="proj-type">Appartement</div>
+          <div class="proj-title">Rénovation de cuisine</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>60 m²</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 28'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Cuisine sur mesure</span><span class="proj-tag">Durée : 7 semaines</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal reveal-delay-2" data-gallery="gallery/energie-1.jpg,gallery/energie-2.jpg,gallery/energie-3.jpg">
+        <div class="proj-vis pv3" style="background:none"><img src="assets/real-energie.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Lausanne</span>
+          </div>
+        <div class="proj-info">
+          <div class="proj-type">Maison</div>
+          <div class="proj-title">Rénovation énergétique d'une maison</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>160 m²</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Isolation + fenêtres</span><span class="proj-tag">Subventions obtenues</span></div>
+        </div>
+      </div>
+      <div class="proj-card reveal reveal-delay-3" data-gallery="gallery/cuisine4-1.jpg,gallery/cuisine4-2.jpg,gallery/cuisine4-3.jpg,gallery/cuisine4-4.jpg,gallery/cuisine4-5.jpg">
+        <div class="proj-vis pv4" style="background:none"><img src="assets/real-cuisine2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Morges, VD</span>
+          </div>
+        <div class="proj-info">
+          <div class="proj-type">Maison</div>
+          <div class="proj-title">Réaménagement d'une cuisine</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges, VD</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>180 m²</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 35'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Cuisine ouverte</span><span class="proj-tag">Parquet + peinture</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/bain2-1.webp,gallery/bain2-2.webp,gallery/bain1-1.webp,gallery/bain1-2.webp,gallery/bain1-3.webp">
+        <div class="proj-vis" style="background:none"><img src="assets/real-bain.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Genève – Champel</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Appartement</div>
+          <div class="proj-title">Rénovation salle de bain design</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Champel</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 22'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Douche italienne</span><span class="proj-tag">Durée : 4 semaines</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/bain4-1.jpg,gallery/bain3-1.jpg,gallery/bain1-4.webp,gallery/bain1-5.webp">
+        <div class="proj-vis" style="background:none"><img src="assets/real-bain2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Lausanne – Pully</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Maison</div>
+          <div class="proj-title">Douche à l'italienne sur mesure</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Pully</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 18'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Carrelage grand format</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/cuisine5-1.jpg,gallery/cuisine5-2.jpg,gallery/cuisine5-3.jpg,gallery/cuisine5-4.jpg">
+        <div class="proj-vis" style="background:none"><img src="assets/real-cuisine3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Lausanne – Ouchy</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Appartement</div>
+          <div class="proj-title">Cuisine moderne avec îlot central</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Ouchy</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 32'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Îlot central</span><span class="proj-tag">Électroménager intégré</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg,gallery/sol-4.jpg">
+        <div class="proj-vis" style="background:none"><img src="assets/real-sol1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Nyon – La Côte</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Maison</div>
+          <div class="proj-title">Parquet massif — villa contemporaine</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon – La Côte</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>220 m²</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Parquet chêne</span><span class="proj-tag">Sols & finitions</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg">
+        <div class="proj-vis" style="background:none"><img src="assets/real-sol2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Genève – Plainpalais</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Appartement</div>
+          <div class="proj-title">Rénovation sols & finitions haut de gamme</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Plainpalais</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>95 m²</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Parquet + carrelage</span></div>
+        </div>
+      </div>
+      <div class="proj-card" data-gallery="gallery/finition-1.png,gallery/finition-2.webp,gallery/maison-1.jpg,gallery/maison-2.jpg,gallery/maison-3.jpg">
+        <div class="proj-vis" style="background:none"><img src="assets/real-finition.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="proj-badge">Rolle, VD</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Maison</div>
+          <div class="proj-title">Transformation intérieure complète</div>
+          <div class="proj-meta">
+            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rolle, VD</span>
+            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 65'000 CHF</span>
+          </div>
+          <div class="proj-tags"><span class="proj-tag">Finitions premium</span><span class="proj-tag">Peinture décorative</span></div>
+        </div>
+      </div>
+    </div>
+    </div><!-- .proj-slider -->
+  </div>
+</section>
+
+<!-- ============================================================
+     BEFORE / AFTER
+============================================================ -->
+<section id="avant-apres">
+  <div class="container">
+    <div class="shdr reveal" style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:24px;">
+      <div>
+        <div class="stag">Transformation visuelle</div>
+        <h2 class="stitle">Le résultat parle<br>de lui-même</h2>
+      </div>
+      <p class="ssub" style="max-width:400px;">Faites glisser le curseur pour visualiser la différence entre l'état initial et le rendu final après rénovation par Renova Swiss.</p>
+    </div>
+    <div class="ba-wrap reveal" id="ba-wrap">
+      <div class="ba-before">
+        <div class="ba-lbl ba-lbl-b">Avant rénovation</div>
+      </div>
+      <div class="ba-after">
+        <div class="ba-lbl ba-lbl-a">Après rénovation</div>
+      </div>
+      <div class="ba-div" id="ba-div">
+        <div class="ba-handle">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATS / REASSURANCE
+============================================================ -->
+<section id="chiffres">
+  <div class="container">
+    <div class="shdr reveal" style="text-align:center; max-width:720px; margin:0 auto 52px;">
+      <div class="stag">Chiffres clés</div>
+      <h2 class="stitle">Une entreprise de rénovation<br>structurée et expérimentée</h2>
+      <p class="ssub" style="margin:0 auto;">Nous accompagnons les propriétaires avec une approche rigoureuse, transparente et orientée résultats.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num"><span class="stat-pre">+</span><span class="stat-val" data-target="450">0</span></div>
+        <div class="stat-lbl">Biens rénovés en Suisse romande</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num"><span class="stat-pre">+</span><span class="stat-val" data-target="25">0</span></div>
+        <div class="stat-lbl">Années d'expérience</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num"><span class="stat-val" data-target="3">0</span><span class="stat-suf"> jours</span></div>
+        <div class="stat-lbl">D'avance sur livraison</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPARISON
+============================================================ -->
+<section id="comparatif">
+  <div class="container">
+    <div class="shdr reveal" style="text-align:center; max-width:700px; margin:0 auto 60px;">
+      <div class="stag">Pourquoi nous choisir</div>
+      <h2 class="stitle">Pourquoi faire appel à Renova Swiss ?</h2>
+      <p class="ssub" style="margin:0 auto;">Un seul interlocuteur, zéro coordination à gérer, résultat garanti.</p>
+    </div>
+    <div class="cmp-wrap reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="cmp-criteria"></th>
+            <th class="cmp-rs">
+              <div class="cmp-rs-logo">Notre approche</div>
+              <div class="cmp-badge">Renova Swiss</div>
+            </th>
+            <th>Artisans séparés</th>
+            <th>Plateformes travaux</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cmp-row-lbl">Interlocuteur</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Un interlocuteur unique</td>
+            <td><span class="ccr">✗</span> Plusieurs artisans</td>
+            <td><span class="ccr">✗</span> Prestataires différents</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Coordination</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Coordination complète</td>
+            <td><span class="ccr">✗</span> À votre charge</td>
+            <td><span class="ccr">✗</span> Limitée</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Planning</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Planning structuré</td>
+            <td><span class="ccr">✗</span> Retards fréquents</td>
+            <td><span class="ccr">✗</span> Dépend des prestataires</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Budget</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Devis global clair</td>
+            <td><span class="ccr">✗</span> Multiplication des devis</td>
+            <td><span class="ccr">✗</span> Tarifs variables</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Subventions</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Identification et dossier</td>
+            <td><span class="ccr">✗</span> Non pris en charge</td>
+            <td><span class="ccr">✗</span> Non pris en charge</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Fiscalité</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Vision globale des travaux</td>
+            <td><span class="ccy">~</span> Peu abordé</td>
+            <td><span class="ccr">✗</span> Non abordé</td>
+          </tr>
+          <tr>
+            <td class="cmp-row-lbl">Administratif</td>
+            <td class="cmp-rs-data"><span class="cck">✓</span> Accompagnement complet</td>
+            <td><span class="ccr">✗</span> À votre charge</td>
+            <td><span class="ccr">✗</span> À votre charge</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section id="processus">
+  <div class="container">
+    <div class="shdr reveal" style="text-align:center; max-width:700px; margin:0 auto 80px;">
+      <div class="stag">Notre méthode</div>
+      <h2 class="stitle">Votre projet, étape par étape</h2>
+      <p class="ssub" style="margin:0 auto;">Un processus éprouvé, transparent et structuré pour chaque projet, du premier contact à la remise des clés.</p>
+    </div>
+
+    <div class="tl-wrap" id="tl-wrap">
+      <svg class="tl-line-svg" id="tl-line-svg" aria-hidden="true">
+        <path class="tl-path-track" id="tl-path-track"/>
+        <path class="tl-path-fill"  id="tl-path-fill"/>
+      </svg>
+
+      <!-- Étape 01 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="proc-num"><span class="num-fill"></span><span>01</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="proc-title">Étude du projet</div>
+          <div class="proc-desc">Visite sur site gratuite, analyse des besoins, état des lieux complet et identification des contraintes techniques.</div>
+        </div>
+      </div>
+
+      <!-- Étape 02 -->
+      <div class="tl-item tl-right">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="proc-num"><span class="num-fill"></span><span>02</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="proc-title">Estimation fiscale / subvention</div>
+          <div class="proc-desc">Calcul des déductions fiscales cantonales et fédérales, identification des subventions éligibles, simulation d'économies.</div>
+        </div>
+      </div>
+
+      <!-- Étape 03 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="proc-num"><span class="num-fill"></span><span>03</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="proc-title">Devis détaillé</div>
+          <div class="proc-desc">Chiffrage précis poste par poste, planning prévisionnel, choix des matériaux et validation du budget final.</div>
+        </div>
+      </div>
+
+      <!-- Étape 04 -->
+      <div class="tl-item tl-right">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="proc-num"><span class="num-fill"></span><span>04</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="proc-title">Réalisation travaux</div>
+          <div class="proc-desc">Coordination de toutes les équipes, reporting hebdomadaire, contrôle qualité continu et respect strict du planning.</div>
+        </div>
+      </div>
+
+      <!-- Étape 05 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="proc-num"><span class="num-fill"></span><span>05</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="proc-title">Réception chantier</div>
+          <div class="proc-desc">Visite de réception contradictoire, levée des réserves, remise des garanties, dossier de fin de travaux complet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ============================================================
+     STATS
+  ============================================================ */
+  #chiffres { padding: 80px 0; background: #fff; border-top: 1px solid var(--g200); border-bottom: 1px solid var(--g200); }
+  .stats-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+  .stat-item { padding: 48px 40px; border-right: 1px solid var(--g200); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-size: 72px; font-weight: 900; letter-spacing: -3px; color: var(--black); line-height: 1; margin-bottom: 14px; }
+  .stat-pre { color: var(--red); font-size: 48px; }
+  .stat-suf { color: var(--red); font-size: 36px; font-weight: 700; letter-spacing: -1px; }
+  .stat-lbl { font-size: 12px; font-weight: 700; color: var(--g500); text-transform: uppercase; letter-spacing: 1.5px; max-width: 180px; line-height: 1.6; }
+
+  /* ============================================================
+     COMPARISON
+  ============================================================ */
+  #comparatif { padding: 110px 0; background: var(--g50); }
+  .cmp-wrap { overflow-x: auto; border-radius: 16px; box-shadow: var(--sh-md); }
+  .cmp-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 680px; }
+  .cmp-table th { padding: 22px 24px; text-align: left; font-size: 14px; font-weight: 700; border-bottom: 1px solid var(--g200); }
+  .cmp-criteria { text-align: left !important; background: var(--g50) !important; color: var(--g600) !important; font-size: 12px !important; letter-spacing: 1px; text-transform: uppercase; width: 28%; }
+  .cmp-rs { background: var(--red) !important; color: #fff !important; }
+  .cmp-rs-logo { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; }
+  .cmp-badge { display: inline-block; background: rgba(255,255,255,0.2); font-size: 11px; padding: 2px 9px; border-radius: 100px; margin-top: 5px; font-weight: 500; }
+  .cmp-table td { padding: 16px 24px; border-bottom: 1px solid var(--g100); font-size: 14px; text-align: left; color: var(--g600); }
+  .cmp-row-lbl { text-align: left !important; font-weight: 600 !important; color: var(--black) !important; font-size: 14px !important; }
+  .cmp-rs-data { background: var(--g100) !important; font-weight: 600 !important; color: var(--black) !important; }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .cmp-table tr:hover td { background: var(--g50); }
+  .cmp-table tr:hover .cmp-rs-data { background: var(--g200) !important; }
+  .cck { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(34,197,94,0.15); border-radius: 50%; color: #16a34a; font-size: 11px; margin-right: 5px; }
+  .ccr { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(239,68,68,0.1); border-radius: 50%; color: #dc2626; font-size: 11px; margin-right: 5px; }
+  .ccy { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; background: rgba(234,179,8,0.1); border-radius: 50%; color: #ca8a04; font-size: 11px; margin-right: 5px; }
+  .cmp-rs-data .cck { background: rgba(34,197,94,0.18); color: #16a34a; }
+
+  /* ============================================================
+     PROCESS — Timeline GSAP
+  ============================================================ */
+  #processus { padding: 110px 0; background: #fff; position: relative; overflow: hidden; }
+  #processus .container { position: relative; z-index: 1; }
+  #processus .stag  { color: var(--red); }
+  #processus .stitle { color: var(--black); }
+  #processus .ssub  { color: var(--g600); }
+
+  /* Ligne serpentante */
+  .tl-wrap { position: relative; }
+  .tl-line-svg {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .tl-path-track {
+    fill: none;
+    stroke: rgba(0,0,0,0.12);
+    stroke-width: 6;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 10;
+  }
+  .tl-path-fill {
+    fill: none;
+    stroke: #cc0000;
+    stroke-width: 6;
+    stroke-linecap: butt;
+    stroke-linejoin: miter;
+    stroke-miterlimit: 10;
+    filter: drop-shadow(0 0 12px rgba(204,0,0,0.75));
+  }
+
+  /* Items */
+  .tl-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; z-index: 1;
+    padding: 24px 0;
+  }
+  .tl-left  .tl-card,
+  .tl-right .tl-card { max-width: 560px; width: 100%; }
+  .tl-dot { display: none; }
+
+  /* Cartes */
+  .tl-card {
+    --overlay: 0.82;
+    background: #141414;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 0px;
+    padding: 28px 24px;
+    transition: border-color 0.4s, box-shadow 0.4s;
+  }
+  .tl-card:hover {
+    border-color: rgba(204,0,0,0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+  .tl-card--active {
+    border-color: rgba(204,0,0,0.55) !important;
+    box-shadow: 0 0 0 1px rgba(204,0,0,0.3), 0 0 50px rgba(204,0,0,0.22), 0 20px 50px rgba(0,0,0,0.5) !important;
+    background-blend-mode: normal;
+  }
+  .tl-spacer { display: none; }
+
+  /* Contenu carte */
+  .proc-num {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: transparent;
+    border: 1.5px solid rgba(204,0,0,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; color: rgba(255,255,255,0.3);
+    margin-bottom: 18px;
+    position: relative; overflow: hidden;
+    transition: color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .num-fill {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #cc0000, #8a0000);
+    transform: scaleY(0); transform-origin: bottom;
+    z-index: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .proc-num span:last-child { position: relative; z-index: 1; }
+  .proc-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .proc-icon svg { width: 17px; height: 17px; color: rgba(255,255,255,0.55); }
+  .proc-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; text-shadow: 0 1px 6px rgba(0,0,0,0.8); }
+  .proc-desc  { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.65; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+
+  /* ============================================================
+     SCROLL REVEAL
+  ============================================================ */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* Responsive stats/comparison/process */
+  @media (max-width: 900px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid var(--g200); padding: 40px 32px; }
+    .stat-item:last-child { border-bottom: none; }
+    .tl-left  .tl-card,
+    .tl-right .tl-card { max-width: 100%; }
+  }
+  @media (max-width: 600px) {
+    .stat-num { font-size: 56px; }
+    .stat-pre { font-size: 36px; }
+    .stat-suf { font-size: 28px; }
+  }
+</style>
+
+
+<!-- ============================================================
+     SIMULATOR
+============================================================ -->
+<section id="simulateur">
+  <div class="container sim-wrap">
+    <div class="sim-hdr reveal" style="text-align:center; max-width:700px; margin:0 auto 52px;">
+      <div class="stag" style="color:rgba(255,130,130,0.9);">Simulateur</div>
+      <h2 class="stitle" style="color:#fff;">Estimez votre projet<br>en quelques clics</h2>
+      <p class="ssub" style="color:rgba(255,255,255,0.5); margin:0 auto;">Obtenez une fourchette budgétaire et le montant des aides potentielles en 30 secondes.</p>
+    </div>
+    <div class="sim-card reveal">
+      <form id="sim-form">
+        <div class="sim-grid">
+          <div class="sim-field">
+            <label>Type de bien</label>
+            <div class="sim-select-wrap">
+              <select id="s-bien" required>
+                <option value="">Choisir…</option>
+                <option value="maison">Maison individuelle</option>
+                <option value="appartement">Appartement</option>
+                <option value="villa">Villa / Propriété</option>
+                <option value="commercial">Local commercial</option>
+              </select>
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="sim-field">
+            <label>Type de rénovation</label>
+            <div class="sim-select-wrap">
+              <select id="s-type" required>
+                <option value="">Choisir…</option>
+                <option value="complete">Rénovation complète</option>
+                <option value="partielle">Rénovation partielle</option>
+                <option value="cuisine">Cuisine uniquement</option>
+                <option value="sdb">Salle de bain</option>
+                <option value="energetique">Rénovation énergétique</option>
+                <option value="finitions">Peinture &amp; finitions</option>
+              </select>
+              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </div>
+          <div class="sim-field">
+            <label>Surface approximative</label>
+            <div class="sim-range-wrap">
+              <div class="sim-range-top">
+                <span class="sim-range-val" id="surf-val">120 m²</span>
+              </div>
+              <input type="range" id="s-surf" min="20" max="500" value="120" step="5">
+              <div class="sim-range-minmax"><span>20 m²</span><span>500 m²</span></div>
+            </div>
+          </div>
+          <div class="sim-field">
+            <label>Budget envisagé</label>
+            <div class="sim-range-wrap">
+              <div class="sim-range-top">
+                <span class="sim-range-val" id="bud-val">150 000 CHF</span>
+              </div>
+              <input type="range" id="s-bud" min="10000" max="500000" value="150000" step="5000">
+              <div class="sim-range-minmax"><span>10 kCHF</span><span>500 kCHF</span></div>
+            </div>
+          </div>
+          <div class="sim-field">
+            <label>Code postal</label>
+            <input type="text" id="s-postal" placeholder="Ex. 1202" maxlength="4">
+          </div>
+          <div class="sim-field sim-field-cta">
+            <label style="opacity:0; user-select:none;">Calculer</label>
+            <button type="submit" class="sim-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Calculer mon estimation
+            </button>
+          </div>
+        </div>
+      </form>
+      <!-- Result -->
+      <div class="sim-result" id="sim-result">
+        <div class="sim-res-title">Votre estimation personnalisée</div>
+        <div class="sim-res-grid">
+          <div class="sim-res-item">
+            <div class="sim-res-lbl">Fourchette budgétaire</div>
+            <div class="sim-res-val" id="res-budget">—</div>
+          </div>
+          <div class="sim-res-item">
+            <div class="sim-res-lbl">Aides potentielles</div>
+            <div class="sim-res-val green" id="res-aides">—</div>
+          </div>
+          <div class="sim-res-item">
+            <div class="sim-res-lbl">Coût net estimé</div>
+            <div class="sim-res-val red" id="res-net">—</div>
+          </div>
+        </div>
+        <div class="sim-res-note">Découvrez si vos travaux peuvent ouvrir droit à des aides ou à une optimisation fiscale.</div>
+        <div class="sim-res-ctas">
+          <a href="#contact" class="sim-res-btn-p">Recevoir mon estimation détaillée</a>
+          <a href="tel:+41225551234" class="sim-res-btn-s">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z"/></svg>
+            Être rappelé
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AVIS GOOGLE
+============================================================ -->
+<section id="temoignages">
+  <div class="container">
+    <div class="rev-hdr reveal">
+      <div class="stag" style="color:var(--red)">Avis Google</div>
+      <h2 class="stitle">Ce que disent nos clients</h2>
+      <p class="ssub">Des centaines de familles suisses nous ont fait confiance pour transformer leur intérieur.</p>
+    </div>
+
+    <!-- Score global -->
+    <div class="rev-score reveal">
+      <div class="rev-score-num">4.9</div>
+      <svg class="rev-g-logo" viewBox="0 0 24 24" width="46" height="46"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+      <div>
+        <div class="rev-score-stars">★★★★★</div>
+        <div class="rev-score-count">127 avis Google</div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="rev-slider-wrap">
+      <button class="rev-arrow rev-prev" id="rev-prev" aria-label="Précédent">&#8592;</button>
+      <div class="rev-slider" id="rev-slider">
+        <div class="rev-track" id="rev-track">
+
+          <!-- 1 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#4285F4">ML</div>
+              <div class="rev-meta">
+                <div class="rev-name">Marie-Louise Favre</div>
+                <div class="rev-date">Il y a 2 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Renova Swiss a transformé notre appartement à Lausanne en 8 semaines chrono. L'interlocuteur unique, c'est vraiment la différence : on n'a jamais eu à courir après 5 artisans différents. Résultat impeccable, on recommande les yeux fermés.</p>
+          </div>
+
+          <!-- 2 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#34A853">TC</div>
+              <div class="rev-meta">
+                <div class="rev-name">Thomas Chappuis</div>
+                <div class="rev-date">Il y a 1 mois</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Cuisine entièrement refaite à Genève — délais respectés à la semaine près, budget tenu, finitions haut de gamme. Le suivi via leur application était rassurant. Je n'aurais pas fait mieux en cherchant des artisans séparément.</p>
+          </div>
+
+          <!-- 3 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#EA4335">SR</div>
+              <div class="rev-meta">
+                <div class="rev-name">Sophie Rochat</div>
+                <div class="rev-date">Il y a 6 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation complète d'un appartement des années 70 à Morges. Ils ont géré tout le dossier de permis sans que j'aie à lever le petit doigt. L'équipe était propre, ponctuelle et professionnelle du début à la fin.</p>
+          </div>
+
+          <!-- 4 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#7C3AED">JP</div>
+              <div class="rev-meta">
+                <div class="rev-name">Jean-Paul Morel</div>
+                <div class="rev-date">Il y a 2 mois</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Salle de bain entièrement refaite en 10 jours chrono. Carrelage posé avec une précision remarquable, douche à l'italienne impeccable. Chantier propre chaque soir. Un vrai plaisir de travailler avec une équipe aussi sérieuse.</p>
+          </div>
+
+          <!-- 5 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#0891B2">IG</div>
+              <div class="rev-meta">
+                <div class="rev-name">Isabelle Gaillard</div>
+                <div class="rev-date">Il y a 3 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Isolation extérieure de notre maison à Nyon. Renova Swiss a géré les démarches communales et les subventions cantonales. Travail soigné, aucune mauvaise surprise. Notre consommation de chauffage a chuté de 40 %.</p>
+          </div>
+
+          <!-- 6 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#F97316">FB</div>
+              <div class="rev-meta">
+                <div class="rev-name">François Bonnet</div>
+                <div class="rev-date">Il y a 5 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation d'un bien locatif à Fribourg. Coordination parfaite entre corps de métier, planning tenu, photos d'avancement envoyées chaque semaine. Exactement ce qu'on attendait pour gérer un chantier à distance.</p>
+          </div>
+
+          <!-- 7 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#6366F1">CD</div>
+              <div class="rev-meta">
+                <div class="rev-name">Claire Dupont</div>
+                <div class="rev-date">Il y a 2 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Transformation d'une grange en appartement habitable à Gruyères. Projet complexe avec contraintes patrimoniales. Renova Swiss a trouvé une solution à chaque étape. Le résultat dépasse toutes nos attentes.</p>
+          </div>
+
+          <!-- 8 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#475569">ML</div>
+              <div class="rev-meta">
+                <div class="rev-name">Marc Lejeune</div>
+                <div class="rev-date">Il y a 3 mois</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Rénovation complète de notre maison familiale à Vevey. 4 mois de travaux, zéro débordement de budget. L'app de suivi est un vrai plus : on voyait l'avancement en temps réel. Je recommande Renova Swiss sans la moindre réserve.</p>
+          </div>
+
+          <!-- 9 -->
+          <div class="rev-card">
+            <div class="rev-card-top">
+              <div class="rev-av" style="background:#DB2777">NP</div>
+              <div class="rev-meta">
+                <div class="rev-name">Nathalie Perret</div>
+                <div class="rev-date">Il y a 4 semaines</div>
+              </div>
+              <svg class="rev-glogo" viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57C21.36 18.1 22.56 15.28 22.56 12.25z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            </div>
+            <div class="rev-stars">★★★★★</div>
+            <p class="rev-txt">Cuisine ouverte sur le séjour, entièrement rénovée à Lausanne. Design contemporain, finitions parfaites. Renova Swiss a respecté chaque détail de notre brief. Service client réactif et agréable du premier appel à la remise des clés.</p>
+          </div>
+
+        </div><!-- /rev-track -->
+      </div><!-- /rev-slider -->
+      <button class="rev-arrow rev-next" id="rev-next" aria-label="Suivant">&#8594;</button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #temoignages { padding: 110px 0; background: #fff; }
+  #temoignages .stag  { color: var(--red); }
+  #temoignages .stitle { color: var(--black); }
+  #temoignages .ssub  { color: var(--g600); margin: 0 auto; max-width: 580px; }
+  .rev-hdr { text-align: center; margin-bottom: 52px; }
+
+  /* Score */
+  .rev-score {
+    display: flex; align-items: center; justify-content: center; gap: 20px;
+    background: var(--g50); border: 1px solid var(--g200);
+    border-radius: 20px; padding: 28px 40px;
+    max-width: 480px; margin: 0 auto 56px;
+  }
+  .rev-score-num { font-size: 52px; font-weight: 900; letter-spacing: -2px; color: var(--black); line-height: 1; }
+  .rev-score-stars { color: #FBBF24; font-size: 18px; letter-spacing: 2px; }
+  .rev-score-count { font-size: 13px; color: var(--g600); font-weight: 600; margin-top: 3px; }
+
+  /* Slider wrapper */
+  .rev-slider-wrap { position: relative; display: flex; align-items: center; gap: 16px; }
+  .rev-slider { overflow: hidden; flex: 1; }
+  .rev-track { display: flex; gap: 22px; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+
+  /* Cards */
+  .rev-card {
+    min-width: calc(33.333% - 15px);
+    flex: 0 0 calc(33.333% - 15px);
+    background: #fff; border: 1px solid var(--g200);
+    border-radius: 16px; padding: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .rev-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+  .rev-card-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .rev-av { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .rev-meta { flex: 1; min-width: 0; }
+  .rev-name { font-size: 14px; font-weight: 700; color: var(--black); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rev-date { font-size: 12px; color: var(--g600); margin-top: 1px; }
+  .rev-glogo { flex-shrink: 0; margin-left: auto; }
+  .rev-stars { color: #FBBF24; font-size: 14px; letter-spacing: 1px; margin-bottom: 12px; }
+  .rev-txt { font-size: 13px; color: var(--g800); line-height: 1.7; }
+
+  /* Arrows */
+  .rev-arrow {
+    width: 42px; height: 42px; border-radius: 50%;
+    border: 1px solid var(--g200); background: #fff;
+    font-size: 16px; color: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: var(--sh-sm);
+  }
+  .rev-arrow:hover { background: var(--black); color: #fff; border-color: var(--black); }
+  .rev-arrow:disabled { opacity: 0.3; cursor: default; }
+
+  @media (max-width: 900px) {
+    .rev-card { min-width: calc(50% - 11px); flex-basis: calc(50% - 11px); }
+  }
+  @media (max-width: 600px) {
+    .rev-card { min-width: 100%; flex-basis: 100%; }
+    .rev-arrow { display: none; }
+  }
+</style>
+
+<script>
+(function() {
+  var track   = document.getElementById('rev-track');
+  var prev    = document.getElementById('rev-prev');
+  var next    = document.getElementById('rev-next');
+  var total   = 9;
+  var perPage = window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+  var pages   = Math.ceil(total / perPage);
+  var cur     = 0;
+  var timer;
+
+  function go(idx) {
+    cur = (idx + pages) % pages;
+    var cardW = track.querySelector('.rev-card').offsetWidth;
+    var gap   = 22;
+    track.style.transform = 'translateX(-' + cur * (cardW + gap) * perPage + 'px)';
+    prev.disabled = false;
+    next.disabled = false;
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(function() { go(cur + 1); }, 5000);
+  }
+
+  prev.addEventListener('click', function() { go(cur - 1); startAuto(); });
+  next.addEventListener('click', function() { go(cur + 1); startAuto(); });
+
+  var sliderWrap = track.closest('.rev-slider-wrap');
+  sliderWrap.addEventListener('mouseenter', function() { clearInterval(timer); });
+  sliderWrap.addEventListener('mouseleave', startAuto);
+
+  go(0);
+  startAuto();
+})();
+</script>
+
+<!-- ============================================================
+     PARTNERS
+============================================================ -->
+<section id="partenaires">
+  <div class="part-hdr reveal" style="text-align:center; margin-bottom:48px;">
+    <div class="stag">Confiance &amp; qualité</div>
+    <h2 class="stitle" style="font-size:clamp(22px,3vw,32px);">Références, partenaires et standards de confiance</h2>
+  </div>
+  <div class="logos-slider">
+    <div class="logos-track">
+      <div class="logos-item"><img src="logos/geberit.svg" alt="Geberit"></div>
+      <div class="logos-item"><img src="logos/sika.svg" alt="Sika"></div>
+      <div class="logos-item"><img src="logos/velux.svg" alt="Velux"></div>
+      <div class="logos-item"><img src="logos/hilti.svg" alt="Hilti"></div>
+      <div class="logos-item"><img src="logos/swisspor.svg" alt="Swisspor"></div>
+      <div class="logos-item"><img src="logos/daikin.svg" alt="Daikin"></div>
+      <div class="logos-item"><img src="logos/axa.svg" alt="AXA"></div>
+      <div class="logos-item"><img src="logos/mobiliere.svg" alt="La Mobilière"></div>
+      <div class="logos-item"><img src="logos/helvetia.svg" alt="Helvetia"></div>
+      <div class="logos-item"><img src="logos/allianz.svg" alt="Allianz"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="logos-item"><img src="logos/geberit.svg" alt="Geberit"></div>
+      <div class="logos-item"><img src="logos/sika.svg" alt="Sika"></div>
+      <div class="logos-item"><img src="logos/velux.svg" alt="Velux"></div>
+      <div class="logos-item"><img src="logos/hilti.svg" alt="Hilti"></div>
+      <div class="logos-item"><img src="logos/swisspor.svg" alt="Swisspor"></div>
+      <div class="logos-item"><img src="logos/daikin.svg" alt="Daikin"></div>
+      <div class="logos-item"><img src="logos/axa.svg" alt="AXA"></div>
+      <div class="logos-item"><img src="logos/mobiliere.svg" alt="La Mobilière"></div>
+      <div class="logos-item"><img src="logos/helvetia.svg" alt="Helvetia"></div>
+      <div class="logos-item"><img src="logos/allianz.svg" alt="Allianz"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+============================================================ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sidebar reveal">
+        <div class="stag">FAQ</div>
+        <h2 class="stitle">Questions<br>fréquentes</h2>
+        <p class="ssub" style="margin-bottom:32px;">Toutes les réponses aux questions que vous vous posez avant de lancer votre projet de rénovation.</p>
+        <a href="#simulateur" class="btn btn-primary">Estimer mon projet</a>
+      </div>
+      <div class="faq-list reveal reveal-delay-1">
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Combien coûte une rénovation ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">En Suisse romande, le coût d'une rénovation complète oscille entre <strong>1 500 et 2 800 CHF/m²</strong> selon l'état initial du bien, le niveau de prestation choisi et la complexité technique. Pour une maison de 150 m², comptez entre 220 000 et 420 000 CHF. Notre simulateur vous donne une fourchette personnalisée en 30 secondes.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Proposez-vous un devis gratuit ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Oui, absolument. La visite sur site, l'analyse de votre projet et le chiffrage détaillé sont entièrement <strong>gratuits et sans engagement</strong>. Nous intervenons dans un délai de 5 jours ouvrés sur l'ensemble de la Suisse romande (GE, VD, FR, NE, VS, JU).</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Intervenez-vous sur tout le chantier ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Oui. Renova Swiss intervient en <strong>entreprise générale</strong> : nous coordonnons l'ensemble des corps de métier (maçons, électriciens, plombiers, carreleurs, peintres…), gérons le planning et assumons la responsabilité globale du chantier. Vous n'avez qu'un seul interlocuteur du début à la fin.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Peut-on bénéficier d'aides pour certains travaux ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Les travaux de rénovation énergétique ouvrent droit à <strong>des subventions cantonales (CECB, Programme Bâtiments)</strong> pouvant couvrir 20 à 40 % du montant des travaux, ainsi qu'à des déductions fiscales significatives. Nos conseillers constituent et déposent les dossiers à votre place.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Quels sont les délais moyens ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Pour une rénovation partielle (cuisine ou SDB) : <strong>3 à 6 semaines</strong>. Pour une rénovation complète d'appartement : <strong>6 à 12 semaines</strong>. Pour une villa entière : <strong>12 à 22 semaines</strong>. En moyenne, nos chantiers sont livrés <strong>3 jours avant la date contractuelle</strong>.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Travaillez-vous avec des propriétaires occupants et investisseurs ?</span>
+            <div class="faq-ico">+</div>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">Nous accompagnons les <strong>propriétaires privés</strong> (maisons, appartements, villas), les <strong>investisseurs immobiliers</strong> souhaitant valoriser leur patrimoine, et les <strong>entreprises ou commerces</strong> nécessitant une rénovation de locaux professionnels en Suisse romande.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Project tags */
+  .proj-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .proj-tag { font-size: 11px; font-weight: 600; color: var(--g600); background: var(--g100); padding: 3px 9px; border-radius: 4px; }
+  /* Partner group labels */
+  .part-group-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--g400); margin-bottom: 16px; }
+  /* Swiss map */
+  .map-section { padding: 100px 0; background: var(--g50); border-top: 1px solid var(--g200); }
+  .map-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .map-txt .stitle { margin-bottom: 20px; }
+  .map-txt p { font-size: 16px; color: var(--g600); line-height: 1.7; margin-bottom: 28px; }
+  .map-zones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .map-zone { font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 100px; background: var(--white); border: 1px solid var(--g200); color: var(--g800); }
+  .map-vis { position: relative; background: white; border-radius: 16px; border: 1px solid var(--g200); overflow: hidden; box-shadow: var(--sh-sm); }
+  .map-vis svg { display: block; width: 100%; height: auto; }
+  @media (max-width: 900px) { .map-layout { grid-template-columns: 1fr; gap: 40px; } }
+  /* ============================================================
+     SIMULATOR
+  ============================================================ */
+  #simulateur { padding: 110px 0; background: var(--black); position: relative; overflow: hidden; }
+  #simulateur::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 60px 60px; }
+  .sim-wrap { position: relative; z-index: 1; }
+  .sim-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 44px; }
+  .sim-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .sim-field { display: flex; flex-direction: column; gap: 8px; }
+  .sim-field label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; text-transform: uppercase; }
+  .sim-select-wrap { position: relative; }
+  .sim-select-wrap select { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 13px 40px 13px 14px; color: #fff; font-size: 14px; appearance: none; -webkit-appearance: none; transition: border-color var(--tr); }
+  .sim-select-wrap select:focus { outline: none; border-color: var(--red); background: rgba(255,255,255,0.1); }
+  .sim-select-wrap select option { background: #1a1a1a; }
+  .sim-select-wrap svg { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; pointer-events: none; }
+  .sim-range-wrap { display: flex; flex-direction: column; gap: 6px; }
+  .sim-range-top { display: flex; align-items: baseline; gap: 4px; }
+  .sim-range-val { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .sim-range-minmax { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.35); }
+  input[type="range"] { width: 100%; height: 4px; appearance: none; background: rgba(255,255,255,0.18); border-radius: 2px; cursor: pointer; }
+  input[type="range"]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--red); cursor: pointer; box-shadow: 0 2px 8px rgba(204,0,0,0.4); }
+  input[type="range"]:focus { outline: none; }
+  .sim-field input[type="text"] { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 13px 14px; color: #fff; font-size: 14px; transition: border-color var(--tr); }
+  .sim-field input[type="text"]::placeholder { color: rgba(255,255,255,0.3); }
+  .sim-field input[type="text"]:focus { outline: none; border-color: var(--red); }
+  .sim-field-cta { justify-content: flex-end; }
+  .sim-btn { width: 100%; padding: 14px; background: var(--red); color: #fff; border-radius: 10px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all var(--tr); }
+  .sim-btn svg { width: 16px; height: 16px; }
+  .sim-btn:hover { background: var(--red-h); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(204,0,0,0.4); }
+  /* Result */
+  .sim-result { display: none; margin-top: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 32px; animation: fadeUp 0.4s ease; }
+  .sim-result.show { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .sim-res-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 20px; }
+  .sim-res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 16px; }
+  .sim-res-item { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 18px; }
+  .sim-res-lbl { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .sim-res-val { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+  .sim-res-val.green { color: #4ade80; }
+  .sim-res-val.red { color: #ff8080; }
+  .sim-res-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+  .sim-res-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .sim-res-btn-p { flex: 1; min-width: 200px; padding: 14px 20px; background: var(--red); color: #fff; border-radius: 9px; font-size: 14px; font-weight: 600; text-align: center; transition: all var(--tr); }
+  .sim-res-btn-p:hover { background: var(--red-h); transform: translateY(-2px); }
+  .sim-res-btn-s { padding: 14px 20px; border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 9px; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: all var(--tr); }
+  .sim-res-btn-s svg { width: 15px; height: 15px; }
+  .sim-res-btn-s:hover { background: rgba(255,255,255,0.06); }
+
+  /* ============================================================
+     TESTIMONIALS
+  ============================================================ */
+  #temoignages { padding: 110px 0; background: var(--g50); }
+  .testi-hdr { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 56px; }
+  .goog-badge { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--g200); border-radius: 14px; padding: 16px 22px; box-shadow: var(--sh-sm); }
+  .goog-logo { font-size: 20px; font-weight: 900; background: linear-gradient(90deg, #4285F4, #EA4335 33%, #FBBC05 66%, #34A853); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .goog-sep { width: 1px; height: 36px; background: var(--g200); }
+  .goog-num { font-size: 28px; font-weight: 900; letter-spacing: -1px; color: var(--black); line-height: 1; }
+  .goog-stars { color: #FBBF24; font-size: 14px; }
+  .goog-count { font-size: 12px; color: var(--g600); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+  .testi-card { background: #fff; border: 1px solid var(--g200); border-radius: 16px; padding: 28px; transition: all var(--tr); }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: var(--sh-md); border-color: rgba(204,0,0,0.3); }
+  .testi-stars { color: #FBBF24; font-size: 15px; margin-bottom: 14px; letter-spacing: 1px; }
+  .testi-txt { font-size: 14px; color: var(--g800); line-height: 1.7; margin-bottom: 22px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 13px; }
+  .testi-av { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .av1 { background: linear-gradient(135deg, #CC0000, #880000); }
+  .av2 { background: linear-gradient(135deg, #333, #666); }
+  .av3 { background: linear-gradient(135deg, #1a56db, #1e40af); }
+  .testi-name { font-size: 14px; font-weight: 700; color: var(--black); }
+  .testi-loc { font-size: 12px; color: var(--g600); }
+  .testi-proj { display: inline-block; font-size: 11px; font-weight: 600; color: var(--red); background: rgba(204,0,0,0.07); padding: 2px 8px; border-radius: 4px; margin-top: 3px; }
+
+  /* ============================================================
+     PARTNERS
+  ============================================================ */
+  #partenaires { padding: 72px 0; background: #fff; border-top: 1px solid var(--g200); border-bottom: 1px solid var(--g200); }
+  .part-hdr { padding: 0 24px; }
+
+  /* Infinite logo slider */
+  .logos-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+  .logos-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: logo-marquee 28s linear infinite;
+  }
+  .logos-track:hover { animation-play-state: paused; }
+  .logos-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 48px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+  .logos-item img {
+    max-width: 120px;
+    max-height: 36px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.4);
+    transition: filter 0.3s;
+  }
+  .logos-item:hover img { filter: grayscale(0%) opacity(1); }
+  @keyframes logo-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ============================================================
+     FAQ
+  ============================================================ */
+  #faq { padding: 110px 0; background: var(--g50); }
+  .faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+  .faq-sidebar { position: sticky; top: 100px; }
+  .faq-list { display: flex; flex-direction: column; gap: 3px; }
+  .faq-item { background: #fff; border: 1px solid var(--g200); border-radius: 12px; overflow: hidden; transition: border-color var(--tr), box-shadow var(--tr); }
+  .faq-item.open { border-color: rgba(204,0,0,0.3); box-shadow: var(--sh-sm); }
+  .faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 22px; text-align: left; font-size: 15px; font-weight: 600; color: var(--black); gap: 14px; transition: color var(--tr); }
+  .faq-item.open .faq-q { color: var(--red); }
+  .faq-ico { width: 22px; height: 22px; background: var(--g100); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 17px; line-height: 1; transition: all var(--tr); color: var(--g600); }
+  .faq-item.open .faq-ico { background: var(--red); color: #fff; transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.38s ease; }
+  .faq-a-inner { padding: 0 22px 20px; font-size: 14px; color: var(--g600); line-height: 1.75; }
+  .faq-a-inner strong { color: var(--black); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .sim-grid { grid-template-columns: 1fr 1fr; }
+    .sim-res-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .testi-hdr { flex-direction: column; align-items: flex-start; }
+    .faq-layout { grid-template-columns: 1fr; gap: 40px; }
+    .faq-sidebar { position: static; }
+  }
+  @media (max-width: 600px) {
+    .sim-grid { grid-template-columns: 1fr; }
+    .sim-card { padding: 24px; }
+    .part-item { min-width: 100px; }
+  }
+</style>
+
+
+<!-- ============================================================
+     SWISS MAP
+============================================================ -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-layout">
+      <div class="map-txt reveal">
+        <div class="stag">Zone d'intervention</div>
+        <h2 class="stitle">Toute la Suisse romande</h2>
+        <p>Renova Swiss intervient sur l'ensemble des cantons romands. De Genève à Sion, de Nyon à Fribourg, nos équipes se déplacent pour piloter votre chantier où que vous soyez.</p>
+        <div class="map-zones">
+          <span class="map-zone">📍 Genève</span>
+          <span class="map-zone">📍 Vaud</span>
+          <span class="map-zone">📍 Fribourg</span>
+          <span class="map-zone">📍 Neuchâtel</span>
+          <span class="map-zone">📍 Valais</span>
+          <span class="map-zone">📍 Jura</span>
+        </div>
+      </div>
+      <div class="map-vis reveal reveal-delay-1">
+        <!-- Stylized SVG map of Suisse romande with lake Geneva and city pins -->
+        <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect width="500" height="380" fill="#F8F8F8"/>
+          <!-- Terrain subtle grid -->
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E8E8E8" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="500" height="380" fill="url(#grid)"/>
+          <!-- Canton shapes (simplified) -->
+          <!-- GE -->
+          <path d="M 80 210 Q 95 195 120 200 Q 140 205 145 220 Q 148 240 130 250 Q 110 258 90 245 Q 72 232 80 210 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- VD - large canton -->
+          <path d="M 145 150 Q 180 130 240 135 Q 300 138 340 155 Q 370 168 375 195 Q 378 220 360 240 Q 340 258 310 265 Q 280 270 250 265 Q 220 260 200 250 Q 175 238 160 225 Q 145 210 145 220 Q 140 205 145 200 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- FR -->
+          <path d="M 310 130 Q 340 118 370 125 Q 395 132 400 155 Q 402 175 390 185 Q 375 193 360 190 Q 340 185 330 170 Q 315 155 310 130 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- NE -->
+          <path d="M 220 100 Q 250 88 280 95 Q 305 102 310 125 Q 312 145 295 150 Q 278 155 260 148 Q 238 140 225 125 Q 214 110 220 100 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- VS -->
+          <path d="M 200 270 Q 240 265 290 268 Q 340 270 380 265 Q 415 260 430 280 Q 438 298 420 315 Q 395 330 355 335 Q 310 338 270 330 Q 230 322 210 308 Q 192 294 200 270 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- JU -->
+          <path d="M 155 75 Q 185 60 215 68 Q 235 75 240 95 Q 242 112 225 120 Q 208 127 190 120 Q 168 110 160 95 Q 150 82 155 75 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1.5"/>
+          <!-- Lake Geneva (Lac Léman) -->
+          <path d="M 92 218 Q 120 208 160 210 Q 210 212 255 218 Q 305 224 338 230 Q 355 234 358 242 Q 356 252 338 255 Q 310 260 270 256 Q 230 252 195 245 Q 155 238 120 235 Q 100 232 88 226 Q 85 222 92 218 Z" fill="#B8D4E8" stroke="#8FB8D4" stroke-width="1" opacity="0.8"/>
+          <!-- Lake label -->
+          <text x="220" y="248" font-family="Inter, sans-serif" font-size="9" fill="#6699AA" font-style="italic" text-anchor="middle">Lac Léman</text>
+          <!-- City: GENÈVE -->
+          <circle cx="92" cy="226" r="8" fill="#CC0000" opacity="0.9"/>
+          <circle cx="92" cy="226" r="4" fill="white"/>
+          <text x="92" y="212" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#1A1A1A" text-anchor="middle">GENÈVE</text>
+          <!-- City: Nyon -->
+          <circle cx="148" cy="218" r="6" fill="#CC0000" opacity="0.85"/>
+          <circle cx="148" cy="218" r="3" fill="white"/>
+          <text x="148" y="206" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1A1A1A" text-anchor="middle">Nyon</text>
+          <!-- City: Lausanne -->
+          <circle cx="225" cy="210" r="7" fill="#CC0000" opacity="0.85"/>
+          <circle cx="225" cy="210" r="3.5" fill="white"/>
+          <text x="240" y="204" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#1A1A1A">Lausanne</text>
+          <!-- City: Fribourg -->
+          <circle cx="358" cy="158" r="5" fill="#CC0000" opacity="0.8"/>
+          <circle cx="358" cy="158" r="2.5" fill="white"/>
+          <text x="370" y="162" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#1A1A1A">Fribourg</text>
+          <!-- City: Sion -->
+          <circle cx="320" cy="295" r="5" fill="#CC0000" opacity="0.8"/>
+          <circle cx="320" cy="295" r="2.5" fill="white"/>
+          <text x="332" y="299" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#1A1A1A">Sion</text>
+          <!-- City: Neuchâtel -->
+          <circle cx="255" cy="112" r="5" fill="#CC0000" opacity="0.8"/>
+          <circle cx="255" cy="112" r="2.5" fill="white"/>
+          <text x="267" y="116" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#1A1A1A">Neuchâtel</text>
+          <!-- City: Delémont (JU) -->
+          <circle cx="192" cy="90" r="4" fill="#CC0000" opacity="0.75"/>
+          <circle cx="192" cy="90" r="2" fill="white"/>
+          <text x="204" y="94" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#1A1A1A">Delémont</text>
+          <!-- Coverage label -->
+          <rect x="15" y="340" width="200" height="28" rx="6" fill="white" stroke="#E8E8E8"/>
+          <circle cx="28" cy="354" r="5" fill="#CC0000"/>
+          <text x="40" y="358" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#333">Zone d'intervention Renova Swiss</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="cta-tag">Lancez votre projet</div>
+      <h2 class="cta-title">Parlons de votre projet<br>de rénovation</h2>
+      <p class="cta-sub">Obtenez une première estimation et échangez avec un interlocuteur unique.</p>
+      <div class="cta-btns">
+        <a href="#simulateur" class="btn btn-white btn-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Demander un devis
+        </a>
+        <a href="#simulateur" class="btn btn-outline-w btn-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="17" height="17"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Estimer mon projet
+        </a>
+      </div>
+      <div class="cta-channels">
+        <a href="tel:+41225551234" class="cta-ch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z"/></svg>
+          +41 22 555 12 34
+        </a>
+        <a href="https://wa.me/41225551234" class="cta-ch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:contact@renovaswiss.ch" class="cta-ch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@renovaswiss.ch
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="foot-main">
+      <div class="foot-brand">
+        <div class="logo">
+          <div class="logo-mark"><svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg></div>
+          <div class="logo-txt"><span style="color:#fff;">RENOVA</span> <span style="color:var(--red);">SWISS</span></div>
+        </div>
+        <p class="foot-tagline">Votre partenaire de confiance pour tous vos projets de rénovation en Suisse romande. Excellence, rigueur, transparence.</p>
+        <div class="foot-addr">
+          <div class="foot-addr-l">Route de Chêne 50, 1208 Genève</div>
+          <div class="foot-addr-l">Suisse romande — GE, VD, FR, NE, VS, JU</div>
+          <div class="foot-addr-l" style="margin-top:8px;">
+            <a href="tel:+41225551234" style="color:rgba(255,255,255,0.6); transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">+41 22 555 12 34</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:contact@renovaswiss.ch" style="color:rgba(255,255,255,0.6); transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">contact@renovaswiss.ch</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Rénovation complète</a></li>
+          <li><a href="#services">Cuisine &amp; Salle de bain</a></li>
+          <li><a href="#services">Isolation &amp; Fenêtres</a></li>
+          <li><a href="#services">Rénovation énergétique</a></li>
+          <li><a href="#services">Peinture &amp; Sols</a></li>
+          <li><a href="#services">Gestion de chantier</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Entreprise</h4>
+        <ul>
+          <li><a href="#processus">Notre méthode</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#temoignages">Témoignages</a></li>
+          <li><a href="#partenaires">Partenaires</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Zone d'intervention</h4>
+        <ul>
+          <li><a href="#">Canton de Genève</a></li>
+          <li><a href="#">Canton de Vaud</a></li>
+          <li><a href="#">Canton de Fribourg</a></li>
+          <li><a href="#">Canton de Neuchâtel</a></li>
+          <li><a href="#">Canton du Valais</a></li>
+          <li><a href="#">Canton du Jura</a></li>
+        </ul>
+        <div style="margin-top: 24px;">
+          <a href="#simulateur" class="btn btn-primary" style="font-size:13px; padding:10px 18px;">Devis gratuit</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">© 2026 Renova Swiss SA. Tous droits réservés.</div>
+      <div class="foot-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">CGV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ============================================================
+     CTA FINAL
+  ============================================================ */
+  #contact { padding: 120px 0; background: var(--red); position: relative; overflow: hidden; text-align: center; }
+  #contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 55%), radial-gradient(ellipse at 80% 50%, rgba(0,0,0,0.12) 0%, transparent 55%); }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-tag { display: inline-block; background: rgba(255,255,255,0.18); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; margin-bottom: 22px; }
+  .cta-title { font-size: clamp(34px, 5vw, 58px); font-weight: 900; letter-spacing: -2px; color: #fff; line-height: 1.06; margin-bottom: 18px; }
+  .cta-sub { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 520px; margin: 0 auto 38px; line-height: 1.6; }
+  .cta-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
+  .cta-channels { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; }
+  .cta-ch { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500; transition: color var(--tr); }
+  .cta-ch:hover { color: #fff; }
+  .cta-ch svg { width: 16px; height: 16px; }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer { background: var(--black); padding: 80px 0 0; }
+  .foot-main { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .foot-tagline { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.65; margin-top: 16px; max-width: 280px; }
+  .foot-addr { margin-top: 22px; }
+  .foot-addr-l { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+  .foot-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 18px; }
+  .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .foot-col ul li a { font-size: 14px; color: rgba(255,255,255,0.55); transition: color var(--tr); }
+  .foot-col ul li a:hover { color: #fff; }
+  .foot-bottom { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .foot-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+  .foot-legal { display: flex; gap: 22px; }
+  .foot-legal a { font-size: 13px; color: rgba(255,255,255,0.3); transition: color var(--tr); }
+  .foot-legal a:hover { color: rgba(255,255,255,0.65); }
+  @media (max-width: 900px) {
+    .foot-main { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .foot-bottom { flex-direction: column; gap: 14px; text-align: center; }
+    .cta-btns { flex-direction: column; align-items: center; }
+    .cta-channels { flex-direction: column; align-items: center; gap: 14px; }
+  }
+  @media (max-width: 600px) {
+    .foot-main { grid-template-columns: 1fr; }
+    .cta-title { letter-spacing: -1px; }
+  }
+  @media (max-width: 768px) {
+    #contact { padding: 80px 0; }
+    .hmb { display: flex !important; }
+    .nav, .hdr-phone { display: none !important; }
+  }
+</style>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+(function() {
+
+  /* ── Header scroll ── */
+  const hdr = document.getElementById('hdr');
+  function onScroll() {
+    hdr.classList.toggle('scrolled', window.scrollY > 20);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ── Mobile menu ── */
+  const mmenu = document.getElementById('mmenu');
+  const hmbBtn = document.getElementById('hmb-btn');
+  hmbBtn.addEventListener('click', () => {
+    mmenu.classList.toggle('open');
+    hmbBtn.classList.toggle('active');
+  });
+  mmenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mmenu.classList.remove('open');
+      hmbBtn.classList.remove('active');
+    });
+  });
+
+  /* ── Hero Slider ── */
+  const slides = document.querySelectorAll('.hslide');
+  const dots   = document.querySelectorAll('.hdot');
+  const prog   = document.getElementById('hero-prog');
+  let cur = 0, timer = null, progTimer = null;
+  const DELAY = 5500;
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    startProg();
+  }
+
+  function startProg() {
+    prog.style.transition = 'none';
+    prog.style.width = '0%';
+    clearTimeout(progTimer);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        prog.style.transition = `width ${DELAY}ms linear`;
+        prog.style.width = '100%';
+      });
+    });
+  }
+
+  function autoPlay() {
+    clearTimeout(timer);
+    timer = setTimeout(() => { goTo(cur + 1); autoPlay(); }, DELAY);
+  }
+
+  document.getElementById('h-prev').addEventListener('click', () => {
+    goTo(cur - 1); clearTimeout(timer); autoPlay();
+  });
+  document.getElementById('h-next').addEventListener('click', () => {
+    goTo(cur + 1); clearTimeout(timer); autoPlay();
+  });
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      goTo(parseInt(d.dataset.i)); clearTimeout(timer); autoPlay();
+    });
+  });
+
+  goTo(0);
+  autoPlay();
+
+  /* ── Services Accordion Slider ── */
+  (function() {
+    const track   = document.getElementById('svp-track');
+    if (!track) return;
+    const wrap    = track.parentElement;
+    const cards   = Array.from(track.children);
+    const prev    = document.getElementById('svp-prev');
+    const next    = document.getElementById('svp-next');
+    const dotsBox = document.getElementById('svp-dots');
+
+    const isMobile = () => matchMedia('(max-width:767px)').matches;
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'svp-dot';
+      dot.setAttribute('aria-label', 'Service ' + (i + 1));
+      dot.onclick = () => activate(i, true);
+      dotsBox.appendChild(dot);
+    });
+    const dots = Array.from(dotsBox.children);
+
+    let current = 0;
+
+    function center(i) {
+      const card  = cards[i];
+      const axis  = isMobile() ? 'top'         : 'left';
+      const size  = isMobile() ? 'clientHeight' : 'clientWidth';
+      const start = isMobile() ? card.offsetTop : card.offsetLeft;
+      wrap.scrollTo({ [axis]: start - (wrap[size] / 2 - card[size] / 2), behavior: 'smooth' });
+    }
+
+    function toggleUI(i) {
+      cards.forEach((c, k) => c.toggleAttribute('active', k === i));
+      dots.forEach((d, k)  => d.classList.toggle('active', k === i));
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === cards.length - 1;
+    }
+
+    function activate(i, scroll) {
+      if (i === current) return;
+      current = i;
+      toggleUI(i);
+      if (scroll) center(i);
+    }
+
+    function go(step) {
+      activate(Math.min(Math.max(current + step, 0), cards.length - 1), true);
+    }
+
+    if (prev) prev.onclick = () => go(-1);
+    if (next) next.onclick = () => go(1);
+
+    addEventListener('keydown', (e) => {
+      if (['ArrowRight','ArrowDown'].includes(e.key)) go(1);
+      if (['ArrowLeft','ArrowUp'].includes(e.key))   go(-1);
+    }, { passive: true });
+
+    cards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => matchMedia('(hover:hover)').matches && activate(i, true));
+      card.addEventListener('click',      () => activate(i, true));
+    });
+
+    let sx = 0, sy = 0;
+    track.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    track.addEventListener('touchend',   (e) => {
+      const dx = e.changedTouches[0].clientX - sx;
+      const dy = e.changedTouches[0].clientY - sy;
+      if (isMobile() ? Math.abs(dy) > 60 : Math.abs(dx) > 60)
+        go((isMobile() ? dy : dx) > 0 ? -1 : 1);
+    }, { passive: true });
+
+    addEventListener('resize', () => center(current));
+    toggleUI(0);
+    setTimeout(() => center(0), 100);
+  })();
+
+  /* ── Réalisations Slider ── */
+  (function() {
+    const track  = document.getElementById('proj-track');
+    if (!track) return;
+    const btnPrev = document.getElementById('proj-prev');
+    const btnNext = document.getElementById('proj-next');
+    const cards   = track.children;
+    const VISIBLE = 3;
+    const DELAY   = 4000;
+    let cur = 0, timer = null;
+
+    function cardW() {
+      return cards[0].offsetWidth + 20; // width + gap
+    }
+
+    function update() {
+      const max = cards.length - VISIBLE;
+      track.style.transform = `translateX(-${cur * cardW()}px)`;
+      btnPrev.disabled = cur === 0;
+      btnNext.disabled = cur >= max;
+    }
+
+    function go(dir) {
+      const max = cards.length - VISIBLE;
+      cur = Math.min(Math.max(cur + dir, 0), max);
+      update();
+      resetAuto();
+    }
+
+    function autoStep() {
+      const max = cards.length - VISIBLE;
+      cur = cur >= max ? 0 : cur + 1;
+      update();
+    }
+
+    function resetAuto() {
+      clearInterval(timer);
+      timer = setInterval(autoStep, DELAY);
+    }
+
+    btnPrev.onclick = () => go(-1);
+    btnNext.onclick = () => go(1);
+
+    // Touch swipe
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 50) go(dx > 0 ? -1 : 1);
+    }, { passive: true });
+
+    update();
+    resetAuto();
+  })();
+
+  /* ── Before / After Slider ── */
+  const baWrap = document.getElementById('ba-wrap');
+  if (baWrap) {
+    const baDiv = document.getElementById('ba-div');
+    let dragging = false;
+
+    function setSplit(x) {
+      const rect = baWrap.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(8, Math.min(92, pct));
+      baWrap.style.setProperty('--split', pct + '%');
+    }
+
+    baDiv.addEventListener('mousedown', e => { dragging = true; e.preventDefault(); });
+    baDiv.addEventListener('touchstart', e => { dragging = true; }, { passive: true });
+    document.addEventListener('mouseup', () => dragging = false);
+    document.addEventListener('touchend', () => dragging = false);
+    document.addEventListener('mousemove', e => { if (dragging) setSplit(e.clientX); });
+    document.addEventListener('touchmove', e => {
+      if (dragging && e.touches[0]) setSplit(e.touches[0].clientX);
+    }, { passive: true });
+  }
+
+  /* ── Counter Animation ── */
+  function animateCount(el) {
+    const target = parseInt(el.dataset.target);
+    const duration = 1800;
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(ease * target);
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ── Scroll Reveal + Counter trigger ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const counterEls = document.querySelectorAll('.stat-val');
+  const countedSet = new Set();
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach(el => revealObs.observe(el));
+
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !countedSet.has(e.target)) {
+        countedSet.add(e.target);
+        animateCount(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counterEls.forEach(el => counterObs.observe(el));
+
+  /* ── FAQ Accordion ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = '0px';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Simulator ── */
+  const surfSlider = document.getElementById('s-surf');
+  const budSlider  = document.getElementById('s-bud');
+  const surfVal    = document.getElementById('surf-val');
+  const budVal     = document.getElementById('bud-val');
+
+  function fmtChf(n) {
+    return new Intl.NumberFormat('fr-CH', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n) + ' CHF';
+  }
+
+  surfSlider.addEventListener('input', () => {
+    surfVal.textContent = surfSlider.value + ' m²';
+  });
+  budSlider.addEventListener('input', () => {
+    const v = parseInt(budSlider.value);
+    budVal.textContent = v >= 1000 ? Math.round(v / 1000) + ' 000 CHF' : v + ' CHF';
+  });
+
+  document.getElementById('sim-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const bien = document.getElementById('s-bien').value;
+    const type = document.getElementById('s-type').value;
+    const surf = parseInt(surfSlider.value);
+
+    if (!bien || !type) {
+      alert('Veuillez sélectionner le type de bien et le type de rénovation.');
+      return;
+    }
+
+    // Rate per m² CHF
+    const rates = {
+      maison:      { complete:2100, partielle:1100, energetique:1300, finitions:380, cuisine:null, sdb:null },
+      appartement: { complete:1850, partielle:950,  energetique:1050, finitions:320, cuisine:null, sdb:null },
+      villa:       { complete:2600, partielle:1400, energetique:1600, finitions:480, cuisine:null, sdb:null },
+      commercial:  { complete:2200, partielle:1250, energetique:1150, finitions:400, cuisine:null, sdb:null }
+    };
+    const fixed = { cuisine: [24000, 62000], sdb: [14000, 38000] };
+    const subsidies = { complete:14, partielle:8, energetique:35, finitions:5, cuisine:0, sdb:5 };
+
+    let minCost, maxCost;
+    if (type === 'cuisine') {
+      minCost = fixed.cuisine[0]; maxCost = fixed.cuisine[1];
+    } else if (type === 'sdb') {
+      minCost = fixed.sdb[0]; maxCost = fixed.sdb[1];
+    } else {
+      const rate = (rates[bien] || rates.maison)[type] || 1500;
+      minCost = Math.round(rate * surf * 0.88);
+      maxCost = Math.round(rate * surf * 1.14);
+    }
+
+    const subPct = subsidies[type] || 0;
+    const subAmt = Math.round((minCost + maxCost) / 2 * subPct / 100);
+    const netMin = Math.round(minCost - subAmt * 0.9);
+    const netMax = Math.round(maxCost - subAmt * 1.1);
+
+    document.getElementById('res-budget').textContent = fmtChf(minCost) + ' – ' + fmtChf(maxCost);
+    document.getElementById('res-aides').textContent  = subPct > 0 ? '~' + subPct + '%  (' + fmtChf(subAmt) + ')' : 'Non applicable';
+    document.getElementById('res-net').textContent    = fmtChf(Math.max(0, netMin)) + ' – ' + fmtChf(Math.max(0, netMax));
+
+    const result = document.getElementById('sim-result');
+    result.classList.add('show');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+})();
+</script>
+
+<!-- ── Lightbox Gallery ── -->
+<div id="glb" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);flex-direction:column;align-items:center;justify-content:center;">
+  <button id="glb-close" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;z-index:1;line-height:1;opacity:0.8;">✕</button>
+  <button id="glb-prev" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:2rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
+  <button id="glb-next" style="position:absolute;right:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:2rem;width:52px;height:52px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
+  <img id="glb-img" src="" alt="" style="max-width:90vw;max-height:82vh;object-fit:contain;border-radius:8px;user-select:none;">
+  <div id="glb-thumbs" style="display:flex;gap:8px;margin-top:16px;overflow-x:auto;max-width:90vw;padding:4px 0;scrollbar-width:none;"></div>
+  <div id="glb-counter" style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:8px;font-family:Inter,sans-serif;"></div>
+</div>
+
+<style>
+  #glb { display:none; }
+  #glb.open { display:flex !important; }
+  #glb-thumbs::-webkit-scrollbar { display:none; }
+  #glb-thumbs img {
+    width:64px;height:48px;object-fit:cover;border-radius:4px;
+    cursor:pointer;opacity:0.5;flex-shrink:0;transition:opacity 0.2s,outline 0.2s;
+  }
+  #glb-thumbs img.active, #glb-thumbs img:hover { opacity:1;outline:2px solid var(--red); }
+  .proj-card { cursor:pointer; }
+  .proj-vis::before { display:none !important; }
+  .proj-card:hover .proj-vis img { transform:scale(1.04); transition:transform 0.4s ease; }
+</style>
+
+<script>
+(function(){
+  const glb       = document.getElementById('glb');
+  const glbImg    = document.getElementById('glb-img');
+  const glbThumbs = document.getElementById('glb-thumbs');
+  const glbCount  = document.getElementById('glb-counter');
+  let imgs = [], cur = 0;
+
+  function open(list, startIdx) {
+    imgs = list; cur = startIdx;
+    glbThumbs.innerHTML = '';
+    imgs.forEach((src, i) => {
+      const t = document.createElement('img');
+      t.src = 'assets/' + src;
+      t.onclick = () => show(i);
+      glbThumbs.appendChild(t);
+    });
+    show(cur);
+    glb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    glb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function show(i) {
+    cur = (i + imgs.length) % imgs.length;
+    glbImg.src = 'assets/' + imgs[cur];
+    glbCount.textContent = (cur+1) + ' / ' + imgs.length;
+    Array.from(glbThumbs.children).forEach((t,k) => t.classList.toggle('active', k===cur));
+    glbThumbs.children[cur]?.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+    document.getElementById('glb-prev').disabled = false;
+    document.getElementById('glb-next').disabled = false;
+  }
+
+  document.getElementById('glb-prev').onclick  = () => show(cur - 1);
+  document.getElementById('glb-next').onclick  = () => show(cur + 1);
+  document.getElementById('glb-close').onclick = close;
+  glb.addEventListener('click', e => { if(e.target === glb) close(); });
+  document.addEventListener('keydown', e => {
+    if (!glb.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') show(cur+1);
+    if (e.key === 'ArrowLeft')  show(cur-1);
+    if (e.key === 'Escape')     close();
+  });
+
+  // Swipe
+  let tx = 0;
+  glbImg.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+  glbImg.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) show(dx > 0 ? cur-1 : cur+1);
+  }, {passive:true});
+
+  // Wire up project cards
+  document.querySelectorAll('.proj-card[data-gallery]').forEach(card => {
+    card.addEventListener('click', () => {
+      const list = card.dataset.gallery.split(',').map(s => s.trim()).filter(Boolean);
+      if (list.length) open(list, 0);
+    });
+  });
+})();
+</script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Ligne serpentante : calcul du chemin SVG ── */
+  var snakeST;
+
+  function buildSnakePath() {
+    var wrap  = document.getElementById('tl-wrap');
+    var track = document.getElementById('tl-path-track');
+    var fill  = document.getElementById('tl-path-fill');
+
+    var wrapRect = wrap.getBoundingClientRect();
+    var cx  = wrap.offsetWidth / 2;
+    var cards = Array.from(wrap.querySelectorAll('.tl-card'));
+    var pts = cards.map(function(card, i) {
+      var r = card.getBoundingClientRect();
+      return {
+        left:     r.left   - wrapRect.left,
+        right:    r.right  - wrapRect.left,
+        top:      r.top    - wrapRect.top,
+        bot:      r.bottom - wrapRect.top,
+        leftSide: i % 2 === 0,
+      };
+    });
+
+    /* pad = demi stroke-width → la ligne longe l'extérieur exact des cartes */
+    var pad = 3;
+
+    var d = 'M ' + cx + ',' + (pts[0].top - pad);
+
+    pts.forEach(function(p, i) {
+      var isLast = (i === pts.length - 1);
+      /* Pour la dernière carte, le bas s'arrête exactement au bord de la carte */
+      var botY = isLast ? p.bot : (p.bot + pad);
+
+      if (p.leftSide) {
+        d += ' L ' + (p.left - pad) + ',' + (p.top - pad);
+        d += ' L ' + (p.left - pad) + ',' + botY;
+        if (!isLast) d += ' L ' + cx + ',' + botY;
+      } else {
+        d += ' L ' + (p.right + pad) + ',' + (p.top - pad);
+        d += ' L ' + (p.right + pad) + ',' + botY;
+        if (!isLast) d += ' L ' + cx + ',' + botY;
+      }
+
+      /* Liaison verticale vers la carte suivante */
+      if (!isLast) {
+        d += ' L ' + cx + ',' + (pts[i + 1].top - pad);
+      }
+    });
+
+    track.setAttribute('d', d);
+    fill.setAttribute('d', d);
+
+    var len = fill.getTotalLength();
+    gsap.set(fill, { strokeDasharray: len, strokeDashoffset: len });
+
+    /* Recréer le ScrollTrigger après rebuild */
+    if (snakeST) snakeST.kill();
+    snakeST = ScrollTrigger.create({
+      animation: gsap.to(fill, { strokeDashoffset: 0, ease: 'none', duration: 1 }),
+      trigger: '#tl-wrap',
+      start: 'top 75%',
+      end:   'bottom 25%',
+      scrub: 1.2,
+    });
+  }
+
+  buildSnakePath();
+  window.addEventListener('load', buildSnakePath);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(buildSnakePath);
+  }
+  window.addEventListener('resize', buildSnakePath);
+  if (window.ResizeObserver) {
+    new ResizeObserver(buildSnakePath).observe(document.getElementById('tl-wrap'));
+  }
+
+  /* ── Surbrillance + révélation photo au scroll ── */
+  document.querySelectorAll('.tl-card').forEach(function(card) {
+    /* Bordure rouge via classe (CSS transition) */
+    ScrollTrigger.create({
+      trigger: card,
+      start: 'top 72%',
+      end:   'bottom 28%',
+      onEnter:     function() { card.classList.add('tl-card--active'); },
+      onLeave:     function() { card.classList.remove('tl-card--active'); },
+      onEnterBack: function() { card.classList.add('tl-card--active'); },
+      onLeaveBack: function() { card.classList.remove('tl-card--active'); },
+    });
+
+    /* Overlay : 0.82 → 0.18 au centre, puis remonte */
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 72%',
+        end:   'bottom 28%',
+        scrub: 1.4,
+      }
+    });
+    tl.to(card, { '--overlay': 0.55, ease: 'power1.inOut', duration: 0.5 })
+      .to(card, { '--overlay': 0.82, ease: 'power1.inOut', duration: 0.5 });
+  });
+
+  /* ── Cartes : état initial caché, animé au scroll ── */
+  gsap.set('.tl-card', { y: 30, opacity: 0 });
+
+  document.querySelectorAll('.tl-card').forEach(function(card) {
+    gsap.to(card, {
+      y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        once: true
+      }
+    });
+  });
+
+  /* ── Numéros : remplissage du bas vers le haut ── */
+  document.querySelectorAll('.proc-num').forEach(function(num) {
+    var fill = num.querySelector('.num-fill');
+    gsap.to(fill, {
+      scaleY: 1,
+      duration: 0.65, ease: 'power2.inOut',
+      scrollTrigger: {
+        trigger: num,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      onStart: function() {
+        gsap.to(num, { color: '#fff', borderColor: '#cc0000', boxShadow: '0 0 22px rgba(204,0,0,0.4)', duration: 0.3, delay: 0.35 });
+      }
+    });
+  });
+})();
+</script>
+
+<!-- ============================================================
+     POPUP FIXE BAS DE PAGE
+============================================================ -->
+<div class="cta-bar" id="cta-bar">
+  <div class="cta-bar-inner">
+    <div class="cta-bar-text">
+      <span class="cta-bar-title">Prêt à lancer votre projet ?</span>
+      <span class="cta-bar-sub">Estimation gratuite · Réponse sous 48h</span>
+    </div>
+    <a href="#contact" class="cta-bar-btn">Estimer votre projet</a>
+  </div>
+</div>
+
+<style>
+  .cta-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #111;
+    border-top: 1px solid rgba(204,0,0,0.35);
+    box-shadow: 0 -6px 40px rgba(0,0,0,0.45);
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+  }
+  .cta-bar.visible { transform: translateY(0); }
+  .cta-bar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 14px 40px;
+    display: flex; align-items: center; gap: 28px;
+  }
+  .cta-bar-text { flex: 1; min-width: 0; }
+  .cta-bar-title { display: block; font-size: 15px; font-weight: 700; color: #fff; }
+  .cta-bar-sub   { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .cta-bar-btn {
+    display: inline-flex; align-items: center;
+    background: #cc0000; color: #fff;
+    font-size: 14px; font-weight: 700;
+    padding: 11px 28px; border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-bar-btn:hover { background: #aa0000; transform: translateY(-1px); }
+  @media (max-width: 600px) {
+    .cta-bar-inner { justify-content: center; padding: 12px 20px; }
+    .cta-bar-text { display: none; }
+    .cta-bar-btn { width: auto; }
+  }
+</style>
+
+<script>
+  (function() {
+    var bar = document.getElementById('cta-bar');
+    setTimeout(function() { bar.classList.add('visible'); }, 2500);
+  })();
+</script>
+
+</body>
+</html>
+
+
+
+
