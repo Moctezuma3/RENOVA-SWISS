@@ -7,7 +7,7 @@
   <title>Rénovation Appartement — Renova Swiss</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --red:#CC0000;--red-h:#AA0000;--black:#1A1A1A;--white:#FFFFFF;
@@ -33,7 +33,7 @@
     .btn-white:hover{background:rgba(255,255,255,.9);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
     .btn-outline-w{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
     .btn-outline-w:hover{background:rgba(255,255,255,.1);border-color:#fff}
-    .btn-lg{padding:17px 34px;font-size:15px}
+    .btn-lg{padding:13px 26px;font-size:14px}
 
     /* SECTION COMMON */
     .stag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
@@ -68,24 +68,24 @@
     #mmenu .btn{margin-top:8px;justify-content:center}
 
     /* HERO */
-    #hero{position:relative;height:100vh;min-height:780px;overflow:hidden;display:flex;align-items:flex-end}
+    #hero{position:relative;height:100vh;min-height:780px;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat}
-    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.2) 100%)}
-    .hero-banner{position:absolute;top:72px;left:0;right:0;z-index:20;background:rgba(180,0,0,.92);backdrop-filter:blur(10px);text-align:center;padding:9px 20px;font-size:12.5px;font-weight:500;color:#fff}
+    .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.90) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.35) 75%,rgba(0,0,0,.15) 100%)}
+    .hero-banner{position:absolute;top:72px;left:0;right:0;width:100%;z-index:20;background:rgba(180,0,0,.92);backdrop-filter:blur(10px);text-align:center;padding:9px 20px;font-size:12.5px;font-weight:500;color:#fff;letter-spacing:.1px}
     .hero-banner strong{font-weight:700}
     .hb-dot{display:inline-block;width:6px;height:6px;background:#ffaaaa;border-radius:50%;margin-right:8px;animation:blink 1.8s infinite;vertical-align:middle}
     @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
-    .hero-content{position:relative;z-index:2;width:100%;padding-top:clamp(130px,18vh,200px);padding-bottom:clamp(60px,9vh,120px)}
-    .hero-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.88);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
+    .hero-content{position:absolute;left:0;right:0;bottom:clamp(90px,14vh,160px);z-index:2}
+    .hero-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.88);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-bottom:12px}
     .hero-pill::before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%;flex-shrink:0}
-    .hero-h1{font-size:clamp(38px,6.5vw,76px);font-weight:900;letter-spacing:-3px;line-height:1.0;color:#fff;margin-bottom:18px;max-width:780px}
+    .hero-h1{font-size:clamp(30px,4.5vw,58px);font-weight:900;letter-spacing:-2px;line-height:1.05;color:#fff;margin-bottom:12px;max-width:680px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
     .hero-h1 em{font-style:normal;color:#ffaaaa}
-    .hero-sub{font-size:17px;color:rgba(255,255,255,.68);line-height:1.65;max-width:520px;margin-bottom:24px}
-    .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px}
-    .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
-    .hero-reas{display:flex;gap:24px;flex-wrap:wrap}
-    .hero-reas span{font-size:13px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:6px}
+    .hero-sub{font-size:15px;color:rgba(255,255,255,.68);line-height:1.55;max-width:480px;margin-bottom:18px}
+    .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+    .hero-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px}
+    .hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .hero-reas{display:flex;gap:20px;flex-wrap:wrap}
+    .hero-reas span{font-size:12px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:5px}
     .hero-reas span::before{content:'';width:4px;height:4px;background:var(--red);border-radius:50%}
 
     /* SERVICES ACCORDION SLIDER (identical to homepage) */
@@ -244,32 +244,138 @@
     .ccy{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(234,179,8,.1);border-radius:50%;color:#ca8a04;font-size:11px;margin-right:5px}
 
     /* ESTIMATEUR */
-    #estimateur{padding:110px 0;background:var(--black);position:relative;overflow:hidden}
-    #estimateur::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px}
-    .est-wrap{position:relative;z-index:1}
-    .est-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:48px}
-    .est-section{margin-bottom:36px}
-    .est-label{font-size:13px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-    .est-label span{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--red);border-radius:50%;font-size:11px;color:#fff;font-weight:800;flex-shrink:0}
-    .est-checks{display:flex;flex-wrap:wrap;gap:10px}
-    .est-check-lbl{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 14px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer;transition:all var(--tr);user-select:none}
-    .est-check-lbl input{display:none}
-    .est-check-lbl:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
-    .est-check-lbl.checked{background:rgba(204,0,0,.2);border-color:rgba(204,0,0,.5);color:#fff}
-    .est-radios{display:flex;flex-wrap:wrap;gap:10px}
-    .est-radio-lbl{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 16px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer;transition:all var(--tr);user-select:none}
-    .est-radio-lbl input{display:none}
-    .est-radio-lbl:hover{background:rgba(255,255,255,.12)}
-    .est-radio-lbl.selected{background:rgba(204,0,0,.2);border-color:rgba(204,0,0,.5);color:#fff}
-    .est-2cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .est-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:13px 14px;color:#fff;font-size:14px;transition:border-color var(--tr)}
-    .est-input::placeholder{color:rgba(255,255,255,.3)}
-    .est-input:focus{outline:none;border-color:var(--red)}
-    .est-btn{width:100%;padding:16px;background:var(--red);color:#fff;border-radius:10px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all var(--tr);margin-top:28px}
-    .est-btn:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 12px 36px rgba(204,0,0,.4)}
-    .est-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
-    @media(max-width:900px){.est-2cols{grid-template-columns:1fr}}
-    @media(max-width:600px){.est-card{padding:24px}.container{padding:0 20px}}
+    #estimateur { padding: 36px 0 32px; background: var(--black); position: relative; overflow: hidden;
+      color: #fff;
+      --bg:#1A1A1A; --card:#252525; --card2:#2E2E2E; --border:#383838;
+      --red2:#CC1C16; --gray:#A0A0A0; --gray2:#666;
+      --inp:#2E2E2E; --inp-b:#404040; --green:#2ECC71; --pad:20px; }
+    #estimateur::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px); background-size:60px 60px; }
+    .prog { display:flex; align-items:center; justify-content:center; max-width:620px; margin:0 auto 14px; padding:0 16px; position:relative; z-index:1; }
+    .ps { display:flex; align-items:center; gap:8px; flex:1; position:relative; }
+    .ps:not(:last-child)::after { content:''; flex:1; height:1px; background:var(--border); margin:0 4px; transition:background .4s; }
+    .ps.done:not(:last-child)::after { background:var(--red); }
+    .pd { width:30px; height:30px; border-radius:50%; border:1.5px solid var(--border); background:var(--card); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--gray2); flex-shrink:0; transition:all .3s; }
+    .ps.active .pd { background:var(--red); border-color:var(--red); color:#fff; }
+    .ps.done .pd { background:transparent; border-color:var(--red); color:var(--red); }
+    .plbl { font-size:11px; font-weight:600; color:var(--gray2); white-space:nowrap; transition:color .3s; }
+    .ps.active .plbl { color:#fff; }
+    .ps.done .plbl { color:var(--red); }
+    @media(max-width:480px){.plbl{display:none}}
+    .est-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; animation:fadeUp .45s ease both; position:relative; z-index:1; }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .est-card-body { padding:18px 20px 10px; }
+    .est-card-foot { padding:0 20px 14px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .panel { display:none; }
+    .panel.active { display:block; animation:pIn .3s ease both; }
+    @keyframes pIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .flbl { display:block; font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:6px; }
+    .req { color:var(--red); }
+    .type-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-bottom:14px; }
+    @media(max-width:700px){.type-grid{grid-template-columns:repeat(2,1fr)}}
+    .ttile { background:var(--inp); border:1.5px solid var(--inp-b); border-radius:8px; padding:10px 8px; cursor:pointer; transition:border-color .2s,background .2s; display:flex; flex-direction:column; gap:3px; position:relative; overflow:hidden; -webkit-tap-highlight-color:transparent; }
+    .ttile::before { content:''; position:absolute; inset:0; background:var(--red); opacity:0; transition:opacity .2s; }
+    .ttile:hover { border-color:rgba(232,32,26,.5); }
+    .ttile.sel { border-color:var(--red); }
+    .ttile.sel::before { opacity:.07; }
+    .ttile-ico { font-size:18px; position:relative; z-index:1; }
+    .ttile-name { font-size:11px; font-weight:700; color:#fff; line-height:1.2; position:relative; z-index:1; }
+    .ttile-range { font-size:9px; color:var(--red); font-weight:600; position:relative; z-index:1; }
+    .ttile-desc { font-size:9px; color:var(--gray2); line-height:1.3; position:relative; z-index:1; }
+    .ttile-chk { position:absolute; top:8px; right:8px; width:16px; height:16px; background:var(--red); border-radius:50%; display:none; align-items:center; justify-content:center; font-size:8px; color:#fff; z-index:2; }
+    .ttile.sel .ttile-chk { display:flex; }
+    .fg2 { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin-bottom:12px; }
+    .fg3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:12px; }
+    @media(max-width:600px){.fg2,.fg3{grid-template-columns:1fr}}
+    .fg { display:flex; flex-direction:column; }
+    #estimateur input[type=text],#estimateur input[type=email],#estimateur input[type=tel],#estimateur select,#estimateur textarea { width:100%; padding:9px 12px; background:var(--inp); border:1.5px solid var(--inp-b); border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:500; color:#fff; outline:none; transition:border-color .18s; appearance:none; }
+    #estimateur input::placeholder,#estimateur textarea::placeholder { color:var(--gray2); font-weight:400; }
+    #estimateur input:focus,#estimateur select:focus,#estimateur textarea:focus { border-color:var(--red); }
+    #estimateur input.err,#estimateur select.err { border-color:#ff6b6b; }
+    #estimateur select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px; cursor:pointer; }
+    #estimateur select option { background:#2A2A2A; }
+    #estimateur textarea { resize:vertical; min-height:52px; }
+    .ferr { font-size:11px; color:#ff6b6b; margin-top:5px; display:none; }
+    .ferr.show { display:block; }
+    .sval { font-size:20px; font-weight:800; margin-bottom:6px; line-height:1; }
+    .sval .unit { font-size:.72em; font-weight:700; color:var(--gray); }
+    #estimateur input[type=range] { -webkit-appearance:none; width:100%; height:3px; border:none; padding:0; cursor:pointer; background:linear-gradient(to right,var(--red) 0%,var(--red) var(--pct,30%),var(--border) var(--pct,30%),var(--border) 100%); border-radius:3px; outline:none; }
+    #estimateur input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--red); border:3px solid var(--bg); box-shadow:0 0 0 1px var(--red); }
+    .srange { display:flex; justify-content:space-between; font-size:11px; color:var(--gray2); margin-top:7px; font-weight:600; }
+    .pill-group { display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+    .pi { display:none; }
+    .pl { display:inline-flex; align-items:center; gap:5px; padding:5px 10px; border:1.5px solid var(--inp-b); border-radius:30px; font-size:12px; font-weight:600; color:var(--gray); cursor:pointer; transition:all .15s; background:var(--inp); user-select:none; }
+    .pi:checked+.pl { background:var(--red); border-color:var(--red); color:#fff; }
+    .pl:hover { border-color:rgba(232,32,26,.6); color:#fff; }
+    .niv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+    @media(max-width:480px){.niv-grid{grid-template-columns:1fr}}
+    .ni { display:none; }
+    .nl { display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px 8px; border:1.5px solid var(--inp-b); border-radius:8px; cursor:pointer; transition:all .18s; background:var(--inp); text-align:center; }
+    .nl .niv-ico { font-size:20px; }
+    .nl .niv-name { font-size:13px; font-weight:700; }
+    .nl .niv-chf { font-size:10px; color:var(--red); font-weight:600; }
+    .nl .niv-desc { font-size:10px; color:var(--gray2); line-height:1.4; }
+    .ni:checked+.nl { border-color:var(--red); background:rgba(232,32,26,.08); }
+    .dv { height:1px; background:var(--border); margin:14px 0; }
+    .btn-back { background:transparent; border:1.5px solid var(--border); color:var(--gray); padding:9px 16px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; cursor:pointer; transition:all .18s; display:flex; align-items:center; gap:7px; }
+    .btn-back:hover { border-color:var(--gray); color:#fff; }
+    .btn-next { background:var(--red); color:#fff; border:none; padding:10px 22px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:14px; font-weight:800; cursor:pointer; transition:all .18s; display:flex; align-items:center; gap:9px; }
+    .btn-next:hover { background:var(--red2); transform:translateY(-1px); box-shadow:0 6px 24px rgba(232,32,26,.35); }
+    .sctr { font-size:11px; color:var(--gray2); font-weight:600; letter-spacing:1px; }
+    .res-hero { background:linear-gradient(135deg,#1E0A09,#2A0C0A); border:1px solid rgba(232,32,26,.3); border-radius:12px; padding:14px 20px; margin-bottom:10px; text-align:center; position:relative; overflow:hidden; }
+    .res-hero::before { content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:min(400px,100%); height:300px; background:radial-gradient(circle,rgba(232,32,26,.18) 0%,transparent 65%); }
+    .res-eye { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:4px; position:relative; z-index:1; }
+    .res-amt { font-size:clamp(20px,4vw,34px); font-weight:900; line-height:1; margin-bottom:4px; position:relative; z-index:1; }
+    .res-amt .dash { color:var(--red); margin:0 6px; }
+    .res-note { font-size:11px; color:var(--gray); position:relative; z-index:1; }
+    .sub-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(46,204,113,.1); border:1px solid rgba(46,204,113,.25); border-radius:6px; padding:6px 12px; margin-top:8px; font-size:12px; font-weight:600; color:var(--green); position:relative; z-index:1; flex-wrap:wrap; justify-content:center; }
+    .res-meta { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+    @media(max-width:500px){.res-meta{grid-template-columns:1fr}}
+    .rmc { background:var(--card2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; }
+    .rmc-ico { font-size:15px; margin-bottom:2px; }
+    .rmc-lbl { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray2); margin-bottom:2px; }
+    .rmc-val { font-size:13px; font-weight:800; }
+    .bdown { background:var(--card2); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:10px; }
+    .bdown-hdr { padding:7px 14px; border-bottom:1px solid var(--border); font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--gray); }
+    .brow { display:flex; align-items:center; justify-content:space-between; padding:6px 14px; border-bottom:1px solid rgba(56,56,56,.5); transition:background .12s; gap:8px; }
+    .brow:last-child { border-bottom:none; }
+    .brow:hover { background:rgba(255,255,255,.025); }
+    .brow-l { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:500; flex:1; min-width:0; }
+    .brow-l span:last-child { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .brow-dot { width:5px; height:5px; border-radius:50%; background:var(--red); flex-shrink:0; }
+    .brow-r { font-size:12px; font-weight:700; display:flex; align-items:center; gap:5px; white-space:nowrap; }
+    .brow-pct { font-size:10px; color:var(--gray2); font-weight:500; }
+    .sub-section { background:rgba(46,204,113,.06); border:1px solid rgba(46,204,113,.2); border-radius:10px; padding:12px 14px; margin-bottom:10px; }
+    .sub-section-title { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+    .sub-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid rgba(46,204,113,.12); gap:8px; }
+    .sub-row:last-child { border-bottom:none; }
+    .sub-row-name { font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px; flex:1; min-width:0; }
+    .sub-dot { width:5px; height:5px; border-radius:50%; background:var(--green); flex-shrink:0; }
+    .sub-row-amt { font-size:12px; font-weight:700; color:var(--green); white-space:nowrap; }
+    .sub-total-row { display:flex; justify-content:space-between; align-items:center; padding-top:10px; margin-top:4px; border-top:1px solid rgba(46,204,113,.25); gap:8px; }
+    .sub-total-label { font-size:13px; font-weight:700; }
+    .sub-total-amt { font-size:16px; font-weight:900; color:var(--green); }
+    .sub-disc { font-size:10px; color:rgba(46,204,113,.6); margin-top:6px; line-height:1.4; }
+    .cb-block { background:var(--red); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .cb-ico { font-size:24px; flex-shrink:0; }
+    .cb-txt { flex:1; min-width:140px; }
+    .cb-txt h3 { font-size:clamp(14px,2vw,17px); font-weight:900; color:#fff; margin-bottom:2px; }
+    .cb-txt p { font-size:12px; color:rgba(255,255,255,.72); line-height:1.4; }
+    .btn-cb { background:#fff; color:var(--red); border:none; padding:10px 18px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:800; cursor:pointer; transition:all .18s; white-space:nowrap; flex-shrink:0; }
+    .btn-cb:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,.25); }
+    @media(max-width:520px){.cb-block{flex-direction:column;text-align:center}.btn-cb{width:100%}}
+    .disc { text-align:center; margin-top:8px; font-size:11px; color:var(--gray2); line-height:1.5; }
+    .info-box { display:flex; align-items:flex-start; gap:9px; background:rgba(232,144,26,.06); border:1px solid rgba(232,144,26,.2); border-radius:8px; padding:10px 14px; font-size:12px; color:rgba(232,144,26,.9); }
+    .npa-wrap { position:relative; }
+    .npa-dd { position:absolute; top:calc(100% + 4px); left:0; right:0; background:#1E1E1E; border:1.5px solid var(--red); border-radius:8px; z-index:300; display:none; box-shadow:0 12px 32px rgba(0,0,0,.5); max-height:210px; overflow-y:auto; }
+    .npa-dd.open { display:block; }
+    .npa-item { padding:10px 15px; cursor:pointer; display:flex; align-items:center; justify-content:space-between; transition:background .12s; border-bottom:1px solid rgba(56,56,56,.5); }
+    .npa-item:last-child { border-bottom:none; }
+    .npa-item:hover,.npa-item.focused { background:rgba(232,32,26,.12); }
+    .npa-commune { font-size:13px; font-weight:600; color:#fff; }
+    .npa-code { font-size:12px; font-weight:700; color:var(--red); }
+    .mb20 { margin-bottom:12px; }
+    .toast2 { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:#1E1E1E; border:1px solid var(--red); color:#fff; padding:11px 24px; border-radius:30px; font-size:14px; font-weight:600; box-shadow:0 6px 28px rgba(0,0,0,.4); transition:transform .3s,opacity .3s; opacity:0; z-index:400; white-space:nowrap; max-width:90vw; text-align:center; }
+    .toast2.show { transform:translateX(-50%) translateY(0); opacity:1; }
 
     /* LOGOS */
     #partenaires{padding:72px 0;background:#fff;border-top:1px solid var(--g200);border-bottom:1px solid var(--g200)}
@@ -340,15 +446,13 @@
 <!-- HEADER -->
 <header id="hdr">
   <div class="container hdr-inner">
-    <a href="../index.html" class="logo">
+    <a href="../index%20(1).html" class="logo">
       <div class="logo-mark"><svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg></div>
       <div class="logo-txt"><span class="lb">RENOVA</span> <span class="ls">SWISS</span></div>
     </a>
     <nav class="nav">
-      <a href="../index.html#services">Services</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#processus">Notre méthode</a>
-      <a href="#faq">FAQ</a>
+      <a href="../index%20(1).html">Accueil</a>
+      <a href="#">Appartement</a>
     </nav>
     <div class="hdr-actions">
       <a href="tel:+41225551234" class="hdr-phone">
@@ -361,10 +465,8 @@
   </div>
 </header>
 <div id="mmenu">
-  <a href="../index.html#services">Services</a>
-  <a href="#realisations">Réalisations</a>
-  <a href="#processus">Notre méthode</a>
-  <a href="#faq">FAQ</a>
+  <a href="../index%20(1).html">Accueil</a>
+  <a href="#">Appartement</a>
   <a href="tel:+41225551234">+41 22 555 12 34</a>
   <a href="#estimateur" class="btn btn-primary">Devis gratuit</a>
 </div>
@@ -860,80 +962,271 @@
 
 <!-- ESTIMATEUR -->
 <section id="estimateur">
-  <div class="container est-wrap">
-    <div class="gs-up" style="text-align:center;max-width:700px;margin:0 auto 52px">
-      <div class="stag" style="color:rgba(255,130,130,.9)">Estimateur</div>
-      <h2 class="stitle" style="color:#fff">Estimez le budget de votre<br>rénovation d'appartement</h2>
-      <p class="ssub" style="color:rgba(255,255,255,.5);margin:0 auto">Sélectionnez les travaux envisagés et recevez une estimation indicative.</p>
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- HEADER -->
+    <div class="sim-hdr reveal" style="text-align:center; max-width:700px; margin:0 auto 16px;">
+      <div class="stag" style="color:rgba(255,130,130,0.9);">Simulateur — Suisse Romande</div>
+      <h2 class="stitle" style="color:#fff; font-size:clamp(22px,3vw,36px);">Estimez votre projet de rénovation</h2>
+      <p class="ssub" style="color:rgba(255,255,255,0.5); margin:0 auto; font-size:13px;">Fourchette budgétaire calibrée sur les prix 2025, aides cantonales incluses.</p>
     </div>
-    <div class="est-card gs-up">
-      <form id="est-form">
-        <div class="est-section">
-          <div class="est-label"><span>1</span>Quels travaux souhaitez-vous réaliser ?</div>
-          <div class="est-checks">
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="complete">Rénovation complète</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="sdb">Salle de bain</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="cuisine">Cuisine</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="peinture">Peinture / rafraîchissement</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="sols">Sols / parquet / carrelage</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="electricite">Électricité</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="plomberie">Plomberie</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="fenetres">Fenêtres / isolation</label>
-            <label class="est-check-lbl"><input type="checkbox" name="travaux" value="autre">Autre</label>
+
+    <!-- PROGRESS -->
+    <div class="prog">
+      <div class="ps active" id="ps1"><div class="pd" id="pd1">1</div><div class="plbl">Projet</div></div>
+      <div class="ps"        id="ps2"><div class="pd" id="pd2">2</div><div class="plbl">Détails</div></div>
+      <div class="ps"        id="ps3"><div class="pd" id="pd3">3</div><div class="plbl">Contact</div></div>
+      <div class="ps"        id="ps4"><div class="pd" id="pd4">4</div><div class="plbl">Estimation</div></div>
+    </div>
+
+    <!-- CARD -->
+    <div class="est-card">
+      <div class="est-card-body">
+
+        <!-- ── ÉTAPE 1 ── -->
+        <div class="panel active" id="p1">
+
+          <span class="flbl">
+            Type(s) de rénovation <span class="req">*</span>
+            <span style="font-weight:400;letter-spacing:0;text-transform:none;font-family:'Barlow',sans-serif;font-size:11px;color:var(--gray2)"> — sélection multiple</span>
+          </span>
+
+          <div class="type-grid">
+            <div class="ttile" data-v="maison"         onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🏠</div><div class="ttile-name">Rénovation maison</div><div class="ttile-range">1'100–3'000 CHF/m²</div><div class="ttile-desc">Maison individuelle / villa</div></div>
+            <div class="ttile" data-v="appartement"    onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🏢</div><div class="ttile-name">Rénovation appartement</div><div class="ttile-range">800–3'000 CHF/m²</div><div class="ttile-desc">Copropriété ou privé</div></div>
+            <div class="ttile" data-v="cuisine"        onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🍳</div><div class="ttile-name">Rénovation cuisine</div><div class="ttile-range">15'000–40'000 CHF</div><div class="ttile-desc">Aménagement & équipement</div></div>
+            <div class="ttile" data-v="sdb"            onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🛁</div><div class="ttile-name">Salle de bain</div><div class="ttile-range">10'000–30'000 CHF</div><div class="ttile-desc">Partielle ou complète</div></div>
+            <div class="ttile" data-v="energetique"    onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">⚡</div><div class="ttile-name">Rénovation énergétique</div><div class="ttile-range">Aides jusqu'à 30%</div><div class="ttile-desc">PAC, VMC, isolation</div></div>
+            <div class="ttile" data-v="peinture"       onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🎨</div><div class="ttile-name">Peinture & finitions</div><div class="ttile-range">200–500 CHF/m²</div><div class="ttile-desc">Sols, peinture, revêtements</div></div>
+            <div class="ttile" data-v="isolation"      onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🪟</div><div class="ttile-name">Isolation & fenêtres</div><div class="ttile-range">100–450 CHF/m²</div><div class="ttile-desc">Thermique & menuiseries</div></div>
+            <div class="ttile" data-v="transformation" onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🔨</div><div class="ttile-name">Transformation intérieure</div><div class="ttile-range">500–1'500 CHF/m²</div><div class="ttile-desc">Cloisons, murs, espaces</div></div>
           </div>
-        </div>
-        <div class="est-section">
-          <div class="est-label"><span>2</span>Surface de l'appartement</div>
-          <div class="est-radios">
-            <label class="est-radio-lbl"><input type="radio" name="surface" value="35">Moins de 40 m²</label>
-            <label class="est-radio-lbl"><input type="radio" name="surface" value="55">40 – 70 m²</label>
-            <label class="est-radio-lbl"><input type="radio" name="surface" value="85">70 – 100 m²</label>
-            <label class="est-radio-lbl"><input type="radio" name="surface" value="125">100 – 150 m²</label>
-            <label class="est-radio-lbl"><input type="radio" name="surface" value="175">Plus de 150 m²</label>
+
+          <div class="dv"></div>
+
+          <div class="fg3">
+            <div class="fg">
+              <span class="flbl">Canton <span class="req">*</span></span>
+              <select id="canton">
+                <option value="">Sélectionner…</option>
+                <option value="GE">Genève (GE)</option>
+                <option value="VD">Vaud (VD)</option>
+                <option value="VS">Valais (VS)</option>
+                <option value="FR">Fribourg (FR)</option>
+                <option value="NE">Neuchâtel (NE)</option>
+                <option value="JU">Jura (JU)</option>
+              </select>
+              <div class="ferr" id="e-canton">Sélectionnez votre canton</div>
+            </div>
+            <div class="fg npa-wrap">
+              <span class="flbl">NPA <span class="req">*</span></span>
+              <input type="text" id="npa" placeholder="1201, 1002…" maxlength="4" inputmode="numeric" autocomplete="off" oninput="onNpa(this)">
+              <div class="ferr" id="e-npa">NPA requis (4 chiffres)</div>
+              <div class="npa-dd" id="npa-dd"></div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Commune</span>
+              <input type="text" id="ville" placeholder="Auto-complétée" readonly style="opacity:.65;cursor:default">
+            </div>
           </div>
-        </div>
-        <div class="est-section">
-          <div class="est-label"><span>3</span>Où se situe le bien ?</div>
-          <div class="est-2cols">
-            <input class="est-input" type="text" name="cp" placeholder="Code postal (ex. 1202)" maxlength="6">
-            <input class="est-input" type="text" name="ville" placeholder="Ville (ex. Genève)">
+
+          <div class="fg mb20">
+            <span class="flbl">Vous êtes</span>
+            <div class="pill-group">
+              <input type="radio" name="statut" id="s1" value="proprio" class="pi" checked><label class="pl" for="s1">🔑 Propriétaire</label>
+              <input type="radio" name="statut" id="s2" value="loc"     class="pi"><label class="pl" for="s2">📋 Locataire</label>
+              <input type="radio" name="statut" id="s3" value="regie"   class="pi"><label class="pl" for="s3">🏢 Régie</label>
+              <input type="radio" name="statut" id="s4" value="inv"     class="pi"><label class="pl" for="s4">💼 Investisseur</label>
+            </div>
           </div>
-        </div>
-        <div class="est-section">
-          <div class="est-label"><span>4</span>Quand souhaitez-vous réaliser les travaux ?</div>
-          <div class="est-radios">
-            <label class="est-radio-lbl"><input type="radio" name="timing" value="asap">Dès que possible</label>
-            <label class="est-radio-lbl"><input type="radio" name="timing" value="3m">Dans 3 mois</label>
-            <label class="est-radio-lbl"><input type="radio" name="timing" value="6m">Dans 6 mois</label>
-            <label class="est-radio-lbl"><input type="radio" name="timing" value="1y">Dans l'année</label>
-            <label class="est-radio-lbl"><input type="radio" name="timing" value="reflexion">Projet en réflexion</label>
+
+        </div><!-- /p1 -->
+
+        <!-- ── ÉTAPE 2 ── -->
+        <div class="panel" id="p2">
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Surface approximative</span>
+              <div class="sval"><span id="sv">80</span> <span class="unit">m²</span></div>
+              <input type="range" id="surface" min="10" max="500" value="80" oninput="updSlider('surface',10,500,'sv')">
+              <div class="srange"><span>10 m²</span><span>500 m²</span></div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Budget envisagé</span>
+              <div class="sval"><span id="bv">80'000</span> <span class="unit">CHF</span></div>
+              <input type="range" id="budget" min="5000" max="500000" value="80000" step="1000" oninput="updSlider('budget',5000,500000,'bv',true)">
+              <div class="srange"><span>5'000</span><span>500'000 CHF</span></div>
+            </div>
           </div>
-        </div>
-        <div class="est-section">
-          <div class="est-label"><span>5</span>Budget envisagé (optionnel)</div>
-          <div class="est-radios">
-            <label class="est-radio-lbl"><input type="radio" name="budget" value="20k">Moins de 20 000 CHF</label>
-            <label class="est-radio-lbl"><input type="radio" name="budget" value="50k">20 000 – 50 000 CHF</label>
-            <label class="est-radio-lbl"><input type="radio" name="budget" value="100k">50 000 – 100 000 CHF</label>
-            <label class="est-radio-lbl"><input type="radio" name="budget" value="100k+">Plus de 100 000 CHF</label>
-            <label class="est-radio-lbl"><input type="radio" name="budget" value="conseil">Je souhaite être conseillé</label>
+
+          <div class="dv"></div>
+
+          <div class="fg mb20">
+            <span class="flbl">Niveau de prestations</span>
+            <div class="niv-grid">
+              <input type="radio" name="niveau" id="n1" value="eco" class="ni"><label class="nl" for="n1"><span class="niv-ico">🌿</span><span class="niv-name">Essentiel</span><span class="niv-chf">~500–800 CHF/m²</span><span class="niv-desc">Matériaux standards</span></label>
+              <input type="radio" name="niveau" id="n2" value="mid" class="ni" checked><label class="nl" for="n2"><span class="niv-ico">⭐</span><span class="niv-name">Intermédiaire</span><span class="niv-chf">~800–1'500 CHF/m²</span><span class="niv-desc">Bon rapport qualité/prix</span></label>
+              <input type="radio" name="niveau" id="n3" value="pre" class="ni"><label class="nl" for="n3"><span class="niv-ico">💎</span><span class="niv-name">Premium</span><span class="niv-chf">~1'500–3'000+ CHF/m²</span><span class="niv-desc">Haut de gamme</span></label>
+            </div>
           </div>
-        </div>
-        <div class="est-section">
-          <div class="est-label"><span>6</span>Vos coordonnées</div>
-          <div class="est-2cols">
-            <input class="est-input" type="text" name="nom" placeholder="Nom" required>
-            <input class="est-input" type="email" name="email" placeholder="Email" required>
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Année de construction</span>
+              <select id="annee">
+                <option value="">Sélectionner…</option>
+                <option value="av1950">Avant 1950 (vétuste)</option>
+                <option value="1950">1950 – 1975</option>
+                <option value="1975">1975 – 2000</option>
+                <option value="ap2000">Après 2000</option>
+              </select>
+            </div>
+            <div class="fg">
+              <span class="flbl">Délai souhaité</span>
+              <select id="delai">
+                <option value="urgent">Le plus tôt possible</option>
+                <option value="3m" selected>Sous 3 mois</option>
+                <option value="6m">Dans 6 mois</option>
+                <option value="1a">Plus d'un an</option>
+                <option value="nd">Non défini</option>
+              </select>
+            </div>
           </div>
-          <div style="margin-top:12px"><input class="est-input" type="tel" name="tel" placeholder="Téléphone" style="max-width:340px"></div>
-        </div>
-        <button type="submit" class="est-btn">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          Recevoir mon estimation
+
+          <div class="fg mb20">
+            <span class="flbl">Travaux prioritaires</span>
+            <div class="pill-group">
+              <input type="checkbox" id="tw1" class="pi"><label class="pl" for="tw1">🚿 Plomberie</label>
+              <input type="checkbox" id="tw2" class="pi"><label class="pl" for="tw2">💡 Électricité</label>
+              <input type="checkbox" id="tw3" class="pi"><label class="pl" for="tw3">🔥 Chauffage</label>
+              <input type="checkbox" id="tw4" class="pi"><label class="pl" for="tw4">🧱 Gros œuvre</label>
+              <input type="checkbox" id="tw5" class="pi"><label class="pl" for="tw5">🍳 Cuisine</label>
+              <input type="checkbox" id="tw6" class="pi"><label class="pl" for="tw6">🛁 Salle de bain</label>
+              <input type="checkbox" id="tw7" class="pi"><label class="pl" for="tw7">🪞 Décoration</label>
+              <input type="checkbox" id="tw8" class="pi"><label class="pl" for="tw8">🌿 Extérieur</label>
+            </div>
+          </div>
+
+          <div class="fg">
+            <span class="flbl">Notes complémentaires</span>
+            <textarea id="notes" placeholder="Contraintes, état actuel du bien, souhaits particuliers…"></textarea>
+          </div>
+
+        </div><!-- /p2 -->
+
+        <!-- ── ÉTAPE 3 ── -->
+        <div class="panel" id="p3">
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Prénom <span class="req">*</span></span>
+              <input type="text" id="prenom" placeholder="Votre prénom">
+              <div class="ferr" id="e-prenom">Prénom requis</div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Nom <span class="req">*</span></span>
+              <input type="text" id="nom" placeholder="Votre nom">
+              <div class="ferr" id="e-nom">Nom requis</div>
+            </div>
+          </div>
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Email <span class="req">*</span></span>
+              <input type="email" id="email" placeholder="votre@email.ch">
+              <div class="ferr" id="e-email">Email invalide</div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Téléphone <span class="req">*</span></span>
+              <input type="tel" id="tel" placeholder="079 123 45 67">
+              <div class="ferr" id="e-tel">Numéro requis</div>
+            </div>
+          </div>
+
+          <div class="dv"></div>
+
+          <div class="fg mb20">
+            <span class="flbl">Créneau de rappel préféré</span>
+            <div class="pill-group">
+              <input type="radio" name="creneau" id="cr1" value="matin" class="pi" checked><label class="pl" for="cr1">🌅 Matin (8h–12h)</label>
+              <input type="radio" name="creneau" id="cr2" value="aprem" class="pi"><label class="pl" for="cr2">☀️ Après-midi</label>
+              <input type="radio" name="creneau" id="cr3" value="soir"  class="pi"><label class="pl" for="cr3">🌙 Soir (17h–19h)</label>
+              <input type="radio" name="creneau" id="cr4" value="any"   class="pi"><label class="pl" for="cr4">🎯 Indifférent</label>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <span>🔒</span>
+            <span>Données strictement confidentielles, partagées uniquement avec nos experts RGE certifiés en Suisse romande.</span>
+          </div>
+
+        </div><!-- /p3 -->
+
+        <!-- ── ÉTAPE 4 ── -->
+        <div class="panel" id="p4">
+
+          <div class="res-hero">
+            <div class="res-eye">Estimation calibrée Suisse Romande 2025</div>
+            <div class="res-amt" id="res-range">— CHF</div>
+            <div class="res-note" id="res-note">Estimation indicative basée sur les prix du marché romand</div>
+            <div class="sub-badge" id="sub-badge" style="display:none">
+              🌿 Aides potentielles : <strong id="sub-badge-amt">—</strong> CHF — Programme Bâtiments
+            </div>
+          </div>
+
+          <div class="res-meta">
+            <div class="rmc"><div class="rmc-ico">📐</div><div class="rmc-lbl">Surface</div><div class="rmc-val" id="rm-s">—</div></div>
+            <div class="rmc"><div class="rmc-ico">🏛️</div><div class="rmc-lbl">Canton</div><div class="rmc-val" id="rm-c">—</div></div>
+            <div class="rmc"><div class="rmc-ico">⭐</div><div class="rmc-lbl">Niveau</div><div class="rmc-val" id="rm-n">—</div></div>
+          </div>
+
+          <div class="bdown">
+            <div class="bdown-hdr">Répartition estimée des postes</div>
+            <div id="brows"></div>
+          </div>
+
+          <div class="sub-section" id="sub-section" style="display:none">
+            <div class="sub-section-title">💚 Aides financières — Programme Bâtiments 2025</div>
+            <div id="sub-rows"></div>
+            <div class="sub-total-row">
+              <div class="sub-total-label">Total aides estimées</div>
+              <div class="sub-total-amt" id="sub-total">—</div>
+            </div>
+            <div class="sub-disc" id="sub-disc">Estimations indicatives. Demande à déposer avant le début des travaux.</div>
+          </div>
+
+          <div class="cb-block">
+            <div class="cb-ico">📞</div>
+            <div class="cb-txt">
+              <h3>Parlez à un expert certifié RGE</h3>
+              <p id="cb-p">Nos conseillers analysent votre projet gratuitement, optimisent vos aides et vous mettent en relation avec des artisans de confiance en Suisse romande.</p>
+            </div>
+            <button class="btn-cb" onclick="doCallback()">Être rappelé →</button>
+          </div>
+
+          <p class="disc">⚠️ Estimation indicative non contractuelle. Sources : mesartisans.ch, houzy.ch, batmat.ch, realadvisor.ch, Programme Bâtiments 2025.</p>
+
+        </div><!-- /p4 -->
+
+      </div><!-- /est-card-body -->
+
+      <div class="est-card-foot">
+        <button class="btn-back" id="btn-back" onclick="prevStep()" style="visibility:hidden">
+          <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M8 1.5L3 6.5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Précédent
         </button>
-      </form>
-    </div>
+        <span class="sctr" id="sctr">Étape 1 sur 4</span>
+        <button class="btn-next" id="btn-next" onclick="nextStep()">
+          Continuer
+          <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M5 1.5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+    </div><!-- /est-card -->
+
   </div>
+  <div class="toast2" id="toast2"></div>
 </section>
 
 <!-- LOGOS -->
@@ -1018,7 +1311,7 @@
           <div class="foot-addr-l" style="margin-top:8px"><a href="tel:+41225551234" style="color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">+41 22 555 12 34</a> · <a href="mailto:contact@renovaswiss.ch" style="color:rgba(255,255,255,.6);transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">contact@renovaswiss.ch</a></div>
         </div>
       </div>
-      <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Rénovation complète</a></li><li><a href="#services">Cuisine &amp; Salle de bain</a></li><li><a href="#services">Isolation &amp; Fenêtres</a></li><li><a href="#services">Peinture &amp; Sols</a></li><li><a href="../index.html">Rénovation maison</a></li></ul></div>
+      <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">Rénovation complète</a></li><li><a href="#services">Cuisine &amp; Salle de bain</a></li><li><a href="#services">Isolation &amp; Fenêtres</a></li><li><a href="#services">Peinture &amp; Sols</a></li><li><a href="../index%20(1).html">Rénovation maison</a></li></ul></div>
       <div class="foot-col"><h4>Entreprise</h4><ul><li><a href="#processus">Notre méthode</a></li><li><a href="#realisations">Réalisations</a></li><li><a href="#comparatif">Pourquoi nous</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul></div>
       <div class="foot-col"><h4>Zone d'intervention</h4><ul><li><a href="#contact">Canton de Genève</a></li><li><a href="#contact">Canton de Vaud</a></li><li><a href="#contact">Canton de Fribourg</a></li><li><a href="#contact">Canton de Neuchâtel</a></li><li><a href="#contact">Canton du Valais</a></li><li><a href="#contact">Canton du Jura</a></li></ul><div style="margin-top:24px"><a href="#estimateur" class="btn btn-primary" style="font-size:13px;padding:10px 18px">Devis gratuit</a></div></div>
     </div>
@@ -1065,15 +1358,72 @@
   </div>
 </div>
 <style>
-  .cta-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid rgba(204,0,0,.35);box-shadow:0 -6px 40px rgba(0,0,0,.45);z-index:9999;transform:translateY(100%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
-  .cta-bar.visible{transform:translateY(0)}
-  .cta-bar-inner{max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;gap:28px}
-  .cta-bar-text{flex:1;min-width:0}
-  .cta-bar-title{display:block;font-size:15px;font-weight:700;color:#fff}
-  .cta-bar-sub{display:block;font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
-  .cta-bar-btn{display:inline-flex;align-items:center;background:#cc0000;color:#fff;font-size:14px;font-weight:700;padding:11px 28px;border-radius:8px;white-space:nowrap;transition:background .2s,transform .2s;flex-shrink:0}
-  .cta-bar-btn:hover{background:#aa0000;transform:translateY(-1px)}
-  @media(max-width:600px){.cta-bar-inner{justify-content:center;padding:12px 20px}.cta-bar-text{display:none}}
+  .cta-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    width: 100%;
+    background: #111;
+    border-top: 1px solid rgba(204,0,0,0.35);
+    box-shadow: 0 -6px 40px rgba(0,0,0,0.45);
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                width  0.5s cubic-bezier(0.16,1,0.3,1),
+                height 0.5s cubic-bezier(0.16,1,0.3,1),
+                left   0.5s cubic-bezier(0.16,1,0.3,1),
+                right  0.5s cubic-bezier(0.16,1,0.3,1),
+                bottom 0.5s cubic-bezier(0.16,1,0.3,1),
+                border-radius 0.5s cubic-bezier(0.16,1,0.3,1),
+                background 0.5s ease,
+                box-shadow 0.5s ease;
+  }
+  .cta-bar.visible { transform: translateY(0); }
+  .cta-bar.mini {
+    left: calc(100vw - 84px);
+    right: 28px;
+    bottom: 28px;
+    width: 56px;
+    height: 56px;
+    border-top: none;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #cc0000;
+    box-shadow: 0 4px 20px rgba(204,0,0,0.5), 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .cta-bar.mini .cta-bar-inner {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .cta-bar.mini::after {
+    content: '';
+    position: absolute; inset: 0;
+    display: flex;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='none' viewBox='0 0 24 24'%3E%3Crect x='2' y='13' width='5' height='9' rx='1' fill='%23fff'/%3E%3Crect x='9.5' y='8' width='5' height='14' rx='1' fill='%23fff'/%3E%3Crect x='17' y='4' width='5' height='18' rx='1' fill='rgba(255,255,255,0.6)'/%3E%3Cpath d='M1 23h22' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/26px no-repeat;
+  }
+  .cta-bar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 14px 40px;
+    display: flex; align-items: center; gap: 28px;
+    transition: opacity 0.15s;
+  }
+  .cta-bar-text { flex: 1; min-width: 0; }
+  .cta-bar-title { display: block; font-size: 15px; font-weight: 700; color: #fff; }
+  .cta-bar-sub   { display: block; font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+  .cta-bar-btn {
+    display: inline-flex; align-items: center;
+    background: #cc0000; color: #fff;
+    font-size: 14px; font-weight: 700;
+    padding: 11px 28px; border-radius: 8px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-bar-btn:hover { background: #aa0000; transform: translateY(-1px); }
+  @media (max-width: 600px) {
+    .cta-bar-inner { justify-content: center; padding: 12px 20px; }
+    .cta-bar-text { display: none; }
+    .cta-bar-btn { width: auto; }
+  }
 </style>
 
 <!-- GSAP -->
@@ -1265,7 +1615,20 @@
   })();
 
   /* ── Popup bas de page ── */
-  setTimeout(()=>document.getElementById('cta-bar').classList.add('visible'), 2500);
+  (function() {
+    var bar = document.getElementById('cta-bar');
+    var sim = document.getElementById('estimateur');
+    setTimeout(function() { bar.classList.add('visible'); }, 2500);
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { bar.classList.add('mini'); }
+          else { bar.classList.remove('mini'); }
+        });
+      }, { threshold: 0.15 });
+      obs.observe(sim);
+    }
+  })();
 
   /* ── Avis Google slider ── */
   (function(){
@@ -1309,15 +1672,326 @@
       document.querySelectorAll(`.est-radio-lbl input[name="${this.name}"]`).forEach(inp=>inp.closest('.est-radio-lbl').classList.toggle('selected',inp.checked));
     });
   });
-  document.getElementById('est-form').addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!this.nom.value||!this.email.value){ alert('Veuillez renseigner votre nom et email.'); return; }
-    const btn=this.querySelector('.est-btn');
-    btn.innerHTML='✓ &nbsp;Demande envoyée — nous vous contactons sous 48h';
-    btn.style.background='#16a34a'; btn.disabled=true;
-  });
 
 })();
+</script>
+
+<!-- ── Estimateur Rénovation ── -->
+<script>
+// ── DATA ───────────────────────────────────────────────────────
+const PRIX = {
+  maison:         {ppm2:1600, label:'Rénovation maison / villa'},
+  appartement:    {ppm2:1400, label:'Rénovation appartement'},
+  cuisine:        {fixed:25000,label:'Rénovation cuisine',       room:true},
+  sdb:            {fixed:18000,label:'Rénovation salle de bain', room:true},
+  energetique:    {ppm2:580,  label:'Rénovation énergétique'},
+  peinture:       {ppm2:340,  label:'Peinture & finitions'},
+  isolation:      {ppm2:260,  label:'Isolation & fenêtres'},
+  transformation: {ppm2:950,  label:'Transformation intérieure'},
+};
+const NC = {eco:.62,mid:1,pre:1.72};
+const NL = {eco:'🌿 Essentiel',mid:'⭐ Intermédiaire',pre:'💎 Premium'};
+const CC = {GE:1.30,VD:1.12,VS:1.02,FR:1.00,NE:0.98,JU:0.94};
+const CL = {GE:'Genève (GE)',VD:'Vaud (VD)',VS:'Valais (VS)',FR:'Fribourg (FR)',NE:'Neuchâtel (NE)',JU:'Jura (JU)'};
+const AC = {av1950:1.22,'1950':1.10,'1975':1.02,ap2000:.95,'':1};
+const BD = {
+  maison:        [["Gros œuvre / structure",.18],["Plomberie & sanitaire",.15],["Électricité",.12],["Isolation & menuiseries",.17],["Revêtements & finitions",.18],["Cuisine & équipements",.10],["Honoraires & imprévus",.10]],
+  appartement:   [["Cloisons & doublages",.14],["Plomberie & sanitaire",.17],["Électricité",.13],["Revêtements sols & murs",.22],["Menuiseries intérieures",.12],["Cuisine & salle de bain",.12],["Honoraires & imprévus",.10]],
+  cuisine:       [["Meubles, façades & équipements",.40],["Plan de travail & crédence",.14],["Plomberie",.14],["Électricité",.10],["Revêtements",.12],["Honoraires & pose",.10]],
+  sdb:           [["Carrelage & faïence",.26],["Sanitaires & robinetterie",.28],["Plomberie",.18],["Électricité & ventilation",.12],["Menuiseries",.07],["Honoraires",.09]],
+  energetique:   [["Chauffage / PAC",.42],["Isolation enveloppe",.24],["Ventilation VMC",.12],["Fenêtres haute performance",.14],["Électricité & réseau",.05],["Démarches / CECB+",.03]],
+  peinture:      [["Sols (parquet, carrelage…)",.36],["Peintures & fournitures",.24],["Plafonds & cornières",.14],["Enduits & papiers peints",.14],["Main d'œuvre & imprévus",.12]],
+  isolation:     [["Isolation murs / combles",.42],["Fenêtres double/triple vitrage",.34],["Portes & volets",.12],["Étanchéité & finitions",.07],["Honoraires",.05]],
+  transformation:[["Démolition & évacuation",.14],["Structure / poutres / renforts",.26],["Cloisons & doublages",.20],["Électricité & plomberie déplacées",.14],["Revêtements & finitions",.16],["Honoraires & imprévus",.10]],
+};
+
+function getAides(type, canton, surface, niveau, est) {
+  if (!['energetique','isolation'].includes(type)) return null;
+  const rows=[]; let tot=0;
+  if (type==='energetique') {
+    const pac=canton==='GE'?Math.min(14000,Math.round(est*.25)):canton==='VD'?Math.min(12000,Math.round(est*.22)):Math.min(10000,Math.round(est*.20));
+    rows.push(['Installation pompe à chaleur',pac]); tot+=pac;
+    const iso=Math.round(surface*35); rows.push(['Isolation enveloppe thermique',iso]); tot+=iso;
+    rows.push(['Audit CECB+',800]); tot+=800;
+    if (niveau!=='eco'){const b=Math.round(surface*33);rows.push(['Bonus rénovation globale (classe C+)',b]);tot+=b;}
+  } else {
+    const ia=Math.round(est*.22); rows.push(['Isolation murs / combles',ia]); tot+=ia;
+    const vmc=Math.min(3000,Math.round(est*.06)); rows.push(['Ventilation VMC',vmc]); tot+=vmc;
+    rows.push(['Audit CECB+',600]); tot+=600;
+  }
+  const disc=canton==='GE'?`Demande à l'OCEN (ge.ch) avant travaux. Budget GE 2025 : 29 MCHF.`
+    :canton==='VD'?`Demande sur leprogrammebatiments.ch. Budget VD 2025 : 61 MCHF.`
+    :`Demande sur leprogrammebatiments.ch avant travaux.`;
+  return {rows,tot,disc};
+}
+
+// ── NPA DATABASE ───────────────────────────────────────────────
+const NPA_DATA=[
+  [1200,"Genève","GE"],[1201,"Genève","GE"],[1202,"Genève","GE"],[1203,"Genève","GE"],
+  [1204,"Genève","GE"],[1205,"Genève","GE"],[1206,"Genève","GE"],[1207,"Genève","GE"],
+  [1208,"Genève","GE"],[1209,"Genève","GE"],[1211,"Genève","GE"],[1212,"Grand-Lancy","GE"],
+  [1213,"Petit-Lancy","GE"],[1214,"Vernier","GE"],[1215,"Genève 15","GE"],
+  [1216,"Cointrin","GE"],[1217,"Meyrin","GE"],[1218,"Le Grand-Saconnex","GE"],
+  [1219,"Châtelaine","GE"],[1220,"Les Avanchets","GE"],[1222,"Vésenaz","GE"],
+  [1223,"Cologny","GE"],[1224,"Chêne-Bougeries","GE"],[1225,"Chêne-Bourg","GE"],
+  [1226,"Thônex","GE"],[1227,"Carouge","GE"],[1228,"Plan-les-Ouates","GE"],
+  [1229,"Les Acacias","GE"],[1231,"Conches","GE"],[1232,"Confignon","GE"],
+  [1233,"Bernex","GE"],[1234,"Vessy","GE"],[1236,"Cartigny","GE"],
+  [1237,"Avully","GE"],[1239,"Collex","GE"],[1240,"Genthod","GE"],
+  [1241,"Puplinge","GE"],[1242,"Satigny","GE"],[1243,"Presinge","GE"],
+  [1244,"Choulex","GE"],[1245,"Collonge-Bellerive","GE"],[1246,"Corsier","GE"],
+  [1247,"Anières","GE"],[1248,"Hermance","GE"],[1251,"Gy","GE"],
+  [1252,"Meinier","GE"],[1253,"Vandœuvres","GE"],[1254,"Jussy","GE"],
+  [1255,"Veyrier","GE"],[1256,"Troinex","GE"],[1257,"La Croix-de-Rozon","GE"],
+  [1258,"Perly","GE"],[1281,"Russin","GE"],[1283,"La Plaine","GE"],
+  [1284,"Chancy","GE"],[1285,"Athenaz","GE"],[1287,"Laconnex","GE"],
+  [1288,"Aire-la-Ville","GE"],[1290,"Versoix","GE"],[1291,"Commugny","GE"],
+  [1292,"Chambésy","GE"],[1293,"Bellevue","GE"],[1295,"Tannay","GE"],
+  [1296,"Coppet","GE"],[1297,"Founex","GE"],[1298,"Céligny","GE"],
+  [1000,"Lausanne","VD"],[1001,"Lausanne","VD"],[1002,"Lausanne","VD"],
+  [1003,"Lausanne","VD"],[1004,"Lausanne","VD"],[1005,"Lausanne","VD"],
+  [1006,"Lausanne","VD"],[1007,"Lausanne","VD"],[1008,"Prilly","VD"],
+  [1009,"Pully","VD"],[1010,"Lausanne","VD"],[1018,"Lausanne","VD"],
+  [1020,"Renens","VD"],[1022,"Chavannes","VD"],[1023,"Crissier","VD"],
+  [1024,"Ecublens","VD"],[1025,"Saint-Sulpice","VD"],[1030,"Bussigny","VD"],
+  [1052,"Le Mont-sur-Lausanne","VD"],[1053,"Cugy","VD"],[1066,"Epalinges","VD"],
+  [1070,"Puidoux","VD"],[1071,"Chexbres","VD"],[1073,"Savigny","VD"],
+  [1091,"Grandvaux","VD"],[1092,"Belmont-sur-Lausanne","VD"],[1095,"Lutry","VD"],
+  [1096,"Cully","VD"],[1110,"Morges","VD"],[1180,"Rolle","VD"],
+  [1196,"Gland","VD"],[1197,"Prangins","VD"],[1260,"Nyon","VD"],
+  [1262,"Eysins","VD"],[1268,"Begnins","VD"],[1272,"Genolier","VD"],
+  [1279,"Chavannes-de-Bogis","VD"],[1299,"Crans-près-Céligny","VD"],
+  [1400,"Yverdon-les-Bains","VD"],[1422,"Grandson","VD"],[1450,"Sainte-Croix","VD"],
+  [1800,"Vevey","VD"],[1814,"La Tour-de-Peilz","VD"],[1815,"Clarens","VD"],
+  [1820,"Montreux","VD"],[1844,"Villeneuve","VD"],[1860,"Aigle","VD"],
+  [1880,"Bex","VD"],[1884,"Villars-sur-Ollon","VD"],
+  [1950,"Sion","VS"],[1951,"Chandolin-près-Sion","VS"],[1960,"Sierre","VS"],
+  [1963,"Vétroz","VS"],[1964,"Conthey","VS"],[1965,"Savièse","VS"],
+  [1971,"Grimisuat","VS"],[1978,"Lens","VS"],
+  [1870,"Monthey","VS"],[1890,"St-Maurice","VS"],[1900,"Martigny","VS"],
+  [1907,"Saxon","VS"],[1920,"Martigny","VS"],[1926,"Fully","VS"],
+  [1936,"Verbier","VS"],[1940,"Vollèges","VS"],
+  [3900,"Brig-Glis","VS"],[3906,"Saas-Fee","VS"],[3920,"Zermatt","VS"],
+  [3930,"Visp","VS"],[3960,"Sierre","VS"],[3962,"Montana","VS"],
+  [3963,"Crans-Montana","VS"],[3970,"Salgesch","VS"],[3976,"Noës","VS"],
+  [1700,"Fribourg","FR"],[1702,"Fribourg","FR"],[1705,"Fribourg","FR"],
+  [1712,"Tafers","FR"],[1723,"Marly","FR"],[1630,"Bulle","FR"],
+  [1632,"Riaz","FR"],[1637,"Charmey","FR"],[1640,"Châtel-St-Denis","FR"],
+  [1680,"Romont","FR"],[3280,"Murten","FR"],
+  [2000,"Neuchâtel","NE"],[2001,"Neuchâtel","NE"],[2017,"Boudry","NE"],
+  [2022,"Bevaix","NE"],[2034,"Peseux","NE"],[2035,"Corcelles","NE"],
+  [2036,"Cormondrèche","NE"],[2072,"St-Blaise","NE"],[2074,"Marin-Epagnier","NE"],
+  [2088,"Cressier","NE"],[2105,"Travers","NE"],[2114,"Fleurier","NE"],
+  [2300,"La Chaux-de-Fonds","NE"],[2400,"Le Locle","NE"],
+  [2800,"Delémont","JU"],[2822,"Courroux","JU"],[2830,"Courrendlin","JU"],
+  [2852,"Courtételle","JU"],[2854,"Bassecourt","JU"],[2900,"Porrentruy","JU"],
+  [2950,"Courgenay","JU"],
+];
+
+const NPA_MAP={};
+NPA_DATA.forEach(([n,c,k])=>{
+  const key=String(n);
+  (NPA_MAP[key]=NPA_MAP[key]||[]).push({commune:c,canton:k});
+});
+const ROMAND=new Set(['GE','VD','VS','FR','NE','JU']);
+
+// ── STATE ──────────────────────────────────────────────────────
+let step=1, selTypes=new Set(), npaCursor=-1;
+
+// ── HELPERS ────────────────────────────────────────────────────
+const $=id=>document.getElementById(id);
+const chf=n=>n.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019')+' CHF';
+const mk=(tag,cls,html='')=>{const e=document.createElement(tag);if(cls)e.className=cls;e.innerHTML=html;return e;};
+
+function toast(msg){
+  const t=$('toast2'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+function clrErr(id,fi){$(id).classList.remove('show');if(fi)$(fi).classList.remove('err');}
+function setErr(id,fi){$(id).classList.add('show');if(fi)$(fi).classList.add('err');}
+
+function toggleType(el){
+  const v=el.dataset.v;
+  selTypes.has(v)?(selTypes.delete(v),el.classList.remove('sel')):(selTypes.add(v),el.classList.add('sel'));
+}
+
+function updSlider(id,min,max,disp,money=false){
+  const el=$(id), v=parseInt(el.value);
+  el.style.setProperty('--pct',((v-min)/(max-min)*100)+'%');
+  $(disp).textContent=money?v.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019'):v;
+}
+updSlider('surface',10,500,'sv');
+updSlider('budget',5000,500000,'bv',true);
+
+function onNpa(inp){
+  const val=inp.value.trim();
+  const dd=$('npa-dd');
+  if(val.length<2){dd.classList.remove('open');return;}
+  const seen=new Set(), matches=[];
+  for(const [key,entries] of Object.entries(NPA_MAP)){
+    if(key.startsWith(val)){
+      entries.forEach(e=>{
+        const uid=key+'|'+e.commune;
+        if(!seen.has(uid)&&ROMAND.has(e.canton)){seen.add(uid);matches.push({npa:key,...e});}
+      });
+    }
+  }
+  matches.sort((a,b)=>+a.npa-+b.npa);
+  if(!matches.length){dd.classList.remove('open');return;}
+  dd.innerHTML='';
+  matches.slice(0,10).forEach((m,i)=>{
+    const d=mk('div','npa-item');
+    d.innerHTML=`<span class="npa-commune">${m.commune}</span><span class="npa-code">${m.npa} · ${m.canton}</span>`;
+    d.addEventListener('mousedown',ev=>{ev.preventDefault();pickNpa(m);});
+    dd.appendChild(d);
+  });
+  dd.classList.add('open'); npaCursor=-1;
+}
+
+function pickNpa(m){
+  $('npa').value=m.npa;
+  $('ville').value=m.commune;
+  if(ROMAND.has(m.canton)) $('canton').value=m.canton;
+  $('npa-dd').classList.remove('open');
+  clrErr('e-npa','npa'); clrErr('e-canton','canton');
+}
+
+document.addEventListener('keydown',e=>{
+  const dd=$('npa-dd');
+  if(!dd.classList.contains('open'))return;
+  const items=dd.querySelectorAll('.npa-item');
+  if(e.key==='ArrowDown'){e.preventDefault();npaCursor=Math.min(npaCursor+1,items.length-1);}
+  else if(e.key==='ArrowUp'){e.preventDefault();npaCursor=Math.max(npaCursor-1,0);}
+  else if(e.key==='Enter'&&npaCursor>=0){e.preventDefault();items[npaCursor].dispatchEvent(new MouseEvent('mousedown'));}
+  else if(e.key==='Escape'){dd.classList.remove('open');}
+  items.forEach((it,i)=>it.classList.toggle('focused',i===npaCursor));
+});
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.npa-wrap')) $('npa-dd').classList.remove('open');
+});
+
+function validate(s){
+  let ok=true;
+  if(s===1){
+    clrErr('e-canton','canton'); clrErr('e-npa','npa');
+    if(!selTypes.size){toast('⚠️ Sélectionnez au moins un type de rénovation');ok=false;}
+    if(!$('canton').value){setErr('e-canton','canton');ok=false;}
+    if(!/^\d{4}$/.test($('npa').value.trim())){setErr('e-npa','npa');ok=false;}
+  }
+  if(s===3){
+    ['prenom','nom','email','tel'].forEach(f=>clrErr('e-'+f,f));
+    if(!$('prenom').value.trim()){setErr('e-prenom','prenom');ok=false;}
+    if(!$('nom').value.trim()){setErr('e-nom','nom');ok=false;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value)){setErr('e-email','email');ok=false;}
+    if($('tel').value.replace(/\D/g,'').length<9){setErr('e-tel','tel');ok=false;}
+  }
+  return ok;
+}
+
+function nextStep(){if(!validate(step))return;if(step===3)buildResult();step=Math.min(step+1,4);render();}
+function prevStep(){step=Math.max(step-1,1);render();}
+
+function render(){
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i+1===step));
+  for(let i=1;i<=4;i++){
+    const ps=$('ps'+i),pd=$('pd'+i);
+    ps.classList.remove('active','done');
+    if(i===step){ps.classList.add('active');pd.textContent=i;}
+    else if(i<step){ps.classList.add('done');pd.textContent='✓';}
+    else pd.textContent=i;
+  }
+  const back=$('btn-back'),next=$('btn-next'),ctr=$('sctr');
+  back.style.visibility=step>1?'visible':'hidden';
+  if(step===4){next.style.display='none';ctr.style.display='none';}
+  else{
+    next.style.display='flex';ctr.style.display='block';
+    ctr.textContent=`Étape ${step} sur 4`;
+    const arrow='<svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M5 1.5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>';
+    next.innerHTML=(step===3?'Calculer mon estimation ':'Continuer ')+arrow;
+  }
+  const est=document.getElementById('estimateur');
+  if(est) est.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function calcOne(type,surf,cc,nc,ac){
+  const p=PRIX[type]||PRIX.maison;
+  return p.room?Math.round(p.fixed*cc*nc*ac):Math.round(p.ppm2*surf*cc*nc*ac);
+}
+
+function buildResult(){
+  const surf=parseInt($('surface').value);
+  const canton=$('canton').value;
+  const npa=$('npa').value.trim();
+  const ville=$('ville').value.trim();
+  const niv=document.querySelector('input[name="niveau"]:checked')?.value||'mid';
+  const ann=$('annee').value;
+
+  const cc=CC[canton]||1,nc=NC[niv],ac=AC[ann]||1;
+  const ta=Array.from(selTypes);
+  const m2t=ta.filter(t=>!PRIX[t]?.room);
+  const rmt=ta.filter(t=> PRIX[t]?.room);
+
+  let est=0;
+  m2t.forEach((t,i)=>est+=calcOne(t,surf,cc,nc,ac)*(i?0.55:1));
+  rmt.forEach(t=>est+=calcOne(t,surf,cc,nc,ac));
+  est=Math.round(est);
+
+  const low=Math.round(est*.85/500)*500, high=Math.round(est*1.22/500)*500;
+  const loc=n=>n.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019');
+
+  $('res-range').innerHTML=`${loc(low)} <span class="dash">–</span> ${loc(high)} <span style="font-size:.55em;color:var(--gray)">CHF</span>`;
+  $('res-note').textContent=`${ta.map(t=>PRIX[t]?.label||t).join(' + ')} · ${CL[canton]||canton} ${npa}${ville?' '+ville:''}`;
+  $('rm-s').textContent=surf+' m²';
+  $('rm-c').textContent=(CL[canton]||canton)+' '+npa;
+  $('rm-n').textContent=NL[niv];
+
+  const cont=$('brows'); cont.innerHTML='';
+  if(ta.length===1){
+    (BD[ta[0]]||BD.maison).forEach(([n,p])=>{
+      const a=Math.round(est*p/100)*100, d=mk('div','brow');
+      d.innerHTML=`<span class="brow-l"><span class="brow-dot"></span><span>${n}</span></span><span class="brow-r">${chf(a)}<span class="brow-pct">${Math.round(p*100)}%</span></span>`;
+      cont.appendChild(d);
+    });
+  } else {
+    ta.forEach((t,i)=>{
+      const sub=Math.round(calcOne(t,surf,cc,nc,ac)*(!PRIX[t]?.room&&i>0?.55:1)/500)*500;
+      const d=mk('div','brow');
+      d.innerHTML=`<span class="brow-l"><span class="brow-dot"></span><span>${PRIX[t]?.label||t}</span></span><span class="brow-r">${chf(sub)}</span>`;
+      cont.appendChild(d);
+    });
+    const hon=Math.round(est*.10/500)*500, d=mk('div','brow');
+    d.innerHTML=`<span class="brow-l"><span class="brow-dot" style="background:var(--gray2)"></span><span>Coordination & imprévus (≈10%)</span></span><span class="brow-r">${chf(hon)}<span class="brow-pct">10%</span></span>`;
+    cont.appendChild(d);
+  }
+
+  const elig=ta.filter(t=>['energetique','isolation'].includes(t));
+  let totA=0, rowsA=[], discA='';
+  elig.forEach(t=>{
+    const a=getAides(t,canton,surf,niv,calcOne(t,surf,cc,nc,ac));
+    if(a){a.rows.forEach(r=>rowsA.push(r));totA+=a.tot;discA=a.disc;}
+  });
+  if(totA>0){
+    $('sub-badge').style.display='inline-flex';
+    $('sub-badge-amt').textContent=loc(totA);
+    $('sub-section').style.display='block';
+    const sr=$('sub-rows'); sr.innerHTML='';
+    rowsA.forEach(([n,a])=>{
+      const d=mk('div','sub-row');
+      d.innerHTML=`<span class="sub-row-name"><span class="sub-dot"></span>${n}</span><span class="sub-row-amt">jusqu'à ${chf(a)}</span>`;
+      sr.appendChild(d);
+    });
+    $('sub-total').textContent=`jusqu'à ${chf(totA)}`;
+    $('sub-disc').textContent=discA;
+  } else {
+    $('sub-badge').style.display='none';
+    $('sub-section').style.display='none';
+  }
+
+  const prenom=$('prenom').value;
+  if(prenom) $('cb-p').textContent=`${prenom}, nos conseillers certifiés RGE analysent votre projet gratuitement, optimisent vos aides cantonales et vous mettent en relation avec des artisans de confiance en ${CL[canton]||'Suisse romande'}.`;
+}
+
+function doCallback(){toast('✅ Demande envoyée ! Un expert vous contactera très prochainement.');}
 </script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <title>Renova Swiss — Rénovation Premium en Suisse Romande</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
   <style>
     /* ============================================================
        VARIABLES & RESET
@@ -64,7 +64,7 @@
     .btn-white:hover { background: rgba(255,255,255,0.9); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
     .btn-outline-w { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
     .btn-outline-w:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-    .btn-lg { padding: 17px 34px; font-size: 15px; }
+    .btn-lg { padding: 13px 26px; font-size: 14px; }
 
     /* ============================================================
        SECTION COMMON
@@ -206,23 +206,23 @@
       padding-bottom: 110px;
     }
     .slide-pill {
-      display: inline-flex; align-items: center; gap: 7px;
+      display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
       border: 1px solid rgba(255,255,255,0.18);
-      color: rgba(255,255,255,0.88); font-size: 11px; font-weight: 700;
+      color: rgba(255,255,255,0.88); font-size: 10px; font-weight: 700;
       letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 5px 13px; border-radius: 100px; margin-bottom: 18px;
+      padding: 4px 11px; border-radius: 100px; margin-bottom: 12px;
     }
     .slide-pill::before { content: ''; width: 5px; height: 5px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
     .slide-h1 {
-      font-size: clamp(38px, 6.5vw, 76px); font-weight: 900;
-      letter-spacing: -3px; line-height: 1.0; color: #fff;
-      margin-bottom: 18px; max-width: 720px;
+      font-size: clamp(30px, 4.5vw, 58px); font-weight: 900;
+      letter-spacing: -2px; line-height: 1.05; color: #fff;
+      margin-bottom: 12px; max-width: 680px;
     }
     .slide-h1 em { font-style: normal; color: #ffaaaa; }
     .slide-sub {
-      font-size: 17px; color: rgba(255,255,255,0.68);
-      line-height: 1.65; max-width: 520px; margin-bottom: 34px; font-weight: 400;
+      font-size: 15px; color: rgba(255,255,255,0.68);
+      line-height: 1.55; max-width: 480px; margin-bottom: 18px; font-weight: 400;
     }
     .slide-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
     /* Controls */
@@ -325,11 +325,14 @@
       flex: 0 0 calc((100% - 40px) / 3);
       background: #fff; border-radius: 16px; overflow: hidden;
       box-shadow: var(--sh-sm); transition: box-shadow var(--tr), transform var(--tr);
+      display: flex; flex-direction: column;
     }
     .proj-card:hover { transform: translateY(-5px); box-shadow: var(--sh-lg); }
     .proj-vis {
-      height: 320px; position: relative; overflow: hidden;
+      height: 220px; position: relative; overflow: hidden; flex-shrink: 0;
     }
+    .proj-vis img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .proj-card:hover .proj-vis img { transform: scale(1.04); }
     @media (max-width: 900px) {
       .proj-card { flex: 0 0 calc((100% - 16px) / 2); }
     }
@@ -337,37 +340,38 @@
       .proj-card { flex: 0 0 85%; }
       .proj-slider-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
-    .pv1 { background: radial-gradient(ellipse at 60% 30%, rgba(180,130,60,0.7) 0%, transparent 55%), linear-gradient(135deg, #c8a070 0%, #7a5020 40%, #3e2810 100%); }
-    .pv2 { background: radial-gradient(ellipse at 35% 65%, rgba(70,100,160,0.6) 0%, transparent 55%), linear-gradient(135deg, #7090c0 0%, #3a5880 40%, #1e2e45 100%); }
-    .pv3 { background: radial-gradient(ellipse at 65% 35%, rgba(150,90,60,0.65) 0%, transparent 55%), linear-gradient(135deg, #c08070 0%, #804030 40%, #402018 100%); }
-    .pv4 { background: radial-gradient(ellipse at 40% 60%, rgba(50,120,70,0.6) 0%, transparent 55%), linear-gradient(135deg, #70b080 0%, #306040 40%, #183020 100%); }
-    .proj-vis::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+    .proj-loc {
+      position: absolute; bottom: 12px; left: 12px; z-index: 2;
+      background: rgba(255,255,255,0.92); color: var(--g800);
+      font-size: 11px; font-weight: 600; padding: 4px 10px;
+      border-radius: 100px; display: flex; align-items: center; gap: 5px;
+      backdrop-filter: blur(4px);
     }
-    /* Abstract room in each vis */
-    .proj-room {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1;
-    }
-    .proj-room svg { width: 180px; height: 140px; opacity: 0.12; }
-    .proj-badge {
-      position: absolute; top: 14px; left: 14px; z-index: 2;
-      background: var(--red); color: #fff;
-      font-size: 10px; font-weight: 700; padding: 4px 10px;
-      border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase;
-    }
-    .proj-info { padding: 22px; }
+    .proj-loc svg { width: 11px; height: 11px; stroke: var(--red); fill: none; stroke-width: 2.5; flex-shrink: 0; }
+    .proj-info { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+    .proj-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .proj-type {
       font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--red); margin-bottom: 6px;
+      text-transform: uppercase; color: var(--red);
     }
-    .proj-title { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 12px; }
-    .proj-meta { display: flex; gap: 14px; flex-wrap: wrap; }
-    .proj-m {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 12px; color: var(--g600);
+    .proj-size { font-size: 10px; font-weight: 600; color: var(--g600); letter-spacing: 0.5px; }
+    .proj-title { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 14px; line-height: 1.35; color: var(--black); }
+    .proj-etiquettes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .proj-etiq {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; color: var(--g800);
+      background: var(--g100); padding: 5px 10px; border-radius: 100px;
+      border: 1px solid var(--g200); line-height: 1;
     }
-    .proj-m svg { width: 13px; height: 13px; stroke: var(--g400); fill: none; stroke-width: 1.75; }
+    .proj-etiq svg { width: 12px; height: 12px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .proj-cta {
+      display: block; width: 100%; text-align: center;
+      padding: 11px 16px; border-radius: 8px; font-size: 13px; font-weight: 700;
+      background: var(--red); color: #fff; border: none; cursor: pointer;
+      transition: background var(--tr), transform var(--tr);
+      margin-top: auto; letter-spacing: 0.2px;
+    }
+    .proj-cta:hover { background: var(--red-h); transform: translateY(-1px); }
 
     /* ============================================================
        BEFORE / AFTER
@@ -423,18 +427,15 @@
 ============================================================ -->
 <header id="hdr">
   <div class="container hdr-inner">
-    <a href="#" class="logo">
+    <a href="index%20(1).html" class="logo">
       <div class="logo-mark">
         <svg viewBox="0 0 24 24"><polyline points="3 9 12 2 21 9"/><path d="M3 9v11a1 1 0 001 1h5v-6h6v6h5a1 1 0 001-1V9"/></svg>
       </div>
       <div class="logo-txt"><span class="lbrand">RENOVA</span> <span class="lswiss">SWISS</span></div>
     </a>
     <nav class="nav">
-      <a href="#services">Services</a>
+      <a href="index%20(1).html">Accueil</a>
       <a href="pages/renovation-appartement.html">Appartement</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#processus">À propos</a>
-      <a href="#faq">FAQ</a>
     </nav>
     <div class="hdr-actions">
       <a href="tel:+41225551234" class="hdr-phone">
@@ -449,11 +450,8 @@
   </div>
 </header>
 <div id="mmenu">
-  <a href="#services">Services</a>
+  <a href="#">Accueil</a>
   <a href="pages/renovation-appartement.html">Appartement</a>
-  <a href="#realisations">Réalisations</a>
-  <a href="#processus">À propos</a>
-  <a href="#faq">FAQ</a>
   <a href="tel:+41225551234">+41 22 555 12 34</a>
   <a href="#simulateur" class="btn btn-primary">Devis gratuit</a>
 </div>
@@ -899,157 +897,176 @@
     </div>
     <div class="proj-slider">
     <div class="proj-grid" id="proj-track">
+      <!-- Carte 1 -->
       <div class="proj-card reveal" data-gallery="gallery/appart-1.jpg,gallery/appart-2.jpg,gallery/appart-3.jpg,gallery/appart-4.jpg,gallery/appart-5.jpg,gallery/appart-6.jpg">
-        <div class="proj-vis pv1" style="background:none"><img src="assets/real-appart.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Genève – Eaux-Vives</span>
-          </div>
+        <div class="proj-vis">
+          <img src="assets/real-appart.jpg" alt="Rénovation appartement Genève">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Eaux-Vives</span>
+        </div>
         <div class="proj-info">
-          <div class="proj-type">Appartement</div>
+          <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">85 m²</span></div>
           <div class="proj-title">Rénovation complète d'un appartement</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Eaux-Vives</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>85 m²</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 85'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Cuisine, SDB, sols</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>85'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Cuisine, salle de bain, sols</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 2 -->
       <div class="proj-card reveal reveal-delay-1" data-gallery="gallery/cuisine3-1.jpg,gallery/cuisine3-2.jpg,gallery/cuisine1-1.webp,gallery/cuisine1-2.webp,gallery/cuisine1-3.webp,gallery/cuisine1-4.webp">
-        <div class="proj-vis pv2" style="background:none"><img src="assets/real-cuisine.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Nyon</span>
-          </div>
+        <div class="proj-vis">
+          <img src="assets/real-cuisine.jpg" alt="Rénovation cuisine Nyon">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
+        </div>
         <div class="proj-info">
-          <div class="proj-type">Appartement</div>
+          <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">60 m²</span></div>
           <div class="proj-title">Rénovation de cuisine</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>60 m²</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 28'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Cuisine sur mesure</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>28'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Cuisine sur mesure</span><span class="proj-tag">Durée : 7 semaines</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 3 -->
       <div class="proj-card reveal reveal-delay-2" data-gallery="gallery/energie-1.jpg,gallery/energie-2.jpg,gallery/energie-3.jpg">
-        <div class="proj-vis pv3" style="background:none"><img src="assets/real-energie.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Lausanne</span>
-          </div>
+        <div class="proj-vis">
+          <img src="assets/real-energie.jpg" alt="Rénovation énergétique Lausanne">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
+        </div>
         <div class="proj-info">
-          <div class="proj-type">Maison</div>
+          <div class="proj-type-row"><span class="proj-type">Maison</span><span class="proj-size">160 m²</span></div>
           <div class="proj-title">Rénovation énergétique d'une maison</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>160 m²</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Isolation + fenêtres</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Subventions obtenues</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Isolation + fenêtres</span><span class="proj-tag">Subventions obtenues</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 4 -->
       <div class="proj-card reveal reveal-delay-3" data-gallery="gallery/cuisine4-1.jpg,gallery/cuisine4-2.jpg,gallery/cuisine4-3.jpg,gallery/cuisine4-4.jpg,gallery/cuisine4-5.jpg">
-        <div class="proj-vis pv4" style="background:none"><img src="assets/real-cuisine2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Morges, VD</span>
-          </div>
+        <div class="proj-vis">
+          <img src="assets/real-cuisine2.jpg" alt="Réaménagement cuisine Morges">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges, VD</span>
+        </div>
         <div class="proj-info">
-          <div class="proj-type">Maison</div>
+          <div class="proj-type-row"><span class="proj-type">Maison</span><span class="proj-size">180 m²</span></div>
           <div class="proj-title">Réaménagement d'une cuisine</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges, VD</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>180 m²</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 35'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Cuisine ouverte</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Parquet + peinture</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>35'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Cuisine ouverte</span><span class="proj-tag">Parquet + peinture</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 5 -->
       <div class="proj-card" data-gallery="gallery/bain2-1.webp,gallery/bain2-2.webp,gallery/bain1-1.webp,gallery/bain1-2.webp,gallery/bain1-3.webp">
-        <div class="proj-vis" style="background:none"><img src="assets/real-bain.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Genève – Champel</span>
+        <div class="proj-vis">
+          <img src="assets/real-bain.webp" alt="Salle de bain design Genève">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Champel</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Appartement</div>
+          <div class="proj-type-row"><span class="proj-type">Appartement</span></div>
           <div class="proj-title">Rénovation salle de bain design</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Champel</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 22'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Douche italienne</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>22'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Douche italienne</span><span class="proj-tag">Durée : 4 semaines</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 6 -->
       <div class="proj-card" data-gallery="gallery/bain4-1.jpg,gallery/bain3-1.jpg,gallery/bain1-4.webp,gallery/bain1-5.webp">
-        <div class="proj-vis" style="background:none"><img src="assets/real-bain2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Lausanne – Pully</span>
+        <div class="proj-vis">
+          <img src="assets/real-bain2.jpg" alt="Douche italienne Lausanne">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Pully</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Maison</div>
+          <div class="proj-type-row"><span class="proj-type">Maison</span></div>
           <div class="proj-title">Douche à l'italienne sur mesure</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Pully</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 18'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Carrelage grand format</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>18'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Carrelage grand format</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 7 -->
       <div class="proj-card" data-gallery="gallery/cuisine5-1.jpg,gallery/cuisine5-2.jpg,gallery/cuisine5-3.jpg,gallery/cuisine5-4.jpg">
-        <div class="proj-vis" style="background:none"><img src="assets/real-cuisine3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Lausanne – Ouchy</span>
+        <div class="proj-vis">
+          <img src="assets/real-cuisine3.jpg" alt="Cuisine îlot central Lausanne">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Ouchy</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Appartement</div>
+          <div class="proj-type-row"><span class="proj-type">Appartement</span></div>
           <div class="proj-title">Cuisine moderne avec îlot central</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Ouchy</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 32'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Îlot central</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Électroménager intégré</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>32'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Îlot central</span><span class="proj-tag">Électroménager intégré</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 8 -->
       <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg,gallery/sol-4.jpg">
-        <div class="proj-vis" style="background:none"><img src="assets/real-sol1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Nyon – La Côte</span>
+        <div class="proj-vis">
+          <img src="assets/real-sol1.jpg" alt="Parquet villa Nyon">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon – La Côte</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Maison</div>
+          <div class="proj-type-row"><span class="proj-type">Maison</span><span class="proj-size">220 m²</span></div>
           <div class="proj-title">Parquet massif — villa contemporaine</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon – La Côte</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>220 m²</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Parquet chêne massif</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Sols & finitions</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 semaines</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Parquet chêne</span><span class="proj-tag">Sols & finitions</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 9 -->
       <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg">
-        <div class="proj-vis" style="background:none"><img src="assets/real-sol2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Genève – Plainpalais</span>
+        <div class="proj-vis">
+          <img src="assets/real-sol2.jpg" alt="Sols finitions Genève">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Plainpalais</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Appartement</div>
+          <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">95 m²</span></div>
           <div class="proj-title">Rénovation sols & finitions haut de gamme</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2023</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Plainpalais</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>95 m²</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Parquet + carrelage</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3 semaines</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Parquet + carrelage</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
+      <!-- Carte 10 -->
       <div class="proj-card" data-gallery="gallery/finition-1.png,gallery/finition-2.webp,gallery/maison-1.jpg,gallery/maison-2.jpg,gallery/maison-3.jpg">
-        <div class="proj-vis" style="background:none"><img src="assets/real-finition.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
-          <span class="proj-badge">Rolle, VD</span>
+        <div class="proj-vis">
+          <img src="assets/real-finition.png" alt="Transformation intérieure Rolle">
+          <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rolle, VD</span>
         </div>
         <div class="proj-info">
-          <div class="proj-type">Maison</div>
+          <div class="proj-type-row"><span class="proj-type">Maison</span></div>
           <div class="proj-title">Transformation intérieure complète</div>
-          <div class="proj-meta">
-            <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Réalisé 2024</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rolle, VD</span>
-            <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Budget : 65'000 CHF</span>
+          <div class="proj-etiquettes">
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Finitions premium</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Peinture décorative</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10 semaines</span>
+            <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>65'000 CHF</span>
           </div>
-          <div class="proj-tags"><span class="proj-tag">Finitions premium</span><span class="proj-tag">Peinture décorative</span></div>
+          <button class="proj-cta">Voir les photos</button>
         </div>
       </div>
     </div>
@@ -1205,7 +1222,8 @@
       <!-- Étape 01 -->
       <div class="tl-item tl-left">
         <div class="tl-dot"></div>
-        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
           <div class="proc-num"><span class="num-fill"></span><span>01</span></div>
           <div class="proc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1218,7 +1236,8 @@
       <!-- Étape 02 -->
       <div class="tl-item tl-right">
         <div class="tl-dot"></div>
-        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
           <div class="proc-num"><span class="num-fill"></span><span>02</span></div>
           <div class="proc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
@@ -1231,7 +1250,8 @@
       <!-- Étape 03 -->
       <div class="tl-item tl-left">
         <div class="tl-dot"></div>
-        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
           <div class="proc-num"><span class="num-fill"></span><span>03</span></div>
           <div class="proc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
@@ -1244,7 +1264,8 @@
       <!-- Étape 04 -->
       <div class="tl-item tl-right">
         <div class="tl-dot"></div>
-        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
           <div class="proc-num"><span class="num-fill"></span><span>04</span></div>
           <div class="proc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
@@ -1257,7 +1278,8 @@
       <!-- Étape 05 -->
       <div class="tl-item tl-left">
         <div class="tl-dot"></div>
-        <div class="tl-card" style="background-image: linear-gradient(rgba(14,14,14,var(--overlay)),rgba(14,14,14,var(--overlay))), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
           <div class="proc-num"><span class="num-fill"></span><span>05</span></div>
           <div class="proc-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1355,23 +1377,50 @@
 
   /* Cartes */
   .tl-card {
-    --overlay: 0.82;
     background: #141414;
     background-size: cover;
     background-position: center;
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 0px;
     padding: 28px 24px;
-    transition: border-color 0.4s, box-shadow 0.4s;
+    transition: border-color 0.4s, box-shadow 0.4s,
+                transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    position: relative;
+    overflow: hidden;
   }
+  /* permanent gradient: dark at bottom for text, lighter at top */
+  .tl-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top,
+      rgba(14,14,14,0.92) 0%,
+      rgba(14,14,14,0.55) 38%,
+      rgba(14,14,14,0.00) 70%
+    );
+    z-index: 0;
+    pointer-events: none;
+    transition: background 0.5s ease;
+  }
+  /* voile permanent sur les cartes inactives — disparaît sur la carte active */
+  .tl-dim {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: rgba(14,14,14,0.72);
+    opacity: 1;
+    transition: opacity 0.55s ease;
+  }
+  .tl-card:hover .tl-dim { opacity: 0; }
+  /* keep all card content above the overlays */
+  .tl-card > * { position: relative; z-index: 1; }
   .tl-card:hover {
     border-color: rgba(204,0,0,0.35);
     box-shadow: 0 20px 50px rgba(0,0,0,0.6);
   }
   .tl-card--active {
+    transform: scale(1.03);
     border-color: rgba(204,0,0,0.55) !important;
-    box-shadow: 0 0 0 1px rgba(204,0,0,0.3), 0 0 50px rgba(204,0,0,0.22), 0 20px 50px rgba(0,0,0,0.5) !important;
-    background-blend-mode: normal;
+    box-shadow: 0 0 0 1px rgba(204,0,0,0.4),
+                0 0 60px rgba(204,0,0,0.30),
+                0 24px 60px rgba(0,0,0,0.55) !important;
   }
   .tl-spacer { display: none; }
 
@@ -1435,104 +1484,271 @@
      SIMULATOR
 ============================================================ -->
 <section id="simulateur">
-  <div class="container sim-wrap">
-    <div class="sim-hdr reveal" style="text-align:center; max-width:700px; margin:0 auto 52px;">
-      <div class="stag" style="color:rgba(255,130,130,0.9);">Simulateur</div>
-      <h2 class="stitle" style="color:#fff;">Estimez votre projet<br>en quelques clics</h2>
-      <p class="ssub" style="color:rgba(255,255,255,0.5); margin:0 auto;">Obtenez une fourchette budgétaire et le montant des aides potentielles en 30 secondes.</p>
+  <div class="container" style="position:relative;z-index:1;">
+
+    <!-- HEADER -->
+    <div class="sim-hdr reveal" style="text-align:center; max-width:700px; margin:0 auto 16px;">
+      <div class="stag" style="color:rgba(255,130,130,0.9);">Simulateur — Suisse Romande</div>
+      <h2 class="stitle" style="color:#fff; font-size:clamp(22px,3vw,36px);">Estimez votre projet de rénovation</h2>
+      <p class="ssub" style="color:rgba(255,255,255,0.5); margin:0 auto; font-size:13px;">Fourchette budgétaire calibrée sur les prix 2025, aides cantonales incluses.</p>
     </div>
-    <div class="sim-card reveal">
-      <form id="sim-form">
-        <div class="sim-grid">
-          <div class="sim-field">
-            <label>Type de bien</label>
-            <div class="sim-select-wrap">
-              <select id="s-bien" required>
-                <option value="">Choisir…</option>
-                <option value="maison">Maison individuelle</option>
-                <option value="appartement">Appartement</option>
-                <option value="villa">Villa / Propriété</option>
-                <option value="commercial">Local commercial</option>
+
+    <!-- PROGRESS -->
+    <div class="prog">
+      <div class="ps active" id="ps1"><div class="pd" id="pd1">1</div><div class="plbl">Projet</div></div>
+      <div class="ps"        id="ps2"><div class="pd" id="pd2">2</div><div class="plbl">Détails</div></div>
+      <div class="ps"        id="ps3"><div class="pd" id="pd3">3</div><div class="plbl">Contact</div></div>
+      <div class="ps"        id="ps4"><div class="pd" id="pd4">4</div><div class="plbl">Estimation</div></div>
+    </div>
+
+    <!-- CARD -->
+    <div class="est-card">
+      <div class="est-card-body">
+
+        <!-- ── ÉTAPE 1 ── -->
+        <div class="panel active" id="p1">
+
+          <span class="flbl">
+            Type(s) de rénovation <span class="req">*</span>
+            <span style="font-weight:400;letter-spacing:0;text-transform:none;font-family:'Barlow',sans-serif;font-size:11px;color:var(--gray2)"> — sélection multiple</span>
+          </span>
+
+          <div class="type-grid">
+            <div class="ttile" data-v="maison"         onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🏠</div><div class="ttile-name">Rénovation maison</div><div class="ttile-range">1'100–3'000 CHF/m²</div><div class="ttile-desc">Maison individuelle / villa</div></div>
+            <div class="ttile" data-v="appartement"    onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🏢</div><div class="ttile-name">Rénovation appartement</div><div class="ttile-range">800–3'000 CHF/m²</div><div class="ttile-desc">Copropriété ou privé</div></div>
+            <div class="ttile" data-v="cuisine"        onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🍳</div><div class="ttile-name">Rénovation cuisine</div><div class="ttile-range">15'000–40'000 CHF</div><div class="ttile-desc">Aménagement & équipement</div></div>
+            <div class="ttile" data-v="sdb"            onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🛁</div><div class="ttile-name">Salle de bain</div><div class="ttile-range">10'000–30'000 CHF</div><div class="ttile-desc">Partielle ou complète</div></div>
+            <div class="ttile" data-v="energetique"    onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">⚡</div><div class="ttile-name">Rénovation énergétique</div><div class="ttile-range">Aides jusqu'à 30%</div><div class="ttile-desc">PAC, VMC, isolation</div></div>
+            <div class="ttile" data-v="peinture"       onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🎨</div><div class="ttile-name">Peinture & finitions</div><div class="ttile-range">200–500 CHF/m²</div><div class="ttile-desc">Sols, peinture, revêtements</div></div>
+            <div class="ttile" data-v="isolation"      onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🪟</div><div class="ttile-name">Isolation & fenêtres</div><div class="ttile-range">100–450 CHF/m²</div><div class="ttile-desc">Thermique & menuiseries</div></div>
+            <div class="ttile" data-v="transformation" onclick="toggleType(this)"><div class="ttile-chk">✓</div><div class="ttile-ico">🔨</div><div class="ttile-name">Transformation intérieure</div><div class="ttile-range">500–1'500 CHF/m²</div><div class="ttile-desc">Cloisons, murs, espaces</div></div>
+          </div>
+
+          <div class="dv"></div>
+
+          <div class="fg3">
+            <div class="fg">
+              <span class="flbl">Canton <span class="req">*</span></span>
+              <select id="canton">
+                <option value="">Sélectionner…</option>
+                <option value="GE">Genève (GE)</option>
+                <option value="VD">Vaud (VD)</option>
+                <option value="VS">Valais (VS)</option>
+                <option value="FR">Fribourg (FR)</option>
+                <option value="NE">Neuchâtel (NE)</option>
+                <option value="JU">Jura (JU)</option>
               </select>
-              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+              <div class="ferr" id="e-canton">Sélectionnez votre canton</div>
+            </div>
+            <div class="fg npa-wrap">
+              <span class="flbl">NPA <span class="req">*</span></span>
+              <input type="text" id="npa" placeholder="1201, 1002…" maxlength="4" inputmode="numeric" autocomplete="off" oninput="onNpa(this)">
+              <div class="ferr" id="e-npa">NPA requis (4 chiffres)</div>
+              <div class="npa-dd" id="npa-dd"></div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Commune</span>
+              <input type="text" id="ville" placeholder="Auto-complétée" readonly style="opacity:.65;cursor:default">
             </div>
           </div>
-          <div class="sim-field">
-            <label>Type de rénovation</label>
-            <div class="sim-select-wrap">
-              <select id="s-type" required>
-                <option value="">Choisir…</option>
-                <option value="complete">Rénovation complète</option>
-                <option value="partielle">Rénovation partielle</option>
-                <option value="cuisine">Cuisine uniquement</option>
-                <option value="sdb">Salle de bain</option>
-                <option value="energetique">Rénovation énergétique</option>
-                <option value="finitions">Peinture &amp; finitions</option>
+
+          <div class="fg mb20">
+            <span class="flbl">Vous êtes</span>
+            <div class="pill-group">
+              <input type="radio" name="statut" id="s1" value="proprio" class="pi" checked><label class="pl" for="s1">🔑 Propriétaire</label>
+              <input type="radio" name="statut" id="s2" value="loc"     class="pi"><label class="pl" for="s2">📋 Locataire</label>
+              <input type="radio" name="statut" id="s3" value="regie"   class="pi"><label class="pl" for="s3">🏢 Régie</label>
+              <input type="radio" name="statut" id="s4" value="inv"     class="pi"><label class="pl" for="s4">💼 Investisseur</label>
+            </div>
+          </div>
+
+        </div><!-- /p1 -->
+
+        <!-- ── ÉTAPE 2 ── -->
+        <div class="panel" id="p2">
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Surface approximative</span>
+              <div class="sval"><span id="sv">80</span> <span class="unit">m²</span></div>
+              <input type="range" id="surface" min="10" max="500" value="80" oninput="updSlider('surface',10,500,'sv')">
+              <div class="srange"><span>10 m²</span><span>500 m²</span></div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Budget envisagé</span>
+              <div class="sval"><span id="bv">80'000</span> <span class="unit">CHF</span></div>
+              <input type="range" id="budget" min="5000" max="500000" value="80000" step="1000" oninput="updSlider('budget',5000,500000,'bv',true)">
+              <div class="srange"><span>5'000</span><span>500'000 CHF</span></div>
+            </div>
+          </div>
+
+          <div class="dv"></div>
+
+          <div class="fg mb20">
+            <span class="flbl">Niveau de prestations</span>
+            <div class="niv-grid">
+              <input type="radio" name="niveau" id="n1" value="eco" class="ni"><label class="nl" for="n1"><span class="niv-ico">🌿</span><span class="niv-name">Essentiel</span><span class="niv-chf">~500–800 CHF/m²</span><span class="niv-desc">Matériaux standards</span></label>
+              <input type="radio" name="niveau" id="n2" value="mid" class="ni" checked><label class="nl" for="n2"><span class="niv-ico">⭐</span><span class="niv-name">Intermédiaire</span><span class="niv-chf">~800–1'500 CHF/m²</span><span class="niv-desc">Bon rapport qualité/prix</span></label>
+              <input type="radio" name="niveau" id="n3" value="pre" class="ni"><label class="nl" for="n3"><span class="niv-ico">💎</span><span class="niv-name">Premium</span><span class="niv-chf">~1'500–3'000+ CHF/m²</span><span class="niv-desc">Haut de gamme</span></label>
+            </div>
+          </div>
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Année de construction</span>
+              <select id="annee">
+                <option value="">Sélectionner…</option>
+                <option value="av1950">Avant 1950 (vétuste)</option>
+                <option value="1950">1950 – 1975</option>
+                <option value="1975">1975 – 2000</option>
+                <option value="ap2000">Après 2000</option>
               </select>
-              <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+            <div class="fg">
+              <span class="flbl">Délai souhaité</span>
+              <select id="delai">
+                <option value="urgent">Le plus tôt possible</option>
+                <option value="3m" selected>Sous 3 mois</option>
+                <option value="6m">Dans 6 mois</option>
+                <option value="1a">Plus d'un an</option>
+                <option value="nd">Non défini</option>
+              </select>
             </div>
           </div>
-          <div class="sim-field">
-            <label>Surface approximative</label>
-            <div class="sim-range-wrap">
-              <div class="sim-range-top">
-                <span class="sim-range-val" id="surf-val">120 m²</span>
-              </div>
-              <input type="range" id="s-surf" min="20" max="500" value="120" step="5">
-              <div class="sim-range-minmax"><span>20 m²</span><span>500 m²</span></div>
+
+          <div class="fg mb20">
+            <span class="flbl">Travaux prioritaires</span>
+            <div class="pill-group">
+              <input type="checkbox" id="tw1" class="pi"><label class="pl" for="tw1">🚿 Plomberie</label>
+              <input type="checkbox" id="tw2" class="pi"><label class="pl" for="tw2">💡 Électricité</label>
+              <input type="checkbox" id="tw3" class="pi"><label class="pl" for="tw3">🔥 Chauffage</label>
+              <input type="checkbox" id="tw4" class="pi"><label class="pl" for="tw4">🧱 Gros œuvre</label>
+              <input type="checkbox" id="tw5" class="pi"><label class="pl" for="tw5">🍳 Cuisine</label>
+              <input type="checkbox" id="tw6" class="pi"><label class="pl" for="tw6">🛁 Salle de bain</label>
+              <input type="checkbox" id="tw7" class="pi"><label class="pl" for="tw7">🪞 Décoration</label>
+              <input type="checkbox" id="tw8" class="pi"><label class="pl" for="tw8">🌿 Extérieur</label>
             </div>
           </div>
-          <div class="sim-field">
-            <label>Budget envisagé</label>
-            <div class="sim-range-wrap">
-              <div class="sim-range-top">
-                <span class="sim-range-val" id="bud-val">150 000 CHF</span>
-              </div>
-              <input type="range" id="s-bud" min="10000" max="500000" value="150000" step="5000">
-              <div class="sim-range-minmax"><span>10 kCHF</span><span>500 kCHF</span></div>
+
+          <div class="fg">
+            <span class="flbl">Notes complémentaires</span>
+            <textarea id="notes" placeholder="Contraintes, état actuel du bien, souhaits particuliers…"></textarea>
+          </div>
+
+        </div><!-- /p2 -->
+
+        <!-- ── ÉTAPE 3 ── -->
+        <div class="panel" id="p3">
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Prénom <span class="req">*</span></span>
+              <input type="text" id="prenom" placeholder="Votre prénom">
+              <div class="ferr" id="e-prenom">Prénom requis</div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Nom <span class="req">*</span></span>
+              <input type="text" id="nom" placeholder="Votre nom">
+              <div class="ferr" id="e-nom">Nom requis</div>
             </div>
           </div>
-          <div class="sim-field">
-            <label>Code postal</label>
-            <input type="text" id="s-postal" placeholder="Ex. 1202" maxlength="4">
+
+          <div class="fg2">
+            <div class="fg">
+              <span class="flbl">Email <span class="req">*</span></span>
+              <input type="email" id="email" placeholder="votre@email.ch">
+              <div class="ferr" id="e-email">Email invalide</div>
+            </div>
+            <div class="fg">
+              <span class="flbl">Téléphone <span class="req">*</span></span>
+              <input type="tel" id="tel" placeholder="079 123 45 67">
+              <div class="ferr" id="e-tel">Numéro requis</div>
+            </div>
           </div>
-          <div class="sim-field sim-field-cta">
-            <label style="opacity:0; user-select:none;">Calculer</label>
-            <button type="submit" class="sim-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              Calculer mon estimation
-            </button>
+
+          <div class="dv"></div>
+
+          <div class="fg mb20">
+            <span class="flbl">Créneau de rappel préféré</span>
+            <div class="pill-group">
+              <input type="radio" name="creneau" id="cr1" value="matin" class="pi" checked><label class="pl" for="cr1">🌅 Matin (8h–12h)</label>
+              <input type="radio" name="creneau" id="cr2" value="aprem" class="pi"><label class="pl" for="cr2">☀️ Après-midi</label>
+              <input type="radio" name="creneau" id="cr3" value="soir"  class="pi"><label class="pl" for="cr3">🌙 Soir (17h–19h)</label>
+              <input type="radio" name="creneau" id="cr4" value="any"   class="pi"><label class="pl" for="cr4">🎯 Indifférent</label>
+            </div>
           </div>
-        </div>
-      </form>
-      <!-- Result -->
-      <div class="sim-result" id="sim-result">
-        <div class="sim-res-title">Votre estimation personnalisée</div>
-        <div class="sim-res-grid">
-          <div class="sim-res-item">
-            <div class="sim-res-lbl">Fourchette budgétaire</div>
-            <div class="sim-res-val" id="res-budget">—</div>
+
+          <div class="info-box">
+            <span>🔒</span>
+            <span>Données strictement confidentielles, partagées uniquement avec nos experts RGE certifiés en Suisse romande.</span>
           </div>
-          <div class="sim-res-item">
-            <div class="sim-res-lbl">Aides potentielles</div>
-            <div class="sim-res-val green" id="res-aides">—</div>
+
+        </div><!-- /p3 -->
+
+        <!-- ── ÉTAPE 4 ── -->
+        <div class="panel" id="p4">
+
+          <div class="res-hero">
+            <div class="res-eye">Estimation calibrée Suisse Romande 2025</div>
+            <div class="res-amt" id="res-range">— CHF</div>
+            <div class="res-note" id="res-note">Estimation indicative basée sur les prix du marché romand</div>
+            <div class="sub-badge" id="sub-badge" style="display:none">
+              🌿 Aides potentielles : <strong id="sub-badge-amt">—</strong> CHF — Programme Bâtiments
+            </div>
           </div>
-          <div class="sim-res-item">
-            <div class="sim-res-lbl">Coût net estimé</div>
-            <div class="sim-res-val red" id="res-net">—</div>
+
+          <div class="res-meta">
+            <div class="rmc"><div class="rmc-ico">📐</div><div class="rmc-lbl">Surface</div><div class="rmc-val" id="rm-s">—</div></div>
+            <div class="rmc"><div class="rmc-ico">🏛️</div><div class="rmc-lbl">Canton</div><div class="rmc-val" id="rm-c">—</div></div>
+            <div class="rmc"><div class="rmc-ico">⭐</div><div class="rmc-lbl">Niveau</div><div class="rmc-val" id="rm-n">—</div></div>
           </div>
-        </div>
-        <div class="sim-res-note">Découvrez si vos travaux peuvent ouvrir droit à des aides ou à une optimisation fiscale.</div>
-        <div class="sim-res-ctas">
-          <a href="#contact" class="sim-res-btn-p">Recevoir mon estimation détaillée</a>
-          <a href="tel:+41225551234" class="sim-res-btn-s">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z"/></svg>
-            Être rappelé
-          </a>
-        </div>
+
+          <div class="bdown">
+            <div class="bdown-hdr">Répartition estimée des postes</div>
+            <div id="brows"></div>
+          </div>
+
+          <div class="sub-section" id="sub-section" style="display:none">
+            <div class="sub-section-title">💚 Aides financières — Programme Bâtiments 2025</div>
+            <div id="sub-rows"></div>
+            <div class="sub-total-row">
+              <div class="sub-total-label">Total aides estimées</div>
+              <div class="sub-total-amt" id="sub-total">—</div>
+            </div>
+            <div class="sub-disc" id="sub-disc">Estimations indicatives. Demande à déposer avant le début des travaux.</div>
+          </div>
+
+          <div class="cb-block">
+            <div class="cb-ico">📞</div>
+            <div class="cb-txt">
+              <h3>Parlez à un expert certifié RGE</h3>
+              <p id="cb-p">Nos conseillers analysent votre projet gratuitement, optimisent vos aides et vous mettent en relation avec des artisans de confiance en Suisse romande.</p>
+            </div>
+            <button class="btn-cb" onclick="doCallback()">Être rappelé →</button>
+          </div>
+
+          <p class="disc">⚠️ Estimation indicative non contractuelle. Sources : mesartisans.ch, houzy.ch, batmat.ch, realadvisor.ch, Programme Bâtiments 2025.</p>
+
+        </div><!-- /p4 -->
+
+      </div><!-- /est-card-body -->
+
+      <div class="est-card-foot">
+        <button class="btn-back" id="btn-back" onclick="prevStep()" style="visibility:hidden">
+          <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M8 1.5L3 6.5l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Précédent
+        </button>
+        <span class="sctr" id="sctr">Étape 1 sur 4</span>
+        <button class="btn-next" id="btn-next" onclick="nextStep()">
+          Continuer
+          <svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M5 1.5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
       </div>
-    </div>
+
+    </div><!-- /est-card -->
+
   </div>
+  <div class="toast" id="toast"></div>
 </section>
 
 <!-- ============================================================
@@ -1923,50 +2139,139 @@
   /* ============================================================
      SIMULATOR
   ============================================================ */
-  #simulateur { padding: 110px 0; background: var(--black); position: relative; overflow: hidden; }
-  #simulateur::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px); background-size: 60px 60px; }
-  .sim-wrap { position: relative; z-index: 1; }
-  .sim-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 44px; }
-  .sim-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-  .sim-field { display: flex; flex-direction: column; gap: 8px; }
-  .sim-field label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; text-transform: uppercase; }
-  .sim-select-wrap { position: relative; }
-  .sim-select-wrap select { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 13px 40px 13px 14px; color: #fff; font-size: 14px; appearance: none; -webkit-appearance: none; transition: border-color var(--tr); }
-  .sim-select-wrap select:focus { outline: none; border-color: var(--red); background: rgba(255,255,255,0.1); }
-  .sim-select-wrap select option { background: #1a1a1a; }
-  .sim-select-wrap svg { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); fill: none; stroke-width: 2; pointer-events: none; }
-  .sim-range-wrap { display: flex; flex-direction: column; gap: 6px; }
-  .sim-range-top { display: flex; align-items: baseline; gap: 4px; }
-  .sim-range-val { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-  .sim-range-minmax { display: flex; justify-content: space-between; font-size: 11px; color: rgba(255,255,255,0.35); }
-  input[type="range"] { width: 100%; height: 4px; appearance: none; background: rgba(255,255,255,0.18); border-radius: 2px; cursor: pointer; }
-  input[type="range"]::-webkit-slider-thumb { appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--red); cursor: pointer; box-shadow: 0 2px 8px rgba(204,0,0,0.4); }
-  input[type="range"]:focus { outline: none; }
-  .sim-field input[type="text"] { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 13px 14px; color: #fff; font-size: 14px; transition: border-color var(--tr); }
-  .sim-field input[type="text"]::placeholder { color: rgba(255,255,255,0.3); }
-  .sim-field input[type="text"]:focus { outline: none; border-color: var(--red); }
-  .sim-field-cta { justify-content: flex-end; }
-  .sim-btn { width: 100%; padding: 14px; background: var(--red); color: #fff; border-radius: 10px; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all var(--tr); }
-  .sim-btn svg { width: 16px; height: 16px; }
-  .sim-btn:hover { background: var(--red-h); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(204,0,0,0.4); }
-  /* Result */
-  .sim-result { display: none; margin-top: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 32px; animation: fadeUp 0.4s ease; }
-  .sim-result.show { display: block; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-  .sim-res-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 20px; }
-  .sim-res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 16px; }
-  .sim-res-item { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 18px; }
-  .sim-res-lbl { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
-  .sim-res-val { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
-  .sim-res-val.green { color: #4ade80; }
-  .sim-res-val.red { color: #ff8080; }
-  .sim-res-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
-  .sim-res-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .sim-res-btn-p { flex: 1; min-width: 200px; padding: 14px 20px; background: var(--red); color: #fff; border-radius: 9px; font-size: 14px; font-weight: 600; text-align: center; transition: all var(--tr); }
-  .sim-res-btn-p:hover { background: var(--red-h); transform: translateY(-2px); }
-  .sim-res-btn-s { padding: 14px 20px; border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 9px; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px; transition: all var(--tr); }
-  .sim-res-btn-s svg { width: 15px; height: 15px; }
-  .sim-res-btn-s:hover { background: rgba(255,255,255,0.06); }
+  #simulateur { padding: 36px 0 32px; background: var(--black); position: relative; overflow: hidden;
+    color: #fff;
+    --bg:#1A1A1A; --card:#252525; --card2:#2E2E2E; --border:#383838;
+    --red2:#CC1C16; --gray:#A0A0A0; --gray2:#666;
+    --inp:#2E2E2E; --inp-b:#404040; --green:#2ECC71; --pad:20px; }
+  #simulateur::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px); background-size:60px 60px; }
+  .prog { display:flex; align-items:center; justify-content:center; max-width:620px; margin:0 auto 14px; padding:0 16px; position:relative; z-index:1; }
+  .ps { display:flex; align-items:center; gap:8px; flex:1; position:relative; }
+  .ps:not(:last-child)::after { content:''; flex:1; height:1px; background:var(--border); margin:0 4px; transition:background .4s; }
+  .ps.done:not(:last-child)::after { background:var(--red); }
+  .pd { width:30px; height:30px; border-radius:50%; border:1.5px solid var(--border); background:var(--card); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:var(--gray2); flex-shrink:0; transition:all .3s; }
+  .ps.active .pd { background:var(--red); border-color:var(--red); color:#fff; }
+  .ps.done .pd { background:transparent; border-color:var(--red); color:var(--red); }
+  .plbl { font-size:11px; font-weight:600; color:var(--gray2); white-space:nowrap; transition:color .3s; }
+  .ps.active .plbl { color:var(--white); }
+  .ps.done .plbl { color:var(--red); }
+  @media(max-width:480px){.plbl{display:none}}
+  .est-card { background:var(--card); border-radius:16px; border:1px solid var(--border); overflow:hidden; animation:fadeUp .45s ease both; position:relative; z-index:1; }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  .est-card-body { padding:18px 20px 10px; }
+  .est-card-foot { padding:0 20px 14px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .panel { display:none; }
+  .panel.active { display:block; animation:pIn .3s ease both; }
+  @keyframes pIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .flbl { display:block; font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:6px; }
+  .req { color:var(--red); }
+  .type-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; margin-bottom:14px; }
+  @media(max-width:700px){.type-grid{grid-template-columns:repeat(2,1fr)}}
+  .ttile { background:var(--inp); border:1.5px solid var(--inp-b); border-radius:8px; padding:10px 8px; cursor:pointer; transition:border-color .2s,background .2s; display:flex; flex-direction:column; gap:3px; position:relative; overflow:hidden; -webkit-tap-highlight-color:transparent; }
+  .ttile::before { content:''; position:absolute; inset:0; background:var(--red); opacity:0; transition:opacity .2s; }
+  .ttile:hover { border-color:rgba(232,32,26,.5); }
+  .ttile.sel { border-color:var(--red); }
+  .ttile.sel::before { opacity:.07; }
+  .ttile-ico { font-size:18px; position:relative; z-index:1; }
+  .ttile-name { font-size:11px; font-weight:700; color:var(--white); line-height:1.2; position:relative; z-index:1; }
+  .ttile-range { font-size:9px; color:var(--red); font-weight:600; position:relative; z-index:1; }
+  .ttile-desc { font-size:9px; color:var(--gray2); line-height:1.3; position:relative; z-index:1; }
+  .ttile-chk { position:absolute; top:8px; right:8px; width:16px; height:16px; background:var(--red); border-radius:50%; display:none; align-items:center; justify-content:center; font-size:8px; color:#fff; z-index:2; }
+  .ttile.sel .ttile-chk { display:flex; }
+  .fg2 { display:grid; grid-template-columns:1fr 1fr; gap:12px 20px; margin-bottom:12px; }
+  .fg3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:12px; }
+  @media(max-width:600px){.fg2,.fg3{grid-template-columns:1fr}}
+  .fg { display:flex; flex-direction:column; }
+  #simulateur input[type=text],#simulateur input[type=email],#simulateur input[type=tel],#simulateur select,#simulateur textarea { width:100%; padding:9px 12px; background:var(--inp); border:1.5px solid var(--inp-b); border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:500; color:var(--white); outline:none; transition:border-color .18s; appearance:none; }
+  #simulateur input::placeholder,#simulateur textarea::placeholder { color:var(--gray2); font-weight:400; }
+  #simulateur input:focus,#simulateur select:focus,#simulateur textarea:focus { border-color:var(--red); }
+  #simulateur input.err,#simulateur select.err { border-color:#ff6b6b; }
+  #simulateur select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px; cursor:pointer; }
+  #simulateur select option { background:#2A2A2A; }
+  #simulateur textarea { resize:vertical; min-height:52px; }
+  .ferr { font-size:11px; color:#ff6b6b; margin-top:5px; display:none; }
+  .ferr.show { display:block; }
+  .sval { font-size:20px; font-weight:800; margin-bottom:6px; line-height:1; }
+  .sval .unit { font-size:.72em; font-weight:700; color:var(--gray); }
+  #simulateur input[type=range] { -webkit-appearance:none; width:100%; height:3px; border:none; padding:0; cursor:pointer; background:linear-gradient(to right,var(--red) 0%,var(--red) var(--pct,30%),var(--border) var(--pct,30%),var(--border) 100%); border-radius:3px; outline:none; }
+  #simulateur input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--red); border:3px solid var(--bg); box-shadow:0 0 0 1px var(--red); }
+  .srange { display:flex; justify-content:space-between; font-size:11px; color:var(--gray2); margin-top:7px; font-weight:600; }
+  .pill-group { display:flex; flex-wrap:wrap; gap:8px; margin-top:2px; }
+  .pi { display:none; }
+  .pl { display:inline-flex; align-items:center; gap:5px; padding:5px 10px; border:1.5px solid var(--inp-b); border-radius:30px; font-size:12px; font-weight:600; color:var(--gray); cursor:pointer; transition:all .15s; background:var(--inp); user-select:none; -webkit-tap-highlight-color:transparent; }
+  .pi:checked+.pl { background:var(--red); border-color:var(--red); color:#fff; }
+  .pl:hover { border-color:rgba(232,32,26,.6); color:var(--white); }
+  .niv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:12px; }
+  @media(max-width:480px){.niv-grid{grid-template-columns:1fr}}
+  .ni { display:none; }
+  .nl { display:flex; flex-direction:column; align-items:center; gap:3px; padding:10px 8px; border:1.5px solid var(--inp-b); border-radius:8px; cursor:pointer; transition:all .18s; background:var(--inp); text-align:center; -webkit-tap-highlight-color:transparent; }
+  .nl .niv-ico { font-size:20px; }
+  .nl .niv-name { font-size:13px; font-weight:700; }
+  .nl .niv-chf { font-size:10px; color:var(--red); font-weight:600; }
+  .nl .niv-desc { font-size:10px; color:var(--gray2); line-height:1.4; }
+  .ni:checked+.nl { border-color:var(--red); background:rgba(232,32,26,.08); }
+  .dv { height:1px; background:var(--border); margin:14px 0; }
+  .btn-back { background:transparent; border:1.5px solid var(--border); color:var(--gray); padding:9px 16px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:700; cursor:pointer; transition:all .18s; display:flex; align-items:center; gap:7px; }
+  .btn-back:hover { border-color:var(--gray); color:var(--white); }
+  .btn-next { background:var(--red); color:#fff; border:none; padding:10px 22px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:14px; font-weight:800; cursor:pointer; transition:all .18s; display:flex; align-items:center; gap:9px; }
+  .btn-next:hover { background:var(--red2); transform:translateY(-1px); box-shadow:0 6px 24px rgba(232,32,26,.35); }
+  .sctr { font-size:11px; color:var(--gray2); font-weight:600; letter-spacing:1px; }
+  @media(max-width:400px){.btn-back{padding:8px 12px;font-size:12px}.btn-next{padding:10px 16px;font-size:13px}}
+  .res-hero { background:linear-gradient(135deg,#1E0A09,#2A0C0A); border:1px solid rgba(232,32,26,.3); border-radius:12px; padding:14px 20px; margin-bottom:10px; text-align:center; position:relative; overflow:hidden; }
+  .res-hero::before { content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:min(400px,100%); height:300px; background:radial-gradient(circle,rgba(232,32,26,.18) 0%,transparent 65%); }
+  .res-eye { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:4px; position:relative; z-index:1; }
+  .res-amt { font-size:clamp(20px,4vw,34px); font-weight:900; line-height:1; margin-bottom:4px; position:relative; z-index:1; }
+  .res-amt .dash { color:var(--red); margin:0 6px; }
+  .res-note { font-size:11px; color:var(--gray); position:relative; z-index:1; }
+  .sub-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(46,204,113,.1); border:1px solid rgba(46,204,113,.25); border-radius:6px; padding:6px 12px; margin-top:8px; font-size:12px; font-weight:600; color:var(--green); position:relative; z-index:1; flex-wrap:wrap; justify-content:center; }
+  .res-meta { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+  @media(max-width:500px){.res-meta{grid-template-columns:1fr}}
+  .rmc { background:var(--card2); border:1px solid var(--border); border-radius:8px; padding:10px 12px; }
+  .rmc-ico { font-size:15px; margin-bottom:2px; }
+  .rmc-lbl { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray2); margin-bottom:2px; }
+  .rmc-val { font-size:13px; font-weight:800; }
+  .bdown { background:var(--card2); border:1px solid var(--border); border-radius:10px; overflow:hidden; margin-bottom:10px; }
+  .bdown-hdr { padding:7px 14px; border-bottom:1px solid var(--border); font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--gray); }
+  .brow { display:flex; align-items:center; justify-content:space-between; padding:6px 14px; border-bottom:1px solid rgba(56,56,56,.5); transition:background .12s; gap:8px; }
+  .brow:last-child { border-bottom:none; }
+  .brow:hover { background:rgba(255,255,255,.025); }
+  .brow-l { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:500; flex:1; min-width:0; }
+  .brow-l span:last-child { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .brow-dot { width:5px; height:5px; border-radius:50%; background:var(--red); flex-shrink:0; }
+  .brow-r { font-size:12px; font-weight:700; display:flex; align-items:center; gap:5px; white-space:nowrap; }
+  .brow-pct { font-size:10px; color:var(--gray2); font-weight:500; }
+  .sub-section { background:rgba(46,204,113,.06); border:1px solid rgba(46,204,113,.2); border-radius:10px; padding:12px 14px; margin-bottom:10px; }
+  .sub-section-title { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--green); margin-bottom:8px; }
+  .sub-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid rgba(46,204,113,.12); gap:8px; }
+  .sub-row:last-child { border-bottom:none; }
+  .sub-row-name { font-size:12px; font-weight:500; display:flex; align-items:center; gap:8px; flex:1; min-width:0; }
+  .sub-dot { width:5px; height:5px; border-radius:50%; background:var(--green); flex-shrink:0; }
+  .sub-row-amt { font-size:12px; font-weight:700; color:var(--green); white-space:nowrap; }
+  .sub-total-row { display:flex; justify-content:space-between; align-items:center; padding-top:10px; margin-top:4px; border-top:1px solid rgba(46,204,113,.25); gap:8px; }
+  .sub-total-label { font-size:13px; font-weight:700; }
+  .sub-total-amt { font-size:16px; font-weight:900; color:var(--green); }
+  .sub-disc { font-size:10px; color:rgba(46,204,113,.6); margin-top:6px; line-height:1.4; }
+  .cb-block { background:var(--red); border-radius:10px; padding:12px 16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .cb-ico { font-size:24px; flex-shrink:0; }
+  .cb-txt { flex:1; min-width:140px; }
+  .cb-txt h3 { font-size:clamp(14px,2vw,17px); font-weight:900; color:#fff; margin-bottom:2px; }
+  .cb-txt p { font-size:12px; color:rgba(255,255,255,.72); line-height:1.4; }
+  .btn-cb { background:#fff; color:var(--red); border:none; padding:10px 18px; border-radius:8px; font-family:'Barlow',sans-serif; font-size:13px; font-weight:800; cursor:pointer; transition:all .18s; white-space:nowrap; flex-shrink:0; }
+  .btn-cb:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,.25); }
+  @media(max-width:520px){.cb-block{flex-direction:column;text-align:center}.btn-cb{width:100%}}
+  .disc { text-align:center; margin-top:8px; font-size:11px; color:var(--gray2); line-height:1.5; }
+  .info-box { display:flex; align-items:flex-start; gap:9px; background:rgba(232,144,26,.06); border:1px solid rgba(232,144,26,.2); border-radius:8px; padding:10px 14px; font-size:12px; color:rgba(232,144,26,.9); }
+  .npa-wrap { position:relative; }
+  .npa-dd { position:absolute; top:calc(100% + 4px); left:0; right:0; background:#1E1E1E; border:1.5px solid var(--red); border-radius:8px; z-index:300; display:none; box-shadow:0 12px 32px rgba(0,0,0,.5); max-height:210px; overflow-y:auto; }
+  .npa-dd.open { display:block; }
+  .npa-item { padding:10px 15px; cursor:pointer; display:flex; align-items:center; justify-content:space-between; transition:background .12s; border-bottom:1px solid rgba(56,56,56,.5); }
+  .npa-item:last-child { border-bottom:none; }
+  .npa-item:hover,.npa-item.focused { background:rgba(232,32,26,.12); }
+  .npa-commune { font-size:13px; font-weight:600; color:var(--white); }
+  .npa-code { font-size:12px; font-weight:700; color:var(--red); }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:#1E1E1E; border:1px solid var(--red); color:#fff; padding:11px 24px; border-radius:30px; font-size:14px; font-weight:600; box-shadow:0 6px 28px rgba(0,0,0,.4); transition:transform .3s,opacity .3s; opacity:0; z-index:400; white-space:nowrap; max-width:90vw; text-align:center; }
+  .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+  .mb20 { margin-bottom:12px; }
 
   /* ============================================================
      TESTIMONIALS
@@ -2056,16 +2361,12 @@
 
   /* Responsive */
   @media (max-width: 900px) {
-    .sim-grid { grid-template-columns: 1fr 1fr; }
-    .sim-res-grid { grid-template-columns: 1fr; }
     .testi-grid { grid-template-columns: 1fr; }
     .testi-hdr { flex-direction: column; align-items: flex-start; }
     .faq-layout { grid-template-columns: 1fr; gap: 40px; }
     .faq-sidebar { position: static; }
   }
   @media (max-width: 600px) {
-    .sim-grid { grid-template-columns: 1fr; }
-    .sim-card { padding: 24px; }
     .part-item { min-width: 100px; }
   }
 </style>
@@ -2604,72 +2905,325 @@
     });
   });
 
-  /* ── Simulator ── */
-  const surfSlider = document.getElementById('s-surf');
-  const budSlider  = document.getElementById('s-bud');
-  const surfVal    = document.getElementById('surf-val');
-  const budVal     = document.getElementById('bud-val');
+})();
+</script>
 
-  function fmtChf(n) {
-    return new Intl.NumberFormat('fr-CH', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(n) + ' CHF';
+<!-- ── Estimateur Rénovation ── -->
+<script>
+// ── DATA ───────────────────────────────────────────────────────
+const PRIX = {
+  maison:         {ppm2:1600, label:'Rénovation maison / villa'},
+  appartement:    {ppm2:1400, label:'Rénovation appartement'},
+  cuisine:        {fixed:25000,label:'Rénovation cuisine',       room:true},
+  sdb:            {fixed:18000,label:'Rénovation salle de bain', room:true},
+  energetique:    {ppm2:580,  label:'Rénovation énergétique'},
+  peinture:       {ppm2:340,  label:'Peinture & finitions'},
+  isolation:      {ppm2:260,  label:'Isolation & fenêtres'},
+  transformation: {ppm2:950,  label:'Transformation intérieure'},
+};
+const NC = {eco:.62,mid:1,pre:1.72};
+const NL = {eco:'🌿 Essentiel',mid:'⭐ Intermédiaire',pre:'💎 Premium'};
+const CC = {GE:1.30,VD:1.12,VS:1.02,FR:1.00,NE:0.98,JU:0.94};
+const CL = {GE:'Genève (GE)',VD:'Vaud (VD)',VS:'Valais (VS)',FR:'Fribourg (FR)',NE:'Neuchâtel (NE)',JU:'Jura (JU)'};
+const AC = {av1950:1.22,'1950':1.10,'1975':1.02,ap2000:.95,'':1};
+const BD = {
+  maison:        [["Gros œuvre / structure",.18],["Plomberie & sanitaire",.15],["Électricité",.12],["Isolation & menuiseries",.17],["Revêtements & finitions",.18],["Cuisine & équipements",.10],["Honoraires & imprévus",.10]],
+  appartement:   [["Cloisons & doublages",.14],["Plomberie & sanitaire",.17],["Électricité",.13],["Revêtements sols & murs",.22],["Menuiseries intérieures",.12],["Cuisine & salle de bain",.12],["Honoraires & imprévus",.10]],
+  cuisine:       [["Meubles, façades & équipements",.40],["Plan de travail & crédence",.14],["Plomberie",.14],["Électricité",.10],["Revêtements",.12],["Honoraires & pose",.10]],
+  sdb:           [["Carrelage & faïence",.26],["Sanitaires & robinetterie",.28],["Plomberie",.18],["Électricité & ventilation",.12],["Menuiseries",.07],["Honoraires",.09]],
+  energetique:   [["Chauffage / PAC",.42],["Isolation enveloppe",.24],["Ventilation VMC",.12],["Fenêtres haute performance",.14],["Électricité & réseau",.05],["Démarches / CECB+",.03]],
+  peinture:      [["Sols (parquet, carrelage…)",.36],["Peintures & fournitures",.24],["Plafonds & cornières",.14],["Enduits & papiers peints",.14],["Main d'œuvre & imprévus",.12]],
+  isolation:     [["Isolation murs / combles",.42],["Fenêtres double/triple vitrage",.34],["Portes & volets",.12],["Étanchéité & finitions",.07],["Honoraires",.05]],
+  transformation:[["Démolition & évacuation",.14],["Structure / poutres / renforts",.26],["Cloisons & doublages",.20],["Électricité & plomberie déplacées",.14],["Revêtements & finitions",.16],["Honoraires & imprévus",.10]],
+};
+
+function getAides(type, canton, surface, niveau, est) {
+  if (!['energetique','isolation'].includes(type)) return null;
+  const rows=[]; let tot=0;
+  if (type==='energetique') {
+    const pac=canton==='GE'?Math.min(14000,Math.round(est*.25)):canton==='VD'?Math.min(12000,Math.round(est*.22)):Math.min(10000,Math.round(est*.20));
+    rows.push(['Installation pompe à chaleur',pac]); tot+=pac;
+    const iso=Math.round(surface*35); rows.push(['Isolation enveloppe thermique',iso]); tot+=iso;
+    rows.push(['Audit CECB+',800]); tot+=800;
+    if (niveau!=='eco'){const b=Math.round(surface*33);rows.push(['Bonus rénovation globale (classe C+)',b]);tot+=b;}
+  } else {
+    const ia=Math.round(est*.22); rows.push(['Isolation murs / combles',ia]); tot+=ia;
+    const vmc=Math.min(3000,Math.round(est*.06)); rows.push(['Ventilation VMC',vmc]); tot+=vmc;
+    rows.push(['Audit CECB+',600]); tot+=600;
+  }
+  const disc=canton==='GE'?`Demande à l'OCEN (ge.ch) avant travaux. Budget GE 2025 : 29 MCHF.`
+    :canton==='VD'?`Demande sur leprogrammebatiments.ch. Budget VD 2025 : 61 MCHF.`
+    :`Demande sur leprogrammebatiments.ch avant travaux.`;
+  return {rows,tot,disc};
+}
+
+// ── NPA DATABASE ───────────────────────────────────────────────
+const NPA_DATA=[
+  [1200,"Genève","GE"],[1201,"Genève","GE"],[1202,"Genève","GE"],[1203,"Genève","GE"],
+  [1204,"Genève","GE"],[1205,"Genève","GE"],[1206,"Genève","GE"],[1207,"Genève","GE"],
+  [1208,"Genève","GE"],[1209,"Genève","GE"],[1211,"Genève","GE"],[1212,"Grand-Lancy","GE"],
+  [1213,"Petit-Lancy","GE"],[1214,"Vernier","GE"],[1215,"Genève 15","GE"],
+  [1216,"Cointrin","GE"],[1217,"Meyrin","GE"],[1218,"Le Grand-Saconnex","GE"],
+  [1219,"Châtelaine","GE"],[1220,"Les Avanchets","GE"],[1222,"Vésenaz","GE"],
+  [1223,"Cologny","GE"],[1224,"Chêne-Bougeries","GE"],[1225,"Chêne-Bourg","GE"],
+  [1226,"Thônex","GE"],[1227,"Carouge","GE"],[1228,"Plan-les-Ouates","GE"],
+  [1229,"Les Acacias","GE"],[1231,"Conches","GE"],[1232,"Confignon","GE"],
+  [1233,"Bernex","GE"],[1234,"Vessy","GE"],[1236,"Cartigny","GE"],
+  [1237,"Avully","GE"],[1239,"Collex","GE"],[1240,"Genthod","GE"],
+  [1241,"Puplinge","GE"],[1242,"Satigny","GE"],[1243,"Presinge","GE"],
+  [1244,"Choulex","GE"],[1245,"Collonge-Bellerive","GE"],[1246,"Corsier","GE"],
+  [1247,"Anières","GE"],[1248,"Hermance","GE"],[1251,"Gy","GE"],
+  [1252,"Meinier","GE"],[1253,"Vandœuvres","GE"],[1254,"Jussy","GE"],
+  [1255,"Veyrier","GE"],[1256,"Troinex","GE"],[1257,"La Croix-de-Rozon","GE"],
+  [1258,"Perly","GE"],[1281,"Russin","GE"],[1283,"La Plaine","GE"],
+  [1284,"Chancy","GE"],[1285,"Athenaz","GE"],[1287,"Laconnex","GE"],
+  [1288,"Aire-la-Ville","GE"],[1290,"Versoix","GE"],[1291,"Commugny","GE"],
+  [1292,"Chambésy","GE"],[1293,"Bellevue","GE"],[1295,"Tannay","GE"],
+  [1296,"Coppet","GE"],[1297,"Founex","GE"],[1298,"Céligny","GE"],
+  [1000,"Lausanne","VD"],[1001,"Lausanne","VD"],[1002,"Lausanne","VD"],
+  [1003,"Lausanne","VD"],[1004,"Lausanne","VD"],[1005,"Lausanne","VD"],
+  [1006,"Lausanne","VD"],[1007,"Lausanne","VD"],[1008,"Prilly","VD"],
+  [1009,"Pully","VD"],[1010,"Lausanne","VD"],[1018,"Lausanne","VD"],
+  [1020,"Renens","VD"],[1022,"Chavannes","VD"],[1023,"Crissier","VD"],
+  [1024,"Ecublens","VD"],[1025,"Saint-Sulpice","VD"],[1030,"Bussigny","VD"],
+  [1052,"Le Mont-sur-Lausanne","VD"],[1053,"Cugy","VD"],[1066,"Epalinges","VD"],
+  [1070,"Puidoux","VD"],[1071,"Chexbres","VD"],[1073,"Savigny","VD"],
+  [1091,"Grandvaux","VD"],[1092,"Belmont-sur-Lausanne","VD"],[1095,"Lutry","VD"],
+  [1096,"Cully","VD"],[1110,"Morges","VD"],[1180,"Rolle","VD"],
+  [1196,"Gland","VD"],[1197,"Prangins","VD"],[1260,"Nyon","VD"],
+  [1262,"Eysins","VD"],[1268,"Begnins","VD"],[1272,"Genolier","VD"],
+  [1279,"Chavannes-de-Bogis","VD"],[1299,"Crans-près-Céligny","VD"],
+  [1400,"Yverdon-les-Bains","VD"],[1422,"Grandson","VD"],[1450,"Sainte-Croix","VD"],
+  [1800,"Vevey","VD"],[1814,"La Tour-de-Peilz","VD"],[1815,"Clarens","VD"],
+  [1820,"Montreux","VD"],[1844,"Villeneuve","VD"],[1860,"Aigle","VD"],
+  [1880,"Bex","VD"],[1884,"Villars-sur-Ollon","VD"],
+  [1950,"Sion","VS"],[1951,"Chandolin-près-Sion","VS"],[1960,"Sierre","VS"],
+  [1963,"Vétroz","VS"],[1964,"Conthey","VS"],[1965,"Savièse","VS"],
+  [1971,"Grimisuat","VS"],[1978,"Lens","VS"],
+  [1870,"Monthey","VS"],[1890,"St-Maurice","VS"],[1900,"Martigny","VS"],
+  [1907,"Saxon","VS"],[1920,"Martigny","VS"],[1926,"Fully","VS"],
+  [1936,"Verbier","VS"],[1940,"Vollèges","VS"],
+  [3900,"Brig-Glis","VS"],[3906,"Saas-Fee","VS"],[3920,"Zermatt","VS"],
+  [3930,"Visp","VS"],[3960,"Sierre","VS"],[3962,"Montana","VS"],
+  [3963,"Crans-Montana","VS"],[3970,"Salgesch","VS"],[3976,"Noës","VS"],
+  [1700,"Fribourg","FR"],[1702,"Fribourg","FR"],[1705,"Fribourg","FR"],
+  [1712,"Tafers","FR"],[1723,"Marly","FR"],[1630,"Bulle","FR"],
+  [1632,"Riaz","FR"],[1637,"Charmey","FR"],[1640,"Châtel-St-Denis","FR"],
+  [1680,"Romont","FR"],[3280,"Murten","FR"],
+  [2000,"Neuchâtel","NE"],[2001,"Neuchâtel","NE"],[2017,"Boudry","NE"],
+  [2022,"Bevaix","NE"],[2034,"Peseux","NE"],[2035,"Corcelles","NE"],
+  [2036,"Cormondrèche","NE"],[2072,"St-Blaise","NE"],[2074,"Marin-Epagnier","NE"],
+  [2088,"Cressier","NE"],[2105,"Travers","NE"],[2114,"Fleurier","NE"],
+  [2300,"La Chaux-de-Fonds","NE"],[2400,"Le Locle","NE"],
+  [2800,"Delémont","JU"],[2822,"Courroux","JU"],[2830,"Courrendlin","JU"],
+  [2852,"Courtételle","JU"],[2854,"Bassecourt","JU"],[2900,"Porrentruy","JU"],
+  [2950,"Courgenay","JU"],
+];
+
+const NPA_MAP={};
+NPA_DATA.forEach(([n,c,k])=>{
+  const key=String(n);
+  (NPA_MAP[key]=NPA_MAP[key]||[]).push({commune:c,canton:k});
+});
+const ROMAND=new Set(['GE','VD','VS','FR','NE','JU']);
+
+// ── STATE ──────────────────────────────────────────────────────
+let step=1, selTypes=new Set(), npaCursor=-1;
+
+// ── HELPERS ────────────────────────────────────────────────────
+const $=id=>document.getElementById(id);
+const chf=n=>n.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019')+' CHF';
+const mk=(tag,cls,html='')=>{const e=document.createElement(tag);if(cls)e.className=cls;e.innerHTML=html;return e;};
+
+function toast(msg){
+  const t=$('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+function clrErr(id,fi){$(id).classList.remove('show');if(fi)$(fi).classList.remove('err');}
+function setErr(id,fi){$(id).classList.add('show');if(fi)$(fi).classList.add('err');}
+
+function toggleType(el){
+  const v=el.dataset.v;
+  selTypes.has(v)?(selTypes.delete(v),el.classList.remove('sel')):(selTypes.add(v),el.classList.add('sel'));
+}
+
+function updSlider(id,min,max,disp,money=false){
+  const el=$(id), v=parseInt(el.value);
+  el.style.setProperty('--pct',((v-min)/(max-min)*100)+'%');
+  $(disp).textContent=money?v.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019'):v;
+}
+updSlider('surface',10,500,'sv');
+updSlider('budget',5000,500000,'bv',true);
+
+function onNpa(inp){
+  const val=inp.value.trim();
+  const dd=$('npa-dd');
+  if(val.length<2){dd.classList.remove('open');return;}
+  const seen=new Set(), matches=[];
+  for(const [key,entries] of Object.entries(NPA_MAP)){
+    if(key.startsWith(val)){
+      entries.forEach(e=>{
+        const uid=key+'|'+e.commune;
+        if(!seen.has(uid)&&ROMAND.has(e.canton)){seen.add(uid);matches.push({npa:key,...e});}
+      });
+    }
+  }
+  matches.sort((a,b)=>+a.npa-+b.npa);
+  if(!matches.length){dd.classList.remove('open');return;}
+  dd.innerHTML='';
+  matches.slice(0,10).forEach((m,i)=>{
+    const d=mk('div','npa-item');
+    d.innerHTML=`<span class="npa-commune">${m.commune}</span><span class="npa-code">${m.npa} · ${m.canton}</span>`;
+    d.addEventListener('mousedown',ev=>{ev.preventDefault();pickNpa(m);});
+    dd.appendChild(d);
+  });
+  dd.classList.add('open'); npaCursor=-1;
+}
+
+function pickNpa(m){
+  $('npa').value=m.npa;
+  $('ville').value=m.commune;
+  if(ROMAND.has(m.canton)) $('canton').value=m.canton;
+  $('npa-dd').classList.remove('open');
+  clrErr('e-npa','npa'); clrErr('e-canton','canton');
+}
+
+document.addEventListener('keydown',e=>{
+  const dd=$('npa-dd');
+  if(!dd.classList.contains('open'))return;
+  const items=dd.querySelectorAll('.npa-item');
+  if(e.key==='ArrowDown'){e.preventDefault();npaCursor=Math.min(npaCursor+1,items.length-1);}
+  else if(e.key==='ArrowUp'){e.preventDefault();npaCursor=Math.max(npaCursor-1,0);}
+  else if(e.key==='Enter'&&npaCursor>=0){e.preventDefault();items[npaCursor].dispatchEvent(new MouseEvent('mousedown'));}
+  else if(e.key==='Escape'){dd.classList.remove('open');}
+  items.forEach((it,i)=>it.classList.toggle('focused',i===npaCursor));
+});
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.npa-wrap')) $('npa-dd').classList.remove('open');
+});
+
+function validate(s){
+  let ok=true;
+  if(s===1){
+    clrErr('e-canton','canton'); clrErr('e-npa','npa');
+    if(!selTypes.size){toast('⚠️ Sélectionnez au moins un type de rénovation');ok=false;}
+    if(!$('canton').value){setErr('e-canton','canton');ok=false;}
+    if(!/^\d{4}$/.test($('npa').value.trim())){setErr('e-npa','npa');ok=false;}
+  }
+  if(s===3){
+    ['prenom','nom','email','tel'].forEach(f=>clrErr('e-'+f,f));
+    if(!$('prenom').value.trim()){setErr('e-prenom','prenom');ok=false;}
+    if(!$('nom').value.trim()){setErr('e-nom','nom');ok=false;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('email').value)){setErr('e-email','email');ok=false;}
+    if($('tel').value.replace(/\D/g,'').length<9){setErr('e-tel','tel');ok=false;}
+  }
+  return ok;
+}
+
+function nextStep(){if(!validate(step))return;if(step===3)buildResult();step=Math.min(step+1,4);render();}
+function prevStep(){step=Math.max(step-1,1);render();}
+
+function render(){
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i+1===step));
+  for(let i=1;i<=4;i++){
+    const ps=$('ps'+i),pd=$('pd'+i);
+    ps.classList.remove('active','done');
+    if(i===step){ps.classList.add('active');pd.textContent=i;}
+    else if(i<step){ps.classList.add('done');pd.textContent='✓';}
+    else pd.textContent=i;
+  }
+  const back=$('btn-back'),next=$('btn-next'),ctr=$('sctr');
+  back.style.visibility=step>1?'visible':'hidden';
+  if(step===4){next.style.display='none';ctr.style.display='none';}
+  else{
+    next.style.display='flex';ctr.style.display='block';
+    ctr.textContent=`Étape ${step} sur 4`;
+    const arrow='<svg width="13" height="13" fill="none" viewBox="0 0 13 13"><path d="M5 1.5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>';
+    next.innerHTML=(step===3?'Calculer mon estimation ':'Continuer ')+arrow;
+  }
+  const sim=document.getElementById('simulateur');
+  if(sim) sim.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function calcOne(type,surf,cc,nc,ac){
+  const p=PRIX[type]||PRIX.maison;
+  return p.room?Math.round(p.fixed*cc*nc*ac):Math.round(p.ppm2*surf*cc*nc*ac);
+}
+
+function buildResult(){
+  const surf=parseInt($('surface').value);
+  const canton=$('canton').value;
+  const npa=$('npa').value.trim();
+  const ville=$('ville').value.trim();
+  const niv=document.querySelector('input[name="niveau"]:checked')?.value||'mid';
+  const ann=$('annee').value;
+
+  const cc=CC[canton]||1,nc=NC[niv],ac=AC[ann]||1;
+  const ta=Array.from(selTypes);
+  const m2t=ta.filter(t=>!PRIX[t]?.room);
+  const rmt=ta.filter(t=> PRIX[t]?.room);
+
+  let est=0;
+  m2t.forEach((t,i)=>est+=calcOne(t,surf,cc,nc,ac)*(i?0.55:1));
+  rmt.forEach(t=>est+=calcOne(t,surf,cc,nc,ac));
+  est=Math.round(est);
+
+  const low=Math.round(est*.85/500)*500, high=Math.round(est*1.22/500)*500;
+  const loc=n=>n.toLocaleString('fr-CH').replace(/\u202f/g,'\u2019');
+
+  $('res-range').innerHTML=`${loc(low)} <span class="dash">–</span> ${loc(high)} <span style="font-size:.55em;color:var(--gray)">CHF</span>`;
+  $('res-note').textContent=`${ta.map(t=>PRIX[t]?.label||t).join(' + ')} · ${CL[canton]||canton} ${npa}${ville?' '+ville:''}`;
+  $('rm-s').textContent=surf+' m²';
+  $('rm-c').textContent=(CL[canton]||canton)+' '+npa;
+  $('rm-n').textContent=NL[niv];
+
+  const cont=$('brows'); cont.innerHTML='';
+  if(ta.length===1){
+    (BD[ta[0]]||BD.maison).forEach(([n,p])=>{
+      const a=Math.round(est*p/100)*100, d=mk('div','brow');
+      d.innerHTML=`<span class="brow-l"><span class="brow-dot"></span><span>${n}</span></span><span class="brow-r">${chf(a)}<span class="brow-pct">${Math.round(p*100)}%</span></span>`;
+      cont.appendChild(d);
+    });
+  } else {
+    ta.forEach((t,i)=>{
+      const sub=Math.round(calcOne(t,surf,cc,nc,ac)*(!PRIX[t]?.room&&i>0?.55:1)/500)*500;
+      const d=mk('div','brow');
+      d.innerHTML=`<span class="brow-l"><span class="brow-dot"></span><span>${PRIX[t]?.label||t}</span></span><span class="brow-r">${chf(sub)}</span>`;
+      cont.appendChild(d);
+    });
+    const hon=Math.round(est*.10/500)*500, d=mk('div','brow');
+    d.innerHTML=`<span class="brow-l"><span class="brow-dot" style="background:var(--gray2)"></span><span>Coordination & imprévus (≈10%)</span></span><span class="brow-r">${chf(hon)}<span class="brow-pct">10%</span></span>`;
+    cont.appendChild(d);
   }
 
-  surfSlider.addEventListener('input', () => {
-    surfVal.textContent = surfSlider.value + ' m²';
+  const elig=ta.filter(t=>['energetique','isolation'].includes(t));
+  let totA=0, rowsA=[], discA='';
+  elig.forEach(t=>{
+    const a=getAides(t,canton,surf,niv,calcOne(t,surf,cc,nc,ac));
+    if(a){a.rows.forEach(r=>rowsA.push(r));totA+=a.tot;discA=a.disc;}
   });
-  budSlider.addEventListener('input', () => {
-    const v = parseInt(budSlider.value);
-    budVal.textContent = v >= 1000 ? Math.round(v / 1000) + ' 000 CHF' : v + ' CHF';
-  });
+  if(totA>0){
+    $('sub-badge').style.display='inline-flex';
+    $('sub-badge-amt').textContent=loc(totA);
+    $('sub-section').style.display='block';
+    const sr=$('sub-rows'); sr.innerHTML='';
+    rowsA.forEach(([n,a])=>{
+      const d=mk('div','sub-row');
+      d.innerHTML=`<span class="sub-row-name"><span class="sub-dot"></span>${n}</span><span class="sub-row-amt">jusqu'à ${chf(a)}</span>`;
+      sr.appendChild(d);
+    });
+    $('sub-total').textContent=`jusqu'à ${chf(totA)}`;
+    $('sub-disc').textContent=discA;
+  } else {
+    $('sub-badge').style.display='none';
+    $('sub-section').style.display='none';
+  }
 
-  document.getElementById('sim-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+  const prenom=$('prenom').value;
+  if(prenom) $('cb-p').textContent=`${prenom}, nos conseillers certifiés RGE analysent votre projet gratuitement, optimisent vos aides cantonales et vous mettent en relation avec des artisans de confiance en ${CL[canton]||'Suisse romande'}.`;
+}
 
-    const bien = document.getElementById('s-bien').value;
-    const type = document.getElementById('s-type').value;
-    const surf = parseInt(surfSlider.value);
-
-    if (!bien || !type) {
-      alert('Veuillez sélectionner le type de bien et le type de rénovation.');
-      return;
-    }
-
-    // Rate per m² CHF
-    const rates = {
-      maison:      { complete:2100, partielle:1100, energetique:1300, finitions:380, cuisine:null, sdb:null },
-      appartement: { complete:1850, partielle:950,  energetique:1050, finitions:320, cuisine:null, sdb:null },
-      villa:       { complete:2600, partielle:1400, energetique:1600, finitions:480, cuisine:null, sdb:null },
-      commercial:  { complete:2200, partielle:1250, energetique:1150, finitions:400, cuisine:null, sdb:null }
-    };
-    const fixed = { cuisine: [24000, 62000], sdb: [14000, 38000] };
-    const subsidies = { complete:14, partielle:8, energetique:35, finitions:5, cuisine:0, sdb:5 };
-
-    let minCost, maxCost;
-    if (type === 'cuisine') {
-      minCost = fixed.cuisine[0]; maxCost = fixed.cuisine[1];
-    } else if (type === 'sdb') {
-      minCost = fixed.sdb[0]; maxCost = fixed.sdb[1];
-    } else {
-      const rate = (rates[bien] || rates.maison)[type] || 1500;
-      minCost = Math.round(rate * surf * 0.88);
-      maxCost = Math.round(rate * surf * 1.14);
-    }
-
-    const subPct = subsidies[type] || 0;
-    const subAmt = Math.round((minCost + maxCost) / 2 * subPct / 100);
-    const netMin = Math.round(minCost - subAmt * 0.9);
-    const netMax = Math.round(maxCost - subAmt * 1.1);
-
-    document.getElementById('res-budget').textContent = fmtChf(minCost) + ' – ' + fmtChf(maxCost);
-    document.getElementById('res-aides').textContent  = subPct > 0 ? '~' + subPct + '%  (' + fmtChf(subAmt) + ')' : 'Non applicable';
-    document.getElementById('res-net').textContent    = fmtChf(Math.max(0, netMin)) + ' – ' + fmtChf(Math.max(0, netMax));
-
-    const result = document.getElementById('sim-result');
-    result.classList.add('show');
-    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
-
-})();
+function doCallback(){toast('✅ Demande envoyée ! Un expert vous contactera très prochainement.');}
 </script>
 
 <!-- ── Lightbox Gallery ── -->
@@ -2857,7 +3411,8 @@
       onLeaveBack: function() { card.classList.remove('tl-card--active'); },
     });
 
-    /* Overlay : 0.82 → 0.18 au centre, puis remonte */
+    /* Vignette au scroll : s'assombrit quand la carte est au centre */
+    var dim = card.querySelector('.tl-dim');
     var tl = gsap.timeline({
       scrollTrigger: {
         trigger: card,
@@ -2866,8 +3421,8 @@
         scrub: 1.4,
       }
     });
-    tl.to(card, { '--overlay': 0.55, ease: 'power1.inOut', duration: 0.5 })
-      .to(card, { '--overlay': 0.82, ease: 'power1.inOut', duration: 0.5 });
+    tl.to(dim, { opacity: 0, ease: 'power2.inOut', duration: 0.5 })
+      .to(dim, { opacity: 1, ease: 'power2.inOut', duration: 0.5 });
   });
 
   /* ── Cartes : état initial caché, animé au scroll ── */
@@ -2919,17 +3474,51 @@
 <style>
   .cta-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
+    width: 100%;
     background: #111;
     border-top: 1px solid rgba(204,0,0,0.35);
     box-shadow: 0 -6px 40px rgba(0,0,0,0.45);
     z-index: 9999;
     transform: translateY(100%);
-    transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+    transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+                width  0.5s cubic-bezier(0.16,1,0.3,1),
+                height 0.5s cubic-bezier(0.16,1,0.3,1),
+                left   0.5s cubic-bezier(0.16,1,0.3,1),
+                right  0.5s cubic-bezier(0.16,1,0.3,1),
+                bottom 0.5s cubic-bezier(0.16,1,0.3,1),
+                border-radius 0.5s cubic-bezier(0.16,1,0.3,1),
+                background 0.5s ease,
+                box-shadow 0.5s ease;
   }
   .cta-bar.visible { transform: translateY(0); }
+  .cta-bar.mini {
+    left: calc(100vw - 84px);
+    right: 28px;
+    bottom: 28px;
+    width: 56px;
+    height: 56px;
+    border-top: none;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #cc0000;
+    box-shadow: 0 4px 20px rgba(204,0,0,0.5), 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .cta-bar.mini .cta-bar-inner {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .cta-bar.mini::after {
+    content: '';
+    position: absolute; inset: 0;
+    display: flex;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' fill='none' viewBox='0 0 24 24'%3E%3Crect x='2' y='13' width='5' height='9' rx='1' fill='%23fff'/%3E%3Crect x='9.5' y='8' width='5' height='14' rx='1' fill='%23fff'/%3E%3Crect x='17' y='4' width='5' height='18' rx='1' fill='rgba(255,255,255,0.6)'/%3E%3Cpath d='M1 23h22' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center/26px no-repeat;
+  }
   .cta-bar-inner {
     max-width: 1200px; margin: 0 auto; padding: 14px 40px;
     display: flex; align-items: center; gap: 28px;
+    transition: opacity 0.15s;
   }
   .cta-bar-text { flex: 1; min-width: 0; }
   .cta-bar-title { display: block; font-size: 15px; font-weight: 700; color: #fff; }
@@ -2954,7 +3543,22 @@
 <script>
   (function() {
     var bar = document.getElementById('cta-bar');
+    var sim = document.getElementById('simulateur');
+
     setTimeout(function() { bar.classList.add('visible'); }, 2500);
+
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            bar.classList.add('mini');
+          } else {
+            bar.classList.remove('mini');
+          }
+        });
+      }, { threshold: 0.15 });
+      obs.observe(sim);
+    }
   })();
 </script>
 
