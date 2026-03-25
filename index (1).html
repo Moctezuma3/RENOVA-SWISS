@@ -373,6 +373,18 @@
     }
     .proj-cta:hover { background: var(--red-h); transform: translateY(-1px); }
 
+    /* Filter pills */
+    .proj-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .filter-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 16px; border-radius: 100px; font-size: 12px; font-weight: 600;
+      border: 1.5px solid var(--g200); background: #fff; color: var(--g600);
+      cursor: pointer; transition: all 0.25s;
+    }
+    .filter-pill:hover { border-color: var(--black); color: var(--black); }
+    .filter-pill.active { background: var(--black); border-color: var(--black); color: #fff; }
+    .filter-pill svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
     /* ============================================================
        BEFORE / AFTER
     ============================================================ */
@@ -895,10 +907,33 @@
         </button>
       </div>
     </div>
+
+    <!-- Pastilles de filtre -->
+    <div class="proj-filters reveal">
+      <button class="filter-pill active" data-filter="all">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Tout
+      </button>
+      <button class="filter-pill" data-filter="complet">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Rénovation complète
+      </button>
+      <button class="filter-pill" data-filter="cuisine">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Cuisine
+      </button>
+      <button class="filter-pill" data-filter="sdb">
+        <svg viewBox="0 0 24 24"><path d="M4 12h16a1 1 0 011 1v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3a1 1 0 011-1z"/><path d="M6 12V5a2 2 0 012-2h3v2.25"/><line x1="4" y1="20" x2="4" y2="22"/><line x1="20" y1="20" x2="20" y2="22"/></svg>Salle de bain
+      </button>
+      <button class="filter-pill" data-filter="sols">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>Sols &amp; finitions
+      </button>
+      <button class="filter-pill" data-filter="energetique">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Énergétique
+      </button>
+    </div>
+
     <div class="proj-slider">
     <div class="proj-grid" id="proj-track">
       <!-- Carte 1 -->
-      <div class="proj-card reveal" data-gallery="gallery/appart-1.jpg,gallery/appart-2.jpg,gallery/appart-3.jpg,gallery/appart-4.jpg,gallery/appart-5.jpg,gallery/appart-6.jpg">
+      <div class="proj-card reveal" data-filter="complet" data-gallery="gallery/appart-1.jpg,gallery/appart-2.jpg,gallery/appart-3.jpg,gallery/appart-4.jpg,gallery/appart-5.jpg,gallery/appart-6.jpg">
         <div class="proj-vis">
           <img src="assets/real-appart.jpg" alt="Rénovation appartement Genève">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Eaux-Vives</span>
@@ -915,7 +950,7 @@
         </div>
       </div>
       <!-- Carte 2 -->
-      <div class="proj-card reveal reveal-delay-1" data-gallery="gallery/cuisine3-1.jpg,gallery/cuisine3-2.jpg,gallery/cuisine1-1.webp,gallery/cuisine1-2.webp,gallery/cuisine1-3.webp,gallery/cuisine1-4.webp">
+      <div class="proj-card reveal reveal-delay-1" data-filter="cuisine" data-gallery="gallery/cuisine3-1.jpg,gallery/cuisine3-2.jpg,gallery/cuisine1-1.webp,gallery/cuisine1-2.webp,gallery/cuisine1-3.webp,gallery/cuisine1-4.webp">
         <div class="proj-vis">
           <img src="assets/real-cuisine.jpg" alt="Rénovation cuisine Nyon">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
@@ -932,7 +967,7 @@
         </div>
       </div>
       <!-- Carte 3 -->
-      <div class="proj-card reveal reveal-delay-2" data-gallery="gallery/energie-1.jpg,gallery/energie-2.jpg,gallery/energie-3.jpg">
+      <div class="proj-card reveal reveal-delay-2" data-filter="energetique" data-gallery="gallery/energie-1.jpg,gallery/energie-2.jpg,gallery/energie-3.jpg">
         <div class="proj-vis">
           <img src="assets/real-energie.jpg" alt="Rénovation énergétique Lausanne">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
@@ -949,7 +984,7 @@
         </div>
       </div>
       <!-- Carte 4 -->
-      <div class="proj-card reveal reveal-delay-3" data-gallery="gallery/cuisine4-1.jpg,gallery/cuisine4-2.jpg,gallery/cuisine4-3.jpg,gallery/cuisine4-4.jpg,gallery/cuisine4-5.jpg">
+      <div class="proj-card reveal reveal-delay-3" data-filter="cuisine" data-gallery="gallery/cuisine4-1.jpg,gallery/cuisine4-2.jpg,gallery/cuisine4-3.jpg,gallery/cuisine4-4.jpg,gallery/cuisine4-5.jpg">
         <div class="proj-vis">
           <img src="assets/real-cuisine2.jpg" alt="Réaménagement cuisine Morges">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges, VD</span>
@@ -967,7 +1002,7 @@
         </div>
       </div>
       <!-- Carte 5 -->
-      <div class="proj-card" data-gallery="gallery/bain2-1.webp,gallery/bain2-2.webp,gallery/bain1-1.webp,gallery/bain1-2.webp,gallery/bain1-3.webp">
+      <div class="proj-card" data-filter="sdb" data-gallery="gallery/bain2-1.webp,gallery/bain2-2.webp,gallery/bain1-1.webp,gallery/bain1-2.webp,gallery/bain1-3.webp">
         <div class="proj-vis">
           <img src="assets/real-bain.webp" alt="Salle de bain design Genève">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Champel</span>
@@ -984,7 +1019,7 @@
         </div>
       </div>
       <!-- Carte 6 -->
-      <div class="proj-card" data-gallery="gallery/bain4-1.jpg,gallery/bain3-1.jpg,gallery/bain1-4.webp,gallery/bain1-5.webp">
+      <div class="proj-card" data-filter="sdb" data-gallery="gallery/bain4-1.jpg,gallery/bain3-1.jpg,gallery/bain1-4.webp,gallery/bain1-5.webp">
         <div class="proj-vis">
           <img src="assets/real-bain2.jpg" alt="Douche italienne Lausanne">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Pully</span>
@@ -1001,7 +1036,7 @@
         </div>
       </div>
       <!-- Carte 7 -->
-      <div class="proj-card" data-gallery="gallery/cuisine5-1.jpg,gallery/cuisine5-2.jpg,gallery/cuisine5-3.jpg,gallery/cuisine5-4.jpg">
+      <div class="proj-card" data-filter="cuisine" data-gallery="gallery/cuisine5-1.jpg,gallery/cuisine5-2.jpg,gallery/cuisine5-3.jpg,gallery/cuisine5-4.jpg">
         <div class="proj-vis">
           <img src="assets/real-cuisine3.jpg" alt="Cuisine îlot central Lausanne">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Ouchy</span>
@@ -1019,7 +1054,7 @@
         </div>
       </div>
       <!-- Carte 8 -->
-      <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg,gallery/sol-4.jpg">
+      <div class="proj-card" data-filter="sols" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg,gallery/sol-4.jpg">
         <div class="proj-vis">
           <img src="assets/real-sol1.jpg" alt="Parquet villa Nyon">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon – La Côte</span>
@@ -1036,7 +1071,7 @@
         </div>
       </div>
       <!-- Carte 9 -->
-      <div class="proj-card" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg">
+      <div class="proj-card" data-filter="sols" data-gallery="gallery/sol-1.jpg,gallery/sol-2.jpg,gallery/sol-3.jpg">
         <div class="proj-vis">
           <img src="assets/real-sol2.jpg" alt="Sols finitions Genève">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Plainpalais</span>
@@ -1052,7 +1087,7 @@
         </div>
       </div>
       <!-- Carte 10 -->
-      <div class="proj-card" data-gallery="gallery/finition-1.png,gallery/finition-2.webp,gallery/maison-1.jpg,gallery/maison-2.jpg,gallery/maison-3.jpg">
+      <div class="proj-card" data-filter="complet" data-gallery="gallery/finition-1.png,gallery/finition-2.webp,gallery/maison-1.jpg,gallery/maison-2.jpg,gallery/maison-3.jpg">
         <div class="proj-vis">
           <img src="assets/real-finition.png" alt="Transformation intérieure Rolle">
           <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Rolle, VD</span>
@@ -2768,59 +2803,63 @@
     setTimeout(() => center(0), 100);
   })();
 
-  /* ── Réalisations Slider ── */
+  /* ── Réalisations Slider + Filtres ── */
   (function() {
-    const track  = document.getElementById('proj-track');
+    const track = document.getElementById('proj-track');
     if (!track) return;
     const btnPrev = document.getElementById('proj-prev');
     const btnNext = document.getElementById('proj-next');
-    const cards   = track.children;
+    const filterBtns = document.querySelectorAll('.filter-pill');
     const VISIBLE = 3;
-    const DELAY   = 4000;
-    let cur = 0, timer = null;
+    let cur = 0;
 
-    function cardW() {
-      return cards[0].offsetWidth + 20; // width + gap
-    }
+    function visible() { return Array.from(track.children).filter(c => c.style.display !== 'none'); }
 
     function update() {
-      const max = cards.length - VISIBLE;
-      track.style.transform = `translateX(-${cur * cardW()}px)`;
+      const vis = visible();
+      const max = Math.max(0, vis.length - VISIBLE);
+      cur = Math.min(cur, max);
+      let offset = 0, seen = 0;
+      Array.from(track.children).forEach(c => {
+        if (c.style.display === 'none') return;
+        if (seen < cur) { offset += c.offsetWidth + 20; seen++; }
+      });
+      track.style.transform = `translateX(-${offset}px)`;
       btnPrev.disabled = cur === 0;
       btnNext.disabled = cur >= max;
     }
 
     function go(dir) {
-      const max = cards.length - VISIBLE;
+      const vis = visible();
+      const max = Math.max(0, vis.length - VISIBLE);
       cur = Math.min(Math.max(cur + dir, 0), max);
       update();
-      resetAuto();
     }
 
-    function autoStep() {
-      const max = cards.length - VISIBLE;
-      cur = cur >= max ? 0 : cur + 1;
-      update();
-    }
-
-    function resetAuto() {
-      clearInterval(timer);
-      timer = setInterval(autoStep, DELAY);
-    }
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        Array.from(track.children).forEach(c => {
+          c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none';
+        });
+        cur = 0;
+        update();
+      });
+    });
 
     btnPrev.onclick = () => go(-1);
     btnNext.onclick = () => go(1);
 
-    // Touch swipe
     let tx = 0;
     track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-    track.addEventListener('touchend',   e => {
+    track.addEventListener('touchend', e => {
       const dx = e.changedTouches[0].clientX - tx;
       if (Math.abs(dx) > 50) go(dx > 0 ? -1 : 1);
     }, { passive: true });
 
     update();
-    resetAuto();
   })();
 
   /* ── Before / After Slider ── */

@@ -133,64 +133,73 @@
     }
 
     /* RÉALISATIONS */
-    #realisations{padding:110px 0;background:#fff}
-    .proj-slider-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;gap:1rem}
+    #realisations{padding:110px 0;background:var(--g50)}
+    .proj-slider-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:1rem}
     .proj-slider-head .shdr{margin-bottom:0}
     .proj-arrows{display:flex;gap:8px;flex-shrink:0;padding-bottom:4px}
     .proj-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--g200);background:#fff;display:flex;align-items:center;justify-content:center;color:var(--g600);cursor:pointer;transition:all var(--tr)}
     .proj-arrow:hover{border-color:var(--black);color:var(--black)}
     .proj-arrow:disabled{opacity:.3;cursor:default}
     .proj-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .proj-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+    .filter-pill{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid var(--g200);background:#fff;color:var(--g600);cursor:pointer;transition:all .25s}
+    .filter-pill:hover{border-color:var(--black);color:var(--black)}
+    .filter-pill.active{background:var(--black);border-color:var(--black);color:#fff}
+    .filter-pill svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
     .proj-slider{overflow:hidden}
     .proj-grid{display:flex;gap:20px;transition:transform .55s cubic-bezier(.25,.46,.45,.94);will-change:transform}
-    .proj-card{flex:0 0 calc((100% - 40px)/3);background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);transition:box-shadow var(--tr),transform var(--tr)}
+    .proj-card{flex:0 0 calc((100% - 40px)/3);background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh-sm);transition:box-shadow var(--tr),transform var(--tr);display:flex;flex-direction:column}
     .proj-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg)}
-    .proj-vis{height:260px;position:relative;overflow:hidden}
-    .proj-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-    .proj-card:hover .proj-vis img{transform:scale(1.05)}
-    .proj-vis::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%)}
-    .proj-badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.5px;text-transform:uppercase}
-    .proj-info{padding:22px}
-    .proj-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
-    .proj-title{font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px}
-    .proj-meta{display:flex;gap:14px;flex-wrap:wrap}
-    .proj-m{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--g600)}
-    .proj-m svg{width:13px;height:13px;stroke:var(--g400);fill:none;stroke-width:1.75}
-    .proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-    .proj-tag{font-size:11px;font-weight:600;color:var(--g600);background:var(--g100);padding:3px 9px;border-radius:4px}
+    .proj-vis{height:220px;position:relative;overflow:hidden;flex-shrink:0}
+    .proj-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .proj-card:hover .proj-vis img{transform:scale(1.04)}
+    .proj-loc{position:absolute;bottom:12px;left:12px;z-index:2;background:rgba(255,255,255,0.92);color:var(--g800);font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px;display:flex;align-items:center;gap:5px;backdrop-filter:blur(4px)}
+    .proj-loc svg{width:11px;height:11px;stroke:var(--red);fill:none;stroke-width:2.5;flex-shrink:0}
+    .proj-info{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+    .proj-type-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+    .proj-type{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red)}
+    .proj-size{font-size:10px;font-weight:600;color:var(--g600);letter-spacing:.5px}
+    .proj-title{font-size:16px;font-weight:700;letter-spacing:-.3px;margin-bottom:14px;line-height:1.35;color:var(--black)}
+    .proj-etiquettes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .proj-etiq{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--g800);background:var(--g100);padding:5px 10px;border-radius:100px;border:1px solid var(--g200);line-height:1}
+    .proj-etiq svg{width:12px;height:12px;stroke:var(--red);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+    .proj-cta{display:block;width:100%;text-align:center;padding:11px 16px;border-radius:8px;font-size:13px;font-weight:700;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);margin-top:auto;letter-spacing:.2px}
+    .proj-cta:hover{background:var(--red-h);transform:translateY(-1px)}
     .proj-cta-wrap{text-align:center;margin-top:48px}
     @media(max-width:900px){.proj-card{flex:0 0 calc((100% - 20px)/2)}}
     @media(max-width:600px){.proj-card{flex:0 0 85%}.proj-slider-head{flex-direction:column;align-items:flex-start}}
 
-    /* STACK CARDS PROCESS */
-    #processus{background:#0d0d0d;overflow:hidden}
-    .processus-intro{padding:110px 0 80px;text-align:center}
-    .processus-intro .stag{color:rgba(255,130,130,.9)}
-    .processus-intro .stitle{color:#fff}
-    .processus-intro .ssub{color:rgba(255,255,255,.45);margin:0 auto}
-    .stack-outer{position:relative}
-    .stack-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .stack-cards-wrap{position:relative;width:100%;max-width:900px;height:560px;margin:0 auto}
-    .scard{position:absolute;inset:0;border-radius:20px;overflow:hidden;will-change:transform;transform-origin:top center}
-    .scard-bg{position:absolute;inset:0;background-size:cover;background-position:center}
-    .scard-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.1) 100%)}
-    .scard-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:48px}
-    .scard-num{font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
-    .scard-num::before{content:'';display:block;width:32px;height:1px;background:var(--red)}
-    .scard-step{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-1.5px;color:#fff;margin-bottom:12px;line-height:1.1}
-    .scard-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.65;max-width:480px;margin-bottom:28px}
-    .scard-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;transition:all var(--tr);border:none;cursor:pointer;text-decoration:none}
-    .scard-cta:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,0,0,.35)}
-    .scard-cta svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    .stack-progress{position:absolute;right:48px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:10}
-    .stack-dot{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.2);cursor:pointer;transition:all .4s}
-    .stack-dot.active{height:22px;background:#fff}
-    .stack-spacer{height:400vh}
-    @media(max-width:768px){
-      .scard-content{padding:28px}
-      .stack-progress{right:16px}
-      .stack-spacer{height:500vh}
-    }
+    /* TIMELINE PROCESS */
+    #processus{padding:110px 0;background:#fff;position:relative;overflow:hidden}
+    #processus .container{position:relative;z-index:1}
+    #processus .stag{color:var(--red)}
+    #processus .stitle{color:var(--black)}
+    #processus .ssub{color:var(--g600)}
+    .tl-wrap{position:relative}
+    .tl-line-svg{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:0}
+    .tl-path-track{fill:none;stroke:rgba(0,0,0,0.12);stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10}
+    .tl-path-fill{fill:none;stroke:#cc0000;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;filter:drop-shadow(0 0 12px rgba(204,0,0,0.75))}
+    .tl-item{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;padding:24px 0}
+    .tl-left .tl-card,.tl-right .tl-card{max-width:560px;width:100%}
+    .tl-dot{display:none}
+    .tl-card{background:#141414;background-size:cover;background-position:center;border:1px solid rgba(255,255,255,0.07);border-radius:0;padding:28px 24px;transition:border-color 0.4s,box-shadow 0.4s,transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);position:relative;overflow:hidden}
+    .tl-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(14,14,14,0.92) 0%,rgba(14,14,14,0.55) 38%,rgba(14,14,14,0.00) 70%);z-index:0;pointer-events:none;transition:background 0.5s ease}
+    .tl-dim{position:absolute;inset:0;z-index:0;pointer-events:none;background:rgba(14,14,14,0.72);opacity:1;transition:opacity 0.55s ease}
+    .tl-card:hover .tl-dim{opacity:0}
+    .tl-card>*{position:relative;z-index:1}
+    .tl-card:hover{border-color:rgba(204,0,0,0.35);box-shadow:0 20px 50px rgba(0,0,0,0.6)}
+    .tl-card--active{transform:scale(1.03);border-color:rgba(204,0,0,0.55)!important;box-shadow:0 0 0 1px rgba(204,0,0,0.4),0 0 60px rgba(204,0,0,0.30),0 24px 60px rgba(0,0,0,0.55)!important}
+    .proc-num{width:48px;height:48px;border-radius:10px;background:transparent;border:1.5px solid rgba(204,0,0,0.35);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:rgba(255,255,255,0.3);margin-bottom:18px;position:relative;overflow:hidden;transition:color 0.3s,border-color 0.3s,box-shadow 0.3s}
+    .num-fill{position:absolute;inset:0;background:linear-gradient(135deg,#cc0000,#8a0000);transform:scaleY(0);transform-origin:bottom;z-index:0;box-shadow:inset 0 1px 0 rgba(255,255,255,0.15)}
+    .proc-num span:last-child{position:relative;z-index:1}
+    .proc-icon{width:36px;height:36px;background:rgba(255,255,255,0.06);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .proc-icon svg{width:17px;height:17px;color:rgba(255,255,255,0.55)}
+    .proc-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;text-shadow:0 1px 6px rgba(0,0,0,0.8)}
+    .proc-desc{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.65;text-shadow:0 1px 4px rgba(0,0,0,0.9);margin-bottom:16px}
+    .proc-cta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.25s}
+    .proc-cta:hover{background:var(--red-h);transform:translateY(-2px);box-shadow:0 6px 20px rgba(204,0,0,0.35)}
+    .proc-cta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    @media(max-width:900px){.tl-left .tl-card,.tl-right .tl-card{max-width:100%}}
 
     /* BUDGET & FISCALITÉ */
     #budget{padding:110px 0;background:var(--black);position:relative;overflow:hidden}
@@ -594,179 +603,249 @@
 <!-- RÉALISATIONS -->
 <section id="realisations">
   <div class="container">
-    <div class="proj-slider-head">
-      <div class="shdr gs-up">
+    <div class="proj-slider-head gs-up">
+      <div class="shdr" style="margin-bottom:0">
         <div class="stag">Réalisations</div>
         <h2 class="stitle">Exemples de rénovations<br>d'appartements</h2>
         <p class="ssub">Quelques projets récents réalisés en Suisse romande.</p>
       </div>
       <div class="proj-arrows">
-        <button class="proj-arrow" id="proj-prev" aria-label="Précédent"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="proj-arrow" id="proj-prev" aria-label="Précédent" disabled><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
         <button class="proj-arrow" id="proj-next" aria-label="Suivant"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
     </div>
+
+    <!-- Pastilles de filtre -->
+    <div class="proj-filters gs-up">
+      <button class="filter-pill active" data-filter="all">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Tout
+      </button>
+      <button class="filter-pill" data-filter="complet">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Rénovation complète
+      </button>
+      <button class="filter-pill" data-filter="cuisine">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>Cuisine
+      </button>
+      <button class="filter-pill" data-filter="sdb">
+        <svg viewBox="0 0 24 24"><path d="M4 12h16a1 1 0 011 1v3a4 4 0 01-4 4H7a4 4 0 01-4-4v-3a1 1 0 011-1z"/><path d="M6 12V5a2 2 0 012-2h3v2.25"/><line x1="4" y1="20" x2="4" y2="22"/><line x1="20" y1="20" x2="20" y2="22"/></svg>Salle de bain
+      </button>
+      <button class="filter-pill" data-filter="sols">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>Sols &amp; finitions
+      </button>
+      <button class="filter-pill" data-filter="energetique">
+        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Énergétique
+      </button>
+    </div>
+
     <div class="proj-slider">
       <div class="proj-grid" id="proj-track">
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Genève – Eaux-Vives</span></div>
+
+        <!-- Carte 1 — Rénovation complète -->
+        <div class="proj-card gs-up" data-filter="complet">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70" alt="Rénovation complète Genève" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Eaux-Vives</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">4 pièces · 92 m²</span></div>
             <div class="proj-title">Rénovation complète — 4 pièces contemporain</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>68 000 CHF</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Parquet chêne</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10 semaines</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>68 000 CHF</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Rénovation complète</span><span class="proj-tag">Parquet chêne</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Lausanne – Ouchy</span></div>
+
+        <!-- Carte 2 — Cuisine -->
+        <div class="proj-card gs-up" data-filter="cuisine">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=70" alt="Cuisine Lausanne" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Ouchy</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">Cuisine · 18 m²</span></div>
             <div class="proj-title">Cuisine ouverte sur séjour — design moderne</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>32 000 CHF</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Îlot central</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>7 semaines</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>32 000 CHF</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Cuisine sur-mesure</span><span class="proj-tag">Îlot central</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Nyon – Centre</span></div>
+
+        <!-- Carte 3 — Salle de bain -->
+        <div class="proj-card gs-up" data-filter="sdb">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=70" alt="Salle de bain Nyon" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon – Centre</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">SDB · 8 m²</span></div>
             <div class="proj-title">Salle de bain haut de gamme — douche italienne</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Nyon</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>18 500 CHF</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Grand format</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4 semaines</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>18 500 CHF</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Salle de bain</span><span class="proj-tag">Grand format</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Genève – Plainpalais</span></div>
+
+        <!-- Carte 4 — Sols & finitions -->
+        <div class="proj-card gs-up" data-filter="sols">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=70" alt="Sols finitions Genève" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève – Plainpalais</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">95 m²</span></div>
             <div class="proj-title">Réfection sols &amp; peinture — années 70</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Genève</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>95 m²</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Parquet + carrelage</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3 semaines</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Parquet + carrelage</span><span class="proj-tag">Déco</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Morges – Lac</span></div>
+
+        <!-- Carte 5 — Rénovation complète (transformation) -->
+        <div class="proj-card gs-up" data-filter="complet">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=800&q=70" alt="Loft Morges" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges – Lac</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">52 m²</span></div>
             <div class="proj-title">Studio transformé en loft ouvert</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Morges</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>52 m²</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Ouverture cloisons</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Béton ciré</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Ouverture cloisons</span><span class="proj-tag">Béton ciré</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
-        <div class="proj-card">
-          <div class="proj-vis"><img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="proj-badge">Lausanne – Pully</span></div>
+
+        <!-- Carte 6 — Énergétique -->
+        <div class="proj-card gs-up" data-filter="energetique">
+          <div class="proj-vis">
+            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?auto=format&fit=crop&w=800&q=70" alt="Rénovation énergétique Pully" loading="lazy">
+            <span class="proj-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Lausanne – Pully</span>
+          </div>
           <div class="proj-info">
-            <div class="proj-type">Appartement</div>
+            <div class="proj-type-row"><span class="proj-type">Appartement</span><span class="proj-size">78 m²</span></div>
             <div class="proj-title">Isolation &amp; fenêtres — rénovation énergétique</div>
-            <div class="proj-meta">
-              <span class="proj-m"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Pully</span>
-              <span class="proj-m"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>41 000 CHF</span>
+            <div class="proj-etiquettes">
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>Triple vitrage</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Subvention obtenue</span>
+              <span class="proj-etiq"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>41 000 CHF</span>
             </div>
-            <div class="proj-tags"><span class="proj-tag">Triple vitrage</span><span class="proj-tag">Subvention obtenue</span></div>
+            <button class="proj-cta">Voir les photos</button>
           </div>
         </div>
+
       </div>
     </div>
-    <div class="proj-cta-wrap gs-up" style="text-align:center;margin-top:48px">
-      <a href="#estimateur" class="btn btn-primary btn-lg">Voir toutes les réalisations</a>
+    <div class="proj-cta-wrap gs-up">
+      <a href="#estimateur" class="btn btn-primary btn-lg">Démarrer votre projet</a>
     </div>
   </div>
 </section>
 
-<!-- STACK CARDS PROCESS -->
+<!-- TIMELINE PROCESS -->
 <section id="processus">
-  <div class="processus-intro">
-    <div class="container">
-      <div class="stag gs-fade">Notre méthode</div>
-      <h2 class="stitle gs-up">Comment se déroule<br>votre projet ?</h2>
-      <p class="ssub gs-up" style="margin:0 auto">Un processus éprouvé et transparent — de la visite gratuite à la remise des clés.</p>
+  <div class="container">
+    <div class="gs-up" style="text-align:center; max-width:700px; margin:0 auto 80px;">
+      <div class="stag">Notre méthode</div>
+      <h2 class="stitle">Comment se déroule<br>votre projet ?</h2>
+      <p class="ssub" style="margin:0 auto;">Un processus éprouvé et transparent — de la visite gratuite à la remise des clés.</p>
     </div>
-  </div>
-  <div class="stack-outer" id="stack-outer">
-    <div class="stack-pin" id="stack-pin">
-      <div class="stack-cards-wrap" id="stack-wrap">
 
-        <div class="scard" id="scard-0">
-          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80')"></div>
-          <div class="scard-content">
-            <div class="scard-num">Étape 01</div>
-            <h3 class="scard-step">Étude du projet</h3>
-            <p class="scard-desc">Visite sur site gratuite, analyse des besoins, état des lieux complet et identification des contraintes techniques. Nous écoutons votre vision et la traduisons en faisabilité concrète.</p>
-            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Planifier une visite</a>
+    <div class="tl-wrap" id="tl-wrap">
+      <svg class="tl-line-svg" id="tl-line-svg" aria-hidden="true">
+        <path class="tl-path-track" id="tl-path-track"/>
+        <path class="tl-path-fill"  id="tl-path-fill"/>
+      </svg>
+
+      <!-- Étape 01 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
+          <div class="proc-num"><span class="num-fill"></span><span>01</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
+          <div class="proc-title">Étude du projet</div>
+          <div class="proc-desc">Visite sur site gratuite, analyse des besoins, état des lieux complet et identification des contraintes techniques. Nous écoutons votre vision et la traduisons en faisabilité concrète.</div>
+          <a href="#estimateur" class="proc-cta"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Planifier une visite</a>
         </div>
-
-        <div class="scard" id="scard-1">
-          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80')"></div>
-          <div class="scard-content">
-            <div class="scard-num">Étape 02</div>
-            <h3 class="scard-step">Estimation fiscale<br>&amp; subventions</h3>
-            <p class="scard-desc">Calcul des déductions fiscales cantonales et fédérales, identification des subventions éligibles. Simulation d'économies intégrée dès la phase d'étude — sans frais supplémentaires.</p>
-            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Simuler mes aides</a>
-          </div>
-        </div>
-
-        <div class="scard" id="scard-2">
-          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1600&q=80')"></div>
-          <div class="scard-content">
-            <div class="scard-num">Étape 03</div>
-            <h3 class="scard-step">Devis détaillé</h3>
-            <p class="scard-desc">Chiffrage précis poste par poste, planning prévisionnel, choix des matériaux et validation du budget final. Aucune surprise en cours de chantier — tout est contractualisé.</p>
-            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Demander un devis</a>
-          </div>
-        </div>
-
-        <div class="scard" id="scard-3">
-          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80')"></div>
-          <div class="scard-content">
-            <div class="scard-num">Étape 04</div>
-            <h3 class="scard-step">Réalisation<br>des travaux</h3>
-            <p class="scard-desc">Coordination de toutes les équipes, reporting hebdomadaire, contrôle qualité continu et respect strict du planning. Vous êtes informé à chaque étape, sans gérer quoi que ce soit.</p>
-            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Voir nos réalisations</a>
-          </div>
-        </div>
-
-        <div class="scard" id="scard-4">
-          <div class="scard-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80')"></div>
-          <div class="scard-content">
-            <div class="scard-num">Étape 05</div>
-            <h3 class="scard-step">Réception chantier</h3>
-            <p class="scard-desc">Visite de réception contradictoire, levée des réserves, remise des garanties et dossier de fin de travaux complet. Votre appartement est prêt à être habité.</p>
-            <a href="#estimateur" class="scard-cta"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Démarrer mon projet</a>
-          </div>
-        </div>
-
       </div>
-      <!-- Progress dots -->
-      <div class="stack-progress" id="stack-progress">
-        <div class="stack-dot active" data-card="0"></div>
-        <div class="stack-dot" data-card="1"></div>
-        <div class="stack-dot" data-card="2"></div>
-        <div class="stack-dot" data-card="3"></div>
-        <div class="stack-dot" data-card="4"></div>
+
+      <!-- Étape 02 -->
+      <div class="tl-item tl-right">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
+          <div class="proc-num"><span class="num-fill"></span><span>02</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <div class="proc-title">Estimation fiscale &amp; subventions</div>
+          <div class="proc-desc">Calcul des déductions fiscales cantonales et fédérales, identification des subventions éligibles. Simulation d'économies intégrée dès la phase d'étude — sans frais supplémentaires.</div>
+          <a href="#estimateur" class="proc-cta"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>Simuler mes aides</a>
+        </div>
+      </div>
+
+      <!-- Étape 03 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
+          <div class="proc-num"><span class="num-fill"></span><span>03</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="proc-title">Devis détaillé</div>
+          <div class="proc-desc">Chiffrage précis poste par poste, planning prévisionnel, choix des matériaux et validation du budget final. Aucune surprise en cours de chantier — tout est contractualisé.</div>
+          <a href="#estimateur" class="proc-cta"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Demander un devis</a>
+        </div>
+      </div>
+
+      <!-- Étape 04 -->
+      <div class="tl-item tl-right">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
+          <div class="proc-num"><span class="num-fill"></span><span>04</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <div class="proc-title">Réalisation des travaux</div>
+          <div class="proc-desc">Coordination de toutes les équipes, reporting hebdomadaire, contrôle qualité continu et respect strict du planning. Vous êtes informé à chaque étape, sans gérer quoi que ce soit.</div>
+          <a href="#estimateur" class="proc-cta"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Voir nos réalisations</a>
+        </div>
+      </div>
+
+      <!-- Étape 05 -->
+      <div class="tl-item tl-left">
+        <div class="tl-dot"></div>
+        <div class="tl-card" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=70'); background-size:cover; background-position:center;">
+          <div class="tl-dim"></div>
+          <div class="proc-num"><span class="num-fill"></span><span>05</span></div>
+          <div class="proc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="proc-title">Réception chantier</div>
+          <div class="proc-desc">Visite de réception contradictoire, levée des réserves, remise des garanties et dossier de fin de travaux complet. Votre appartement est prêt à être habité.</div>
+          <a href="#estimateur" class="proc-cta"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Démarrer mon projet</a>
+        </div>
       </div>
     </div>
-    <div class="stack-spacer"></div>
   </div>
 </section>
 
@@ -1509,109 +1588,187 @@
     toggleUI(0); setTimeout(()=>center(0),100);
   })();
 
-  /* ── Réalisations Slider ── */
+  /* ── Réalisations Slider + Filtres ── */
   (function(){
-    const track=document.getElementById('proj-track');
-    if(!track) return;
-    const btnPrev=document.getElementById('proj-prev'),btnNext=document.getElementById('proj-next');
-    const cards=track.children, VISIBLE=3, DELAY=4200;
-    let cur=0,timer=null;
-    function cw(){ return cards[0].offsetWidth+20; }
-    function update(){ const max=cards.length-VISIBLE; track.style.transform=`translateX(-${cur*cw()}px)`; btnPrev.disabled=cur===0; btnNext.disabled=cur>=max; }
-    function go(dir){ cur=Math.min(Math.max(cur+dir,0),cards.length-VISIBLE); update(); reset(); }
-    function step(){ cur=cur>=cards.length-VISIBLE?0:cur+1; update(); }
-    function reset(){ clearInterval(timer); timer=setInterval(step,DELAY); }
-    btnPrev.onclick=()=>go(-1); btnNext.onclick=()=>go(1);
-    let tx=0;
-    track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;},{passive:true});
-    track.addEventListener('touchend',e=>{if(Math.abs(e.changedTouches[0].clientX-tx)>50)go(e.changedTouches[0].clientX-tx>0?-1:1);},{passive:true});
-    update(); reset();
+    const track = document.getElementById('proj-track');
+    if (!track) return;
+    const btnPrev = document.getElementById('proj-prev');
+    const btnNext = document.getElementById('proj-next');
+    const filterBtns = document.querySelectorAll('.filter-pill');
+    const VISIBLE = 3;
+    let cur = 0;
+
+    function visible(){ return Array.from(track.children).filter(c => c.style.display !== 'none'); }
+
+    function update(){
+      const vis = visible();
+      const max = Math.max(0, vis.length - VISIBLE);
+      cur = Math.min(cur, max);
+      // calculate pixel offset: sum widths of visible cards before cur
+      let offset = 0, seen = 0;
+      Array.from(track.children).forEach(c => {
+        if (c.style.display === 'none') return;
+        if (seen < cur) { offset += c.offsetWidth + 20; seen++; }
+      });
+      track.style.transform = `translateX(-${offset}px)`;
+      if (btnPrev) btnPrev.disabled = cur === 0;
+      if (btnNext) btnNext.disabled = cur >= max;
+    }
+
+    function go(dir){
+      const vis = visible();
+      const max = Math.max(0, vis.length - VISIBLE);
+      cur = Math.min(Math.max(cur + dir, 0), max);
+      update();
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        Array.from(track.children).forEach(c => {
+          c.style.display = (f === 'all' || c.dataset.filter === f) ? '' : 'none';
+        });
+        cur = 0;
+        update();
+      });
+    });
+
+    if (btnPrev) btnPrev.onclick = () => go(-1);
+    if (btnNext) btnNext.onclick = () => go(1);
+
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      if (Math.abs(e.changedTouches[0].clientX - tx) > 50) go(e.changedTouches[0].clientX - tx > 0 ? -1 : 1);
+    }, { passive: true });
+
+    update();
   })();
 
-  /* ── STACK CARDS with GSAP ScrollTrigger ── */
-  (function(){
-    const outer=document.getElementById('stack-outer');
-    const pin=document.getElementById('stack-pin');
-    const cards=gsap.utils.toArray('.scard');
-    const dots=document.querySelectorAll('.stack-dot');
-    const N=cards.length;
+  /* ── TIMELINE PROCESS with GSAP ScrollTrigger ── */
+  (function() {
+    var snakeST;
 
-    // Stack initial: all cards visible, layered by z-index
-    cards.forEach((c,i)=>{
-      gsap.set(c,{ zIndex:i, scale: 1-((N-1-i)*0.04), y: (N-1-i)*14 });
-    });
+    function buildSnakePath() {
+      var wrap  = document.getElementById('tl-wrap');
+      var track = document.getElementById('tl-path-track');
+      var fill  = document.getElementById('tl-path-fill');
+      if (!wrap || !track || !fill) return;
 
-    // Hide all except bottom card initially — they're all at y:0 stacked
-    // Actually: cards[0] is bottom (z=0), cards[N-1] is top (z=N-1)
-    // We want to reveal them one by one as we scroll, pulling from top
-    // Reset: top card visible, others scaled back
-    gsap.set(cards[N-1], { scale:1, y:0, zIndex:N-1 });
-    for(let i=0;i<N-1;i++){
-      gsap.set(cards[i], { scale: 1-((N-1-i)*0.045), y: (N-1-i)*16, zIndex:i });
-    }
+      var wrapRect = wrap.getBoundingClientRect();
+      var cx  = wrap.offsetWidth / 2;
+      var cards = Array.from(wrap.querySelectorAll('.tl-card'));
+      var pts = cards.map(function(card, i) {
+        var r = card.getBoundingClientRect();
+        return {
+          left:     r.left   - wrapRect.left,
+          right:    r.right  - wrapRect.left,
+          top:      r.top    - wrapRect.top,
+          bot:      r.bottom - wrapRect.top,
+          leftSide: i % 2 === 0,
+        };
+      });
 
-    let currentCard = N-1; // start at top card
+      var pad = 3;
+      var d = 'M ' + cx + ',' + (pts[0].top - pad);
 
-    function updateDots(idx){
-      // idx = which scard is front (N-1 = first step shown)
-      const step = N-1-idx; // 0..4
-      dots.forEach((d,i)=>d.classList.toggle('active',i===step));
-    }
-    updateDots(N-1);
+      pts.forEach(function(p, i) {
+        var isLast = (i === pts.length - 1);
+        var botY = isLast ? p.bot : (p.bot + pad);
 
-    // Click dots to jump
-    dots.forEach((dot,i)=>{
-      dot.addEventListener('click',()=>{ goToCard(N-1-i); });
-    });
-
-    function goToCard(targetIdx){
-      if(targetIdx===currentCard) return;
-      const direction = targetIdx < currentCard ? 1 : -1; // going back or forward
-      // Animate transition
-      if(direction===1){
-        // Going forward: dismiss current top card (fly off to left/top)
-        const front = cards[currentCard];
-        gsap.to(front,{ x:-120, opacity:0, scale:.85, duration:.55, ease:'power2.inOut',
-          onComplete:()=>{ gsap.set(front,{zIndex:0,x:0,opacity:0,scale:.85,y:80}); }
-        });
-        currentCard = targetIdx;
-        // Shift remaining cards up
-        for(let i=0;i<=currentCard;i++){
-          const dist = currentCard-i;
-          gsap.to(cards[i],{ scale:1-(dist*0.045), y:dist*16, zIndex:i+1, duration:.55, ease:'power2.inOut' });
+        if (p.leftSide) {
+          d += ' L ' + (p.left - pad) + ',' + (p.top - pad);
+          d += ' L ' + (p.left - pad) + ',' + botY;
+          if (!isLast) d += ' L ' + cx + ',' + botY;
+        } else {
+          d += ' L ' + (p.right + pad) + ',' + (p.top - pad);
+          d += ' L ' + (p.right + pad) + ',' + botY;
+          if (!isLast) d += ' L ' + cx + ',' + botY;
         }
-      } else {
-        // Going back: restore card
-        currentCard = targetIdx;
-        cards.forEach((c,i)=>{
-          const dist = currentCard-i;
-          if(dist<0){ gsap.to(c,{opacity:0,scale:.85,y:80,duration:.4}); }
-          else { gsap.to(c,{opacity:1,scale:1-(dist*0.045),y:dist*16,zIndex:i+1,duration:.55,ease:'power2.inOut'}); }
-        });
-      }
-      updateDots(currentCard);
+
+        if (!isLast) {
+          d += ' L ' + cx + ',' + (pts[i + 1].top - pad);
+        }
+      });
+
+      track.setAttribute('d', d);
+      fill.setAttribute('d', d);
+
+      var len = fill.getTotalLength();
+      gsap.set(fill, { strokeDasharray: len, strokeDashoffset: len });
+
+      if (snakeST) snakeST.kill();
+      snakeST = ScrollTrigger.create({
+        animation: gsap.to(fill, { strokeDashoffset: 0, ease: 'none', duration: 1 }),
+        trigger: '#tl-wrap',
+        start: 'top 75%',
+        end:   'bottom 25%',
+        scrub: 1.2,
+      });
     }
 
-    /* Scroll-driven stack */
-    const STEP = window.innerHeight * 0.8; // px of scroll per card
+    buildSnakePath();
+    window.addEventListener('load', buildSnakePath);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(buildSnakePath);
+    }
+    window.addEventListener('resize', buildSnakePath);
+    if (window.ResizeObserver) {
+      new ResizeObserver(buildSnakePath).observe(document.getElementById('tl-wrap'));
+    }
 
-    ScrollTrigger.create({
-      trigger: outer,
-      start: 'top top',
-      end: `+=${(N-1)*STEP}`,
-      pin: pin,
-      pinSpacing: false,
-      scrub: false,
-      onUpdate(self){
-        const progress = self.progress; // 0..1
-        const rawIdx = progress * (N-1); // 0..N-1
-        const cardIdx = N-1 - Math.min(Math.floor(rawIdx), N-1); // which scard index is front
-        if(cardIdx !== currentCard) goToCard(cardIdx);
-      }
+    /* Card highlight + dim on scroll */
+    document.querySelectorAll('.tl-card').forEach(function(card) {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 72%',
+        end:   'bottom 28%',
+        onEnter:     function() { card.classList.add('tl-card--active'); },
+        onLeave:     function() { card.classList.remove('tl-card--active'); },
+        onEnterBack: function() { card.classList.add('tl-card--active'); },
+        onLeaveBack: function() { card.classList.remove('tl-card--active'); },
+      });
+
+      var dim = card.querySelector('.tl-dim');
+      var tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 72%',
+          end:   'bottom 28%',
+          scrub: 1.4,
+        }
+      });
+      tl.to(dim, { opacity: 0, ease: 'power2.inOut', duration: 0.5 })
+        .to(dim, { opacity: 1, ease: 'power2.inOut', duration: 0.5 });
     });
 
-    // Correct spacer height
-    document.querySelector('.stack-spacer').style.height = ((N-1)*STEP) + 'px';
+    /* Card reveal on scroll */
+    gsap.set('.tl-card', { y: 30, opacity: 0 });
+    document.querySelectorAll('.tl-card').forEach(function(card) {
+      gsap.to(card, {
+        y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: card, start: 'top 85%', once: true }
+      });
+    });
+
+    /* Number fill animation */
+    document.querySelectorAll('.proc-num').forEach(function(num) {
+      var fill = num.querySelector('.num-fill');
+      gsap.to(fill, {
+        scaleY: 1,
+        duration: 0.65, ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: num,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        onStart: function() {
+          gsap.to(num, { color: '#fff', borderColor: '#cc0000', boxShadow: '0 0 22px rgba(204,0,0,0.4)', duration: 0.3, delay: 0.35 });
+        }
+      });
+    });
   })();
 
   /* ── Popup bas de page ── */
