@@ -1428,18 +1428,17 @@
     content: '';
     position: absolute; inset: 0;
     background: linear-gradient(to top,
-      rgba(14,14,14,0.92) 0%,
-      rgba(14,14,14,0.55) 38%,
-      rgba(14,14,14,0.00) 70%
+      rgba(14,14,14,0.97) 0%,
+      rgba(14,14,14,0.75) 45%,
+      rgba(14,14,14,0.35) 100%
     );
     z-index: 0;
     pointer-events: none;
     transition: background 0.5s ease;
   }
-  /* voile permanent sur les cartes inactives — disparaît sur la carte active */
   .tl-dim {
     position: absolute; inset: 0; z-index: 0; pointer-events: none;
-    background: rgba(14,14,14,0.72);
+    background: rgba(14,14,14,0.55);
     opacity: 1;
     transition: opacity 0.55s ease;
   }
@@ -1485,9 +1484,9 @@
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 14px;
   }
-  .proc-icon svg { width: 17px; height: 17px; color: rgba(255,255,255,0.55); }
-  .proc-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; text-shadow: 0 1px 6px rgba(0,0,0,0.8); }
-  .proc-desc  { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.65; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
+  .proc-icon svg { width: 17px; height: 17px; color: rgba(255,255,255,0.85); }
+  .proc-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 8px; text-shadow: 0 1px 8px rgba(0,0,0,1); }
+  .proc-desc  { font-size: 13px; color: rgba(255,255,255,0.72); line-height: 1.65; text-shadow: 0 1px 6px rgba(0,0,0,1); }
 
   /* ============================================================
      SCROLL REVEAL
